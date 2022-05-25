@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\FreeApplication;
+use App\Models\User;
+use App\Models\Payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $data = FreeApplication::find(1)->user;
+    return $data;
 });
+
+Route::get('/hello', function () {
+
+    $data = Payment::find(1)->user;
+    return $data;
+});
+
+
