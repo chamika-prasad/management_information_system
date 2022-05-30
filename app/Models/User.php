@@ -50,4 +50,12 @@ class User extends Authenticatable
     public function payment(){ //table name in singular
         return $this->hasMany(Payment::class);//model name
     }
+
+    public function className(){ //table name in singular
+        return $this->hasMany(className::class);//model name
+    }
+
+    public function subject(){ //table name in singular
+        return $this->hasMany(subject::class);//model name
+    }
 }

@@ -16,16 +16,7 @@ use App\Models\Payment;
 |
 */
 
+
 Route::get('/', function () {
-
-    $data = FreeApplication::find(1)->user;
-    return $data;
+    return view ('free_learning_application');
 });
-
-Route::get('/hello', function () {
-
-    $data = Payment::find(1)->user;
-    return $data;
-});
-
-
