@@ -17,6 +17,6 @@ use App\Models\Payment;
 */
 
 
-Route::get('/free', function () {
+Route::get('/', function () {
     return view ('free_learning_application');
 });
