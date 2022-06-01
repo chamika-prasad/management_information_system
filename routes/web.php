@@ -20,6 +20,10 @@ use App\Models\Payment;
 Route::get('/', function () {
     return view ('free_learning_application');
 });
+
+Route::get('payment_option/', function () {
+    return view ('payment_option');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
