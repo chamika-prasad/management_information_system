@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">Login</div>
                     <div class="card-body">
-                        <form action="{{route('login.post')}}" method="post">
+                        <form action="{{route('login')}}" method="post">
                             @csrf 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
@@ -34,7 +34,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <a href="{{route('forget.password.get')}}">Reset Password</a>
+                                            <a href="{{route('get-forget-password')}}">Reset Password</a>
                                         </label>
                                     </div>
 
