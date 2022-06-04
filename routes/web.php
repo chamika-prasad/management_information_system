@@ -29,10 +29,18 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/uploading_materials',function(){
-    return view ('uploading_materials');
+    return view ('uploading_section/uploading_materials');
 });
 
 Route::get('/uploading_zoomlink',function(){
-    return view ('uploading_zoomlink');
+    return view ('uploading_section/uploading_zoomlink');
+});
+
+Route::get('/uploading_pdf',function(){
+    return view ('uploading_section/uploading_pdf');
+});
+
+Route::get('/uploading_recording',function(){
+    return view ('uploading_section/uploading_recording');
 });
 
