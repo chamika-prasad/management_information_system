@@ -77,9 +77,10 @@
 
   <!-- navbar 2-->
 
-<div><br><br></div>
 
-  <div class="form-outline mb-4" >
+<!-- application -->
+
+  <div class="form-outline mb-4" style="margin-top:1.5cm;">
     <div class="container h-100">
       <div class="row h-100 justify-content-center align-items-center">
           <div class="col-10 col-md-8 col-lg-6">
@@ -93,7 +94,7 @@
 
                 <br>
 
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center" >
                   <button type="submit" class="btn btn-success btn-lg"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
                 </div>
                 <!-- End input fields -->  
@@ -101,8 +102,9 @@
               <!-- Form end -->
             </div>
         </div>
+      </div>
     </div>
-  </div>
+  <!-- application -->
 
   
 
