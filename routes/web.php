@@ -15,6 +15,17 @@ use App\Models\Payment;
 | contains the "web" middleware group. Now create something great!
 |
 */
+ Route::get('registration',[App\Http\Controllers\AuthController::class,'registration']);
+Route::post('register',[App\Http\Controllers\AuthController::class,'register']);
+Route::get('index',[App\Http\Controllers\AuthController::class,'index']);
+Route::post('login',[App\Http\Controllers\AuthController::class,'login']);
+
+
+Route::get('get-forget-password',[App\Http\Controllers\ForgotPasswordController::class,'showForgetPasswordForm']);
+Route::post('post-forget-password',[App\Http\Controllers\ForgotPasswordController::class,'submitForgetPasswordForm']);
+Route::get('reset-password/{token}',[App\Http\Controllers\ForgotPasswordController::class,'showResetPasswordForm']);
+Route::post('reset-password',[App\Http\Controllers\ForgotPasswordController::class,'submitResetPasswordForm']); 
+
 
 
 Route::get('/', function () {
@@ -49,13 +60,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('registration',[App\Http\Controllers\AuthController::class,'registration'])->name('register');
-Route::post('register',[App\Http\Controllers\AuthController::class,'register'])->name('register.post');
-Route::get('index',[App\Http\Controllers\AuthController::class,'index'])->name('login');
-Route::post("/login",[App\Http\Controllers\AuthController::class,'login'])->name('login.post');
-
-
-Route::get('forget-password',[App\Http\Controllers\Auth\ForgotPasswordController::class,'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password',[App\Http\Controllers\Auth\ForgotPasswordController::class,'submitForgetPasswordForm'])->name('forget.password.post');
-Route::get('reset-password/{token}',[App\Http\Controllers\Auth\ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password',[App\Http\Controllers\Auth\ForgotPasswordController::class,'submitResetPasswordForm'])->name('reset.password.post');
