@@ -31,3 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/uploading_materials',function(){
     return view ('uploading_materials');
 });
+
+Route::get('/uploading_zoomlink',function(){
+    return view ('uploading_zoomlink');
+});
+
