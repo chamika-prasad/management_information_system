@@ -24,6 +24,27 @@ Route::get('/', function () {
 Route::get('payment_option/', function () {
     return view ('payment_option');
 });
+
+Route::get('bank_deposit/', function () {
+    return view ('bank_deposit');
+});
+
+Route::get('upload_success/', function () {
+    return view ('upload_success');
+});
+
+Route::get('final_amount/', function () {
+    return view ('final_amount_online_payment');
+});
+
+Route::get('online_payment_success/', function () {
+    return view ('online_payment_success');
+});
+
+Route::get('admin_free_learning/', function () {
+    return view ('admin_free_learning_approve');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
