@@ -52,8 +52,3 @@ Route::get('admin_free_learning_list/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', function () {  
-    return view('welcome');
-});
-
