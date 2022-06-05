@@ -106,7 +106,5 @@
     </div>
   <!-- application -->
 
-  
-
 </body>
 </html>
