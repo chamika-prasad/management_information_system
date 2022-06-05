@@ -37,7 +37,8 @@
                     </div>
                     <div class="form-group row" style="float: right; left: 100px">
                         <button type="button" class="btn btn-light">cancel</button>
-                        <button type="button" class="btn btn-primary">save changes</button>
+                        <a href="/uploading_materials"><button type="button" class="btn btn-primary">save changes</button></a>
+                        
                     </div>
                 </form>   
             </div>

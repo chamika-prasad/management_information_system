@@ -31,7 +31,6 @@
                           <div class="col-5"></div>
                           
                           <div class="col-3" >
-                              {{-- <div data-role="content" style="background-color: #ec1109">     --}}
                                   <select class="btn btn-danger"  name="City" id="City">
                                       <div>
                                           <option value="">Select grade...</option>
@@ -50,7 +49,7 @@
                                       
                                   </select>
                             </div><!-- Close Content Div of Page12 -->
-                          {{-- </div> --}}
+                        </div>
                           
                   </div>
               </div>
@@ -59,7 +58,7 @@
           <hr>
 
       
-          <div class="col-mt-2" >
+          <div class="col" >
               <div class="card" style="background-color:#5C5F3A;  ">
                   <div class="card-body" style="color:white; height: 65px">
                       <div class="row">
@@ -70,7 +69,6 @@
                           <div class="col-5"></div>
                           
                           <div class="col-3" >
-                              {{-- <div data-role="content" style="background-color: #ec1109">     --}}
                                   <select class="btn btn-danger"  name="City" id="City">
                                       <div>
                                           <option value="">Select subject...</option>
@@ -80,16 +78,22 @@
                                       </div>
                                       
                                   </select>
-                              </div><!-- Close Content Div of Page12 -->
-                          {{-- </div> --}}
-                          
+                            </div><!-- Close Content Div of Page12 -->
+                        </div>  
                   </div>
               </div>
           </div>
+          <hr>
+        <div class="col">
+            <a href="/teacher_module_view"><button class="btn btn-danger" style="font-size: 1.5rem;float:right; ">continue</button></a>
+        </div>
     </div>
 
-    <hr>
-    
-    <button class="btn btn-danger" style="font-size: 1.5rem;float:right; ">continue</button>
+    <div>
+        @include('home_page.footer')
+    </div>
+
+
+
 
 </body>
