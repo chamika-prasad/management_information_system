@@ -46,6 +46,10 @@ Route::get('admin_free_learning/', function () {
     return view ('admin_free_learning_approve');
 });
 
+Route::get('admin_free_learning_list/', function () {
+    return view ('admin_free_learning_application_list');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
