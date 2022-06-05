@@ -70,7 +70,7 @@
                     <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
                   </svg>
         
-                  <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Payment Option</span> </a>
+                  <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Payment Options</span> </a>
               </li>
              
             </ul>
@@ -79,25 +79,30 @@
         
           <!-- navbar 2-->
 
+
         <!-- payment options-->
-        
-        <div class="card">
 
-          <!--Grid row-->
-            <div class="row d-flex justify-content-center">
-                <!--Grid column-->
-
-                    <div class="col-md-8" style="padding: 1cm">
-                        <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Online Payment </span></button>
-                        <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Bank Deposite </span></button>
-                    </div>
-                </div>
-                <!--Grid column-->
-            </div>
-            <!--Grid row-->
+        <div class="container bg-light" style="padding: 1cm; margin-top:1.5cm;">
+          <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Online Payment </span></button>
+            <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Bank Deposite </span></button>
+          </div>
         </div>
 
-        <div class="card col-md-10 "></div>
         <!-- payment options-->
+
+
+        <!-- Last payment-->
+
+        <div class="container bg-light" style="padding: 1.5cm; margin-top:1.5cm;">
+          <div class="col-md-12 text-center rounded " style="background-color: #959394;">
+            <div style="padding-top: 25px; font-size:20px; font-weight:bolder;">Last Payment Value : LKR 2000.30</div><br>
+            <div style="padding-bottom: 25px; font-size:20px; font-weight:bolder;">Your Last Payment Date : 2022.05.29</div>
+          </div>
+        </div>
+
+        <!-- Last payment-->
+
+
 </body>
 </html>

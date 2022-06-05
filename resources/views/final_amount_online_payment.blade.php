@@ -9,12 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <title>Free_Learning_Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>payment_amount</title>
 </head>
 <body>
     <!-- navbar 1-->
     <nav class="navbar navbar-light " style="background-color: #FDEFEF;">
-    <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Free Learning Aplication Section</span>
+    <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Payment Section</span>
 
     <div class="d-flex align-items-center">
       <div class="dropdown">
@@ -63,12 +64,15 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
 
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
-            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
+            <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+            <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
           </svg>
 
-          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Free Learning Application</span> </a>
+          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Amount</span> </a>
+      </li>
+
+      <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
       </li>
      
     </ul>
@@ -78,35 +82,46 @@
   <!-- navbar 2-->
 
 
-<!-- application -->
 
-  <div class="form-outline mb-4" style="margin-top:1.5cm;">
-    <div class="container h-100">
+    <div class="container h-100" style="margin-top: 2cm;">
       <div class="row h-100 justify-content-center align-items-center">
           <div class="col-10 col-md-8 col-lg-6">
-              <!-- Form -->
-              <form class = 'card p-5' style="background-color: #b6acab" action="" method="post">
-                
-                <!-- Input fields -->
-                <div class="form-group">
-                    <textarea class="form-control" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;"></textarea>
+              
+              <div class = 'card p-5' style="background-color: #b6acab" >
+
+                <!-- amount -->
+                <div class = 'card ' style="background-color: black; opacity : 0.4;">
+                    <div class="text-center" style="padding-top: 2cm; padding-bottom: 2cm; color :azure; font-weight:bold; font-size:30px;">
+                    <div>Your Final Amount</div>
+                    <div>LKR 2000.00</div>
+                    </div>
                 </div>
+                <!-- amount -->
+                
 
                 <br>
 
-                <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
+                <!-- continue-->
+
+                <div class="row">
+
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Continue</button>
+                    </div>
+
                 </div>
-                <!-- End input fields -->  
-              </form>
-              <!-- Form end -->
+
+                <!-- continue-->
+                    
+                    </div>
+                </div>
+            </div>
+                 
+            </div>
+              
             </div>
         </div>
-      </div>
-    </div>
-  <!-- application -->
-
-  
-
+      </div>  
+    
 </body>
 </html>

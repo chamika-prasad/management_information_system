@@ -9,12 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <title>Free_Learning_Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Bank_deposit</title>
 </head>
 <body>
     <!-- navbar 1-->
     <nav class="navbar navbar-light " style="background-color: #FDEFEF;">
-    <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Free Learning Aplication Section</span>
+    <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Payment Section</span>
 
     <div class="d-flex align-items-center">
       <div class="dropdown">
@@ -70,6 +71,19 @@
 
           <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Free Learning Application</span> </a>
       </li>
+
+      <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
+            <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
+          </svg>
+
+          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Bank Deposit</span> </a>
+      </li>
      
     </ul>
   
@@ -78,35 +92,46 @@
   <!-- navbar 2-->
 
 
-<!-- application -->
+<!-- submit successfull -->
 
-  <div class="form-outline mb-4" style="margin-top:1.5cm;">
-    <div class="container h-100">
+
+    <div class="container h-100" style="margin-top: 2cm;">
       <div class="row h-100 justify-content-center align-items-center">
           <div class="col-10 col-md-8 col-lg-6">
-              <!-- Form -->
-              <form class = 'card p-5' style="background-color: #b6acab" action="" method="post">
-                
-                <!-- Input fields -->
-                <div class="form-group">
-                    <textarea class="form-control" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;"></textarea>
+              
+              <div class = 'card p-5' style="background-color: #b6acab" >
+
+                <!-- message -->
+                <div class = 'card ' style="background-color: #75cb60;">
+                    <div class="text-center" style="padding-top: 0.5cm; padding-bottom: 0.5cm; color :azure;">
+                    <h1>Successfully Uploaded</h1>
+                    <div>
+                        <br>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16" style="color: #3bb44a; border : 2px solid black; border-radius: 50%;">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </svg>
+                    </div>
+                    </div>
                 </div>
+                <!-- message -->
+                
 
                 <br>
 
-                <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
+                  <!-- note -->
+
+                <div>
+                    <p><span class="font-weight-bold">NOTE :</span> YOUR PAYMENT IS IN PROCESS..WHEN COMPLETE WE &nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;WILL INFORM YOU..</p>
                 </div>
-                <!-- End input fields -->  
-              </form>
-              <!-- Form end -->
+
+<!-- note -->
+                    
+                    </div>
+                </div>
             </div>
+                 
         </div>
-      </div>
-    </div>
-  <!-- application -->
-
-  
-
+  <!-- submit successfull-->
+   
 </body>
 </html>

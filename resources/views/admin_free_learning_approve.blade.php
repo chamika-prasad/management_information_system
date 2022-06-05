@@ -33,7 +33,7 @@
         </div>
       </div>
       <div>&emsp;</div>
-      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
+      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
     </div>
   </nav>
   
@@ -85,19 +85,25 @@
       <div class="row h-100 justify-content-center align-items-center">
           <div class="col-10 col-md-8 col-lg-6">
               <!-- Form -->
-              <form class = 'card p-5' style="background-color: #b6acab" action="" method="post">
+              <form class = 'card p-5' style="background-color: #b6acab; border-radius: 20px;" action="" method="post">
+
+                <div><p  style="color: black; font-weight: bold;">Index No : 194122P</p></div>
                 
-                <!-- Input fields -->
-                <div class="form-group">
-                    <textarea class="form-control" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;"></textarea>
+                <!-- description -->
+                <div >
+                    <p class="text-justify" rows="8" style="background: #585858; color: black; padding:0.5cm; border-radius: 20px;">This is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning application</p>
                 </div>
+
+                <!-- End description --> 
 
                 <br>
 
+                <!-- buttons -->
                 <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
+                  <button type="submit" class="btn btn-success btn-lg" style="float: left;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Accept&ensp;&emsp;</span></button>
+                  <button type="submit" class="btn btn-danger btn-lg" style="float: right;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Decline&ensp;&emsp;</span></button>
                 </div>
-                <!-- End input fields -->  
+                <!-- buttons -->  
               </form>
               <!-- Form end -->
             </div>

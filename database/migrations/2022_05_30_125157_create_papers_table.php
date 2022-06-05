@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedInteger('teacher_Id');
             $table->unsignedInteger('student_Id');
             $table->string('subjectid');
-            $table->foreign('subjectid')->references('subjectid')->on('subjects')->onDelete('cascade');
+            $table->foreign('subjectid')->references('subjectId')->on('subjects')->onDelete('cascade');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
