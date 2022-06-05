@@ -44,3 +44,7 @@ Route::get('/uploading_recording',function(){
     return view ('uploading_section/uploading_recording');
 });
 
+Route::get('/select_module',function(){
+    return view ('uploading_section/select_module');
+});
+

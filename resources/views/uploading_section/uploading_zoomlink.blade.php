@@ -17,7 +17,7 @@
     <div class="container" style="padding: 10px">
         <div class="card " style="border-color:black">
             <div class="card-body">
-              <h2 class="card-title">2022 January 6 / Budhdha Charithaya</h2>
+              <h2 class="card-title">2022 January 6 / grade 6 /Budhdha Charithaya</h2>
             </div>
         </div>
     </div>
