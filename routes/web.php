@@ -49,6 +49,34 @@ Route::get('admin_free_learning/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/uploading_materials',function(){
+    return view ('uploading_section/uploading_materials');
+});
+
+Route::get('/uploading_zoomlink',function(){
+    return view ('uploading_section/uploading_zoomlink');
+});
+
+Route::get('/uploading_pdf',function(){
+    return view ('uploading_section/uploading_pdf');
+});
+
+Route::get('/uploading_recording',function(){
+    return view ('uploading_section/uploading_recording');
+});
+
+Route::get('/select_module',function(){
+    return view ('uploading_section/select_module');
+});
+
+Route::get('/teacher_module_view',function(){
+    return view ('uploading_section/teacher_module_view');
+});
+
+
+
 Route::get('/', function () {  
     return view('welcome');
 });
@@ -98,3 +126,4 @@ Route::delete('/Delete/{book}',[BooksController::class,'delete']);
 
 //serach function//
 Route::get('search',[BooksController::class,'search']);
+
