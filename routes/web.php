@@ -48,3 +48,8 @@ Route::get('/select_module',function(){
     return view ('uploading_section/select_module');
 });
 
+Route::get('/teacher_module_view',function(){
+    return view ('uploading_section/teacher_module_view');
+});
+
+
