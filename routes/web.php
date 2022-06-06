@@ -19,39 +19,39 @@ use App\Models\Payment;
 
 
 Route::get('free_learning_application/', function () {
-    return view ('free_learning_application');
+    return view ('payment/free_learning_application');
 });
 
 Route::get('payment_option/', function () {
-    return view ('payment_option');
+    return view ('payment/payment_option');
 });
 
 Route::get('bank_deposit/', function () {
-    return view ('bank_deposit');
+    return view ('payment/bank_deposit');
 });
 
 Route::get('upload_success/', function () {
-    return view ('upload_success');
+    return view ('payment/upload_success');
 });
 
 Route::get('final_amount/', function () {
-    return view ('final_amount_online_payment');
+    return view ('payment/final_amount_online_payment');
 });
 
 Route::get('online_payment_success/', function () {
-    return view ('online_payment_success');
+    return view ('payment/online_payment_success');
 });
 
 Route::get('admin_free_learning/', function () {
-    return view ('admin_free_learning_approve');
+    return view ('payment/admin_free_learning_approve');
 });
 
 Route::get('admin_free_learning_list/', function () {
-    return view ('admin_free_learning_application_list');
+    return view ('payment/admin_free_learning_application_list');
 });
 
 Route::get('admin_bank_deposite/', function () {
-    return view ('admin_bank_deposite_approve');
+    return view ('payment/admin_bank_deposite_approve');
 });
 
 Auth::routes();
