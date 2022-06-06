@@ -46,6 +46,7 @@ Route::get('admin_free_learning/', function () {
     return view ('payment/admin_free_learning_approve');
 });
 
+
 Route::get('admin_free_learning_list/', function () {
     return view ('payment/admin_free_learning_application_list');
 });
@@ -55,4 +56,111 @@ Route::get('admin_bank_deposite/', function () {
 });
 
 Auth::routes();
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Home page routes
+
+Route::get('/footer',function(){
+    return view ('home_page/footer');
+});
+
+Route::get('/',function(){
+    return view ('home_page/home_uploading');
+});
+
+// End of home page routes
+
+
+
+
+// startting uploading section
+
+Route::get('/uploading_materials',function(){
+    return view ('uploading_section/uploading_materials');
+});
+
+Route::get('/uploading_zoomlink',function(){
+    return view ('uploading_section/uploading_zoomlink');
+});
+
+Route::get('/uploading_pdf',function(){
+    return view ('uploading_section/uploading_pdf');
+});
+
+Route::get('/uploading_recording',function(){
+    return view ('uploading_section/uploading_recording');
+});
+
+Route::get('/select_module',function(){
+    return view ('uploading_section/select_module');
+});
+
+Route::get('/teacher_module_view',function(){
+    return view ('uploading_section/teacher_module_view');
+});
+
+Route::get('/student_module_view',function(){
+    return view ('uploading_section/student_ module_view');
+});
+
+
+
+// end of uploading section
+
+
+
+// Route::get('/', function () {  
+//     return view('welcome');
+// });
+
+/*Route::get('/viewBooks', function () {  
+    return view('viewBooks');
+});*/
+
+//Route::get('/viewBooks','app\Http\Controllers\BooksController@index');
+Route::get('/viewBooks',[BooksController::class,'index']);//index function in BooksController
+
+
+Route::get('/download/{file}',[BooksController::class,'download']);//download book, come from view and go to controller
+Route::get('/view/{id}',[BooksController::class,'showPdf']);
+
+
+
+/*Route::get('/editBooks', function () { 
+    return view('editBooks');
+});*/
+
+
+
+
+/*Route::get('/editDelete', function () { 
+    return view('editDelete');
+});*/
+Route::get('editDelete',[BooksController::class,'editDelete']);
+
+//edit
+Route::get('/editBooks/{id}',[BooksController::class,'edit']);
+Route::post('/editBooks/{id}',[BooksController::class,'update']);
+//'BooksController@edit'
+
+/*Route::get('/addBooks', function () {  
+    return view('addBooks');
+});*/
+Route::get('/addBooks',[BooksController::class,'add']);//add book function 
+Route::post('/addBooks',[BooksController::class,'store']);//store book in database
+
+//Route::get('/chooseBooks',[BooksController::class,'choose']);
+//Route::post('/chooseBooks',[BooksController::class,'storechooseBook']);
+
+//delete book
+Route::delete('/Delete/{book}',[BooksController::class,'delete']);
+
+
+Auth::routes();
+
+//serach function//
+Route::get('search',[BooksController::class,'search']);
 
