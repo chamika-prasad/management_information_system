@@ -50,5 +50,9 @@ Route::get('admin_free_learning_list/', function () {
     return view ('admin_free_learning_application_list');
 });
 
+Route::get('admin_bank_deposite/', function () {
+    return view ('admin_bank_deposite_approve');
+});
+
 Auth::routes();
 
