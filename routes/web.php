@@ -45,6 +45,61 @@ Route::get('admin_free_learning/', function () {
     return view ('admin_free_learning_approve');
 });
 
+
+// exam routes
+
+Route::get('/add_exam', function () {
+    return view ('exam_section/add_exam');
+});
+
+Route::get('/add_quiz', function () {
+    return view ('exam_section/add_quiz');
+});
+
+Route::get('/Graded', function () {
+    return view ('exam_section/Graded');
+});
+
+Route::get('/Submission_exam', function () {
+    return view ('exam_section/Submission_exam');
+});
+
+Route::get('/Submission_quiz', function () {
+    return view ('exam_section/Submission_quiz');
+});
+
+Route::get('/Quection_bank', function () {
+    return view ('exam_section/Quection_bank');
+});
+
+Route::get('/Quection_bank_add', function () {
+    return view ('exam_section/Quection_bank_add');
+});
+
+Route::get('/Quiz_online', function () {
+    return view ('exam_section/Quiz_online');
+});
+
+Route::get('/Marks_of_exam', function () {
+    return view ('exam_section/Marks_of_exam');
+});
+
+Route::get('/Main_view_of_subject', function () {
+    return view ('exam_section/Main_view_of_subject');
+});
+
+Route::get('/Main_view_of_subject_admin', function () {
+    return view ('exam_section/Main_view_of_subject_admin');
+});
+
+
+// end of exam routes
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
