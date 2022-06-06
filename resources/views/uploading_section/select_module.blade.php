@@ -17,7 +17,9 @@
 
     @include('uploading_section.Navbar_module')
 
-
+    <div>
+        
+    </div>
     <div class="container-fluid" style="width: 85%;">
         <p class="font-weight-light" style="font-size:20px; padding: 20px">Select Module</p>
             <div class="col">
@@ -85,7 +87,7 @@
           </div>
           <hr>
         <div class="col">
-            <a href="/teacher_module_view"><button class="btn btn-danger" style="font-size: 1.5rem;float:right; ">continue</button></a>
+            <a href="/teacher_module_view"><button class="btn btn-danger" style="font-size: 1.5rem; float:right; ">continue</button></a>
         </div>
     </div>
 
@@ -97,3 +99,5 @@
 
 
 </body>
+
+</html>
