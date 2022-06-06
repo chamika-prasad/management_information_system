@@ -48,8 +48,26 @@ Route::get('admin_free_learning/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+// Home page routes
+
+Route::get('/footer',function(){
+    return view ('home_page/footer');
+});
+
+Route::get('/',function(){
+    return view ('home_page/home_uploading');
+});
+
+// End of home page routes
+
+
+
+
+// startting uploading section
 
 Route::get('/uploading_materials',function(){
     return view ('uploading_section/uploading_materials');
@@ -75,11 +93,19 @@ Route::get('/teacher_module_view',function(){
     return view ('uploading_section/teacher_module_view');
 });
 
-
-
-Route::get('/', function () {  
-    return view('welcome');
+Route::get('/student_module_view',function(){
+    return view ('uploading_section/student_ module_view');
 });
+
+
+
+// end of uploading section
+
+
+
+// Route::get('/', function () {  
+//     return view('welcome');
+// });
 
 /*Route::get('/viewBooks', function () {  
     return view('viewBooks');

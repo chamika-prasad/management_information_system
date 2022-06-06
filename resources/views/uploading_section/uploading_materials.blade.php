@@ -97,7 +97,7 @@
                 </div>
             </div>
     
-    <hr>
+            <hr>
           <!-- 3rd row -->
     
     
@@ -137,17 +137,17 @@
                 </div>
             </div>
 
-        <hr>
-            <div class="col-sm-11">
+            <hr>
+            <div class="col-sm-12">
                 <button class="btn btn-danger" style="font-size: 1.5rem;float:right; ">submit</button>
             </div>
-    
+            
             <!----------------------upload materials to relevent subject------------------------------>
     
         </div>
-    </div>    
+
+    </div>  
+    @include('home_page.footer')
     
-    
-       
 </body>
 </html>
