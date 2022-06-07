@@ -16,7 +16,12 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id('question');
             $table->string('question');
-            
+            $table->unsignedInteger('subjectid');
+            $table->unsignedInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('subjectid')->references('subjectid')->on('subjects')->onDelete('cascade');
+
+
 
             $table->timestamps();
         });

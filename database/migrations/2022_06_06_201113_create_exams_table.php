@@ -14,11 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('exams', function (Blueprint $table) {
-            $table->integer('examid')->primary();
-            $table->string('subjectid');
-            $table->increments('id');
+            $table->increment('examid')->primary();
+            $table->unsignedInteger('subjectid');
+            $table->string('description_about_exam');
+            $table->string('add_exam_paper');
+            $table->time('date_and_time');
+            $table->string('guidline');
+            $table->unsignedInteger('student_id');
+            $table->unsignedInteger('teacher_id');
+            $table->integer('grade');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('answer');
+            $table->string('subjectid');
+            $table->foreign('subjectid')->references('subjectid')->on('subjects')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+            
 
 
             $table->timestamps();

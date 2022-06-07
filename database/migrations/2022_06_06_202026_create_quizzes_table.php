@@ -16,9 +16,18 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->integer('quizid')->primary();
             $table->string('subjectid');
-            $table->increments('id');
+            $table->string('description_about_quiz');
+            $table->string('add_quiz_paper');
+            $table->time('date_and_time');
+            $table->string('guidline');
+            $table->integer('teacher_id');
+            $table->integer('grade');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('answer');
+            $table->string('subjectid');
+            $table->foreign('subjectid')->references('subjectid')->on('subjects')->onDelete('cascade');
+            
+
+
 ;
             $table->timestamps();
         });
