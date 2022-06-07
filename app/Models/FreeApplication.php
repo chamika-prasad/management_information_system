@@ -9,6 +9,13 @@ class FreeApplication extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+
+        'user_id',
+        'description',
+
+    ];
+
     public function user(){ //whatever function name
         return $this->belongsTo(User::class);//Model name
     }
