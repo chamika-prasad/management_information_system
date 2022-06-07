@@ -102,14 +102,18 @@
               <!-- Form -->
               <form class = 'card p-5' style="background-color: #b6acab; border-radius: 20px;" action="" method="post">
 
-                <div><p  style="color: black; font-weight: bold;">Index No : 194122P</p></div>
-                
-                <!-- description -->
-                <div >
-                    <p class="text-justify" rows="8" style="background: #585858; color: black; padding:0.5cm; border-radius: 20px;">This is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning applicationThis is free learning application</p>
-                </div>
+        
 
-                <!-- End description --> 
+                @foreach ($user_applications as $user_application)
+
+                  <div><p  style="color: black; font-weight: bold;">{{ user_applications->user_id }}</p></div>
+                
+                  <!-- description -->
+                  <div >
+                    <p class="text-justify" rows="8" style="background: #585858; color: black; padding:0.5cm; border-radius: 20px;">{{ $user_application->description }}</p>
+                  </div>
+
+                  <!-- End description --> 
 
                 <br>
 
@@ -118,7 +122,10 @@
                   <button type="submit" class="btn btn-success btn-lg" style="float: left;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Accept&ensp;&emsp;</span></button>
                   <button type="submit" class="btn btn-danger btn-lg" style="float: right;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Decline&ensp;&emsp;</span></button>
                 </div>
-                <!-- buttons -->  
+                <!-- buttons --> 
+                
+                @endforeach
+                
               </form>
               <!-- Form end -->
             </div>

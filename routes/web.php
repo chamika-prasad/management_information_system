@@ -42,23 +42,18 @@ Route::get('online_payment_success/', function () {
     return view ('payment/online_payment_success');
 });
 
-Route::get('admin_free_learning/', function () {
-    return view ('payment/admin_free_learning_approve');
-});
+Route::get('admin_free_learning/{user_id}',[App\Http\Controllers\FreeLearningController::class, 'adminFreelearning']);
 
 
-Route::get('admin_free_learning_list/', function () {
-    return view ('payment/admin_free_learning_application_list');
-});
+Route::get('admin_free_learning_list/', [App\Http\Controllers\FreeLearningController::class, 'displayFreelearningList']);
 
 Route::get('admin_bank_deposite/', function () {
     return view ('payment/admin_bank_deposite_approve');
 });
 
+Route::post('submit_free_learning_application/{user_id}', [App\Http\Controllers\FreeLearningController::class, 'addFreeLearning']);
+
 Auth::routes();
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Home page routes
