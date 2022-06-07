@@ -93,11 +93,11 @@
         <div class="container-fluid" style="width: 85%; padding-bottom: 20px; padding-top: 20px;">
             <div class="card-deck ">
                 <div class="card border-secondary mb-3 bg-secondary text-white" style="text-align: center">
-                    <a href="/select_module">
+                    <a href="/viewBooks">
                         <button class="btn btn-secondary" >
                             <div class="card-body">
-                                <h5 class="card-title">Subjects</h5>
-                                <p class="card-text">Choose grade and subject via this button</p>
+                                <h5 class="card-title">E-Library System</h5>
+                                <p class="card-text">Happy Reading</p>
                             </div>
                         </button>
                     </a>
