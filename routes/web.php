@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\uploading_pdfController;
 use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
 use App\Models\User;
@@ -76,7 +77,7 @@ Route::get('/',function(){
 
 
 
-// startting uploading section
+// starting uploading section
 
 Route::get('/uploading_materials',function(){
     return view ('uploading_section/uploading_materials');
@@ -89,6 +90,7 @@ Route::get('/uploading_zoomlink',function(){
 Route::get('/uploading_pdf',function(){
     return view ('uploading_section/uploading_pdf');
 });
+
 
 Route::get('/uploading_recording',function(){
     return view ('uploading_section/uploading_recording');
