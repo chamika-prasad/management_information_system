@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\uploading_pdfController;
+use App\Http\Controllers\FreeLearningController;
 use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
 use App\Models\User;
@@ -43,16 +44,18 @@ Route::get('online_payment_success/', function () {
     return view ('payment/online_payment_success');
 });
 
-Route::get('admin_free_learning/{user_id}',[App\Http\Controllers\FreeLearningController::class, 'adminFreelearning']);
+Route::get('/admin_free_learning/{user_id}',[FreeLearningController::class, 'adminFreelearning']);
 
 
-Route::get('admin_free_learning_list/', [App\Http\Controllers\FreeLearningController::class, 'displayFreelearningList']);
+Route::get('/admin_free_learning_list', [FreeLearningController::class, 'displayFreelearningList']);
 
 Route::get('admin_bank_deposite/', function () {
     return view ('payment/admin_bank_deposite_approve');
 });
 
-Route::post('submit_free_learning_application/{user_id}', [App\Http\Controllers\FreeLearningController::class, 'addFreeLearning']);
+Route::post('submit_free_learning_application/{user_id}', [FreeLearningController::class, 'addFreeLearning']);
+
+Route::get('admin_free_learning_application_action/{action}/{user_id}', [FreeLearningController::class, 'adminFreeLearningAction']);
 
 Auth::routes();
 
