@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\BooksController;
-use App\Http\Controllers\uploading_pdfController;
+use App\Http\Controllers\UploadingContentController;
 use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
 use App\Models\User;
 use App\Models\Payment;
+use App\Models\UploadingContent;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +49,7 @@ Route::get('admin_free_learning/', function () {
     return view ('admin_free_learning_approve');
 });
 
-Auth::routes();
+// Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -78,14 +80,20 @@ Route::get('/uploading_zoomlink',function(){
     return view ('uploading_section/uploading_zoomlink');
 });
 
+Route::post('uploadZoomlink',[UploadingContentController::class, 'storezoomlink']);
+
 Route::get('/uploading_pdf',function(){
     return view ('uploading_section/uploading_pdf');
 });
+
+Route::post('uploadingPdf',[UploadingContentController::class, 'storepdf']);
 
 
 Route::get('/uploading_recording',function(){
     return view ('uploading_section/uploading_recording');
 });
+
+Route::post('uploadRecording',[UploadingContentController::class, 'storerecord']);
 
 Route::get('/select_module',function(){
     return view ('uploading_section/select_module');

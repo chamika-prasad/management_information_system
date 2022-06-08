@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('uploading_contents', function (Blueprint $table) {
             $table->increments('id');
-            $table->time('Date_and_time');
+            // $table->time('Date_and_time')->default('2022-02-03');
             $table->string('zoomLink');
             $table->string('pdf');
             $table->string('recordingLink');
