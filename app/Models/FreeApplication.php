@@ -13,6 +13,7 @@ class FreeApplication extends Model
 
         'user_id',
         'description',
+        'approved'
 
     ];
 
