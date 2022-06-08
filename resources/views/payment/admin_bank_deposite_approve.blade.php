@@ -118,8 +118,8 @@
 
                 <!-- buttons -->
                 <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg" style="float: left;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Accept&ensp;&emsp;</span></button>
-                  <button type="submit" class="btn btn-danger btn-lg" style="float: right;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Decline&ensp;&emsp;</span></button>
+                  <button type="submit" class="btn btn-success btn-lg" style="float: left;" formaction="/action_page2.php"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Accept&ensp;&emsp;</span></button>
+                  <button type="submit" class="btn btn-danger btn-lg" style="float: right;" formaction="/action_page2.php"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Decline&ensp;&emsp;</span></button>
                 </div>
                 <!-- buttons -->  
               </form>
