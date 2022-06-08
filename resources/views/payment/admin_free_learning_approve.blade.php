@@ -100,33 +100,35 @@
       <div class="row h-100 justify-content-center align-items-center">
           <div class="col-10 col-md-8 col-lg-6">
               <!-- Form -->
-              <form class = 'card p-5' style="background-color: #b6acab; border-radius: 20px;" action="" method="post">
-
-        
+              <div class = 'card p-5' style="background-color: #b6acab; border-radius: 20px;">
 
                 @foreach ($user_applications as $user_application)
 
-                  <div><p  style="color: black; font-weight: bold;">{{ user_applications->user_id }}</p></div>
+                  <div><p  style="color: black; font-weight: bold;">{{ $user_application->user_id }}</p></div>
                 
                   <!-- description -->
                   <div >
                     <p class="text-justify" rows="8" style="background: #585858; color: black; padding:0.5cm; border-radius: 20px;">{{ $user_application->description }}</p>
                   </div>
 
-                  <!-- End description --> 
-
-                <br>
-
-                <!-- buttons -->
+                  <!-- buttons -->
                 <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg" style="float: left;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Accept&ensp;&emsp;</span></button>
-                  <button type="submit" class="btn btn-danger btn-lg" style="float: right;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Decline&ensp;&emsp;</span></button>
+                  <a href="{{url('/admin_free_learning_application_action',[1,$user_application->user_id])}}"><button type="submit" class="btn btn-success btn-lg" style="float: left;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Accept&ensp;&emsp;</span></button></a>
+                  <a href="{{url('/admin_free_learning_application_action',[2,$user_application->user_id])}}"><button type="submit" class="btn btn-danger btn-lg" style="float: right;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;" >&emsp;&ensp;Decline&ensp;&emsp;</span></button></a>
                 </div>
                 <!-- buttons --> 
-                
+
                 @endforeach
+
+                  <!-- End description -->
+     
+
+
                 
-              </form>
+                
+          
+                
+              </div>
               <!-- Form end -->
             </div>
         </div>
