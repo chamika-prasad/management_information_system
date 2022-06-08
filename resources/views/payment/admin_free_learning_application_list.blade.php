@@ -83,11 +83,11 @@
   <div class="list-group" style="padding-top: 1cm;">
 
     
-        @foreach ($FreeApplications as $FreeApplication)
+        @foreach ($freeApplications as $freeApplication)
 
-            <a href="admin_free_learning/{{$FreeApplication->user_id}}"><button type="button" class="list-group-item list-group-item-action">{{ $FreeApplication->user_id }}</button>
+            <a href="{{url('/admin_free_learning',$freeApplication->user_id)}}"><button type="button" class="list-group-item list-group-item-action">{{ $freeApplication->user_id }}</button></a>
          
-         @endforeach
+         @endforeach 
 
   </div>
 
