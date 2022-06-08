@@ -28,19 +28,15 @@
                 <h4>upload soft copies</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/uploading_pdf" enctype="multipart/form-data">
+                <form method="POST" action="uploadingPdf" enctype="multipart/form-data">
                     @csrf
-                    <div class="custom-file  row" style="padding: 20px;">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Choose file</label>
+                        <input name="createPdf" class="form-control" type="file" id="formFileMultiple" multiple>
                     </div>
                     <div class=" row" style="float: right; left: 100px; padding: 20px">
                         <button type="button" class="btn btn-light">cancel</button>
-                        <a href="/uploading_materials">
-                            <button  type="button" class="btn btn-primary">
-                                save changes
-                            </button>
-                        </a>
+                        <button name="uploadPdf" type="submit" class="btn btn-primary">save changes</button>
                     </div>
                 </form>   
             </div>

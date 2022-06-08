@@ -28,16 +28,17 @@
                 <h4>upload Record link</h4>
             </div>
             <div class="card-body">
-                <form>
+                <form method="POST" action="uploadRecording">
+                    @csrf
                     <div class="form-group row">
                         <label for="inputlink3" class="col-sm-2 col-form-label">Record link</label>
                         <div class="col-sm-10">
-                          <input type="link" class="form-control" id="inputlink3" placeholder="Enter recorded lecture recording link">
+                          <input type="link" name="createrecord" class="form-control" id="inputlink3" placeholder="Enter recorded lecture recording link">
                         </div>
                     </div>
                     <div class="form-group row" style="float: right; left: 100px">
                         <button type="button" class="btn btn-light">cancel</button>
-                        <a href="/uploading_materials"><button type="button" class="btn btn-primary">save changes</button></a>
+                        <button type="submit" class="btn btn-primary" name="uploadrecord">save changes</button>
                     </div>
                 </form>   
             </div>
