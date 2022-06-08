@@ -123,7 +123,7 @@ class BooksController extends Controller
     public function search()
     {
           $search_text=$_GET['query'];
-          $books=Books::where('name','LIKE','%'.$search_text.'%')->get();
+          $books=Books::where('name','LIKE','%'.$search_text.'%')->orWhere('author','LIKE','%'.$search_text.'%')->orWhere('category','LIKE','%'.$search_text.'%')->orWhere('publisher','LIKE','%'.$search_text.'%')->get();
           return view('search',compact('books'));    
     }
    
