@@ -13,22 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('exams', function (Blueprint $table) {
-            $table->increment('examid')->primary();
-            $table->unsignedInteger('subjectid');
-            $table->string('description_about_exam');
-            $table->string('add_exam_paper');
+        Schema::create('quizzes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('description_about_quiz');
+            $table->string('add_quiz_paper');
             $table->time('date_and_time');
             $table->string('guidline');
-            $table->unsignedInteger('student_id');
-            $table->unsignedInteger('teacher_id');
             $table->integer('grade');
+            $table->unsignedInteger('teacher_id');
+            $table->unsignedInteger('subject_id');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('subjectid');
-            $table->foreign('subjectid')->references('subjectid')->on('subjects')->onDelete('cascade');
-            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             
 
+
+;
 
             $table->timestamps();
         });
@@ -41,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exams');
+        Schema::dropIfExists('quizzes');
     }
 };

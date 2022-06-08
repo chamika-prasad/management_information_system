@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->string('subjectid')->primary();
-            $table->integer('gradeName');
+            $table->increments('id');
             $table->string('subjectName');
-            $table->unsignedInteger('teacher_Id');
             $table->timestamps();
+            $table->unsignedInteger('teacher_id');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
