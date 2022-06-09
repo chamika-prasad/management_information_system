@@ -17,7 +17,7 @@ class QuizController extends Controller
        $quiz->date_and_time='838:59:59';
        $quiz->subject_id=$subject_id;
        $quiz->save();
-       return
+       return redirect('/');
 
        
 

@@ -92,7 +92,7 @@
       <a class="nav-link" href="#">
 
 
-        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:430px; ">&ensp;Student Mode</span> </a>
+        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:420px; ">&ensp;Student Mode</span> </a>
     </li>
 
      
@@ -113,6 +113,8 @@
   </li>
 
   <!-- card -->
+  <form action="/Quection_bank_add/1" method="POST">
+    @csrf
 
   <<div class="row d-flex justify-content-center" style="width: 100%">
     <div class="card col-md-10" style="background-color: #6b7e51">
@@ -130,6 +132,7 @@
     </div>
   </div>
  </div>
+  </form>
 
   <!-- Card -->
 

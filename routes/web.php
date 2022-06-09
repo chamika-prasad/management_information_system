@@ -113,6 +113,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/add_quiz/{subject_id}', [App\Http\Controllers\QuizController::class, 'addQuiz']);
 
+Route::post('/Quection_bank_add/{subject_id}', [App\Http\Controllers\QuestionController::class, 'addQuestion']);
+
+
 
 
 
