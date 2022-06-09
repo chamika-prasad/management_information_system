@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
 use App\Models\User;
 use App\Models\Payment;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\QuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +93,11 @@ Route::get('/Main_view_of_subject', function () {
 Route::get('/Main_view_of_subject_admin', function () {
     return view ('exam_section/Main_view_of_subject_admin');
 });
+Route::get('/online_exam', function () {
+    return view ('exam_section/online_exam');
+});
+
+Route::post('/add_exam_details/{subject_id}',[ExamController::class,'addExam']);
 
 
 // end of exam routes
@@ -103,3 +110,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/add_quiz/{subject_id}', [App\Http\Controllers\QuizController::class, 'addQuiz']);
+
+
+
+
+
+
