@@ -84,7 +84,7 @@
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">lec.mp4</p>
+                                <p class="align-baseline">{{$recordlink->recordingLink}}</p>
                             </div>
                             
                             <div class="col-3">

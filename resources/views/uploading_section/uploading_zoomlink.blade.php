@@ -34,7 +34,15 @@
                       <label for="inputlink3" class="col-sm-2 col-form-label">Zoom link</label>
                       <div class="col-sm-10">
                         <input type="link" name="createzoomlink" class="form-control" id="inputlink3" placeholder="Enter your zoom link here">
+                        <br>
+                        @if ($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                {{$errors}}
+                            </div>
+                        @endif
+                        
                       </div>
+                      
                     </div>
                     <div class="form-group row" style="float: right; left: 100px">
                         <button type="button" class="btn btn-light">cancel</button>

@@ -12,6 +12,11 @@ class UploadingContentController extends Controller
 
     public function  storezoomlink(Request $request)
     {
+        $request-> validate([
+            'zoomLink'=> 'required | min : 5'
+
+        ]);
+
         $Uploadingzoomlink = new UploadingContent();
         $Uploadingzoomlink-> zoomLink = $request->createzoomlink;
         $Uploadingzoomlink->pdf = 'file.pdf';
@@ -20,16 +25,33 @@ class UploadingContentController extends Controller
         $Uploadingzoomlink->grade_name = '3';
         $Uploadingzoomlink-> save();
 
-
-        return view('uploading_section/uploading_materials');
+        $Uploadingzooms = UploadingContent::latest('created_at')->first();
+        $recordlink = UploadingContent::latest('created_at')->first();
+        $showpdf = UploadingContent::latest('created_at')->first();
+        return view('uploading_section/uploading_materials',['Uploadingzooms' => $Uploadingzooms, 'recordlink' => $recordlink , 'pdf'=>$showpdf]);
+        
     }
 
+    public function displaymaterials(Request $request)
+    {
+        $Uploadingzooms = UploadingContent::latest('created_at')->first();
+        $recordlink = UploadingContent::latest('created_at')->first();
+        $showpdf = UploadingContent::latest('created_at')->first();
+        return view('uploading_section/uploading_materials',['Uploadingzooms' => $Uploadingzooms,'recordlink' => $recordlink ,  'pdf'=>$showpdf]);
 
-    // public function displayzoomlink()
-    // {
-    //     $Uploadingzoom = UploadingContent::all();
-    //     return view('/uploading_section/uploadingzoomlink', compact('uploadingzoom'));
-    // }
+
+    }
+
+    public function displayStudentModuleView(Request $request)
+    {
+        $Uploadingzooms = UploadingContent::latest('created_at')->first();
+        $recordlink = UploadingContent::latest('created_at')->first();
+        $showpdf = UploadingContent::latest('created_at')->first();
+        return view('uploading_section/student_ module_view',['Uploadingzooms' => $Uploadingzooms,'recordlink' => $recordlink ,  'pdf'=>$showpdf]);
+
+
+    }
+        
 
     //send record link to the database
 
@@ -43,7 +65,11 @@ class UploadingContentController extends Controller
         $UploadingRecord->subject_id = '1';
         $UploadingRecord->grade_name = '3';
         $UploadingRecord-> save();
-        return view('uploading_section/uploading_materials');
+
+        $Uploadingzooms = UploadingContent::latest('created_at')->first();
+        $recordlink = UploadingContent::latest('created_at')->first();
+        $showpdf = UploadingContent::latest('created_at')->first();
+        return view('uploading_section/uploading_materials',['Uploadingzooms' => $Uploadingzooms , 'recordlink' => $recordlink ,  'pdf'=>$showpdf]);
     }
 
     //send pdf file to the database
@@ -61,7 +87,11 @@ class UploadingContentController extends Controller
         $UploadingPdf->subject_id = '1';
         $UploadingPdf->grade_name = '3';
         $UploadingPdf-> save();
-        return view('uploading_section/uploading_materials');
+
+        $Uploadingzooms = UploadingContent::latest('created_at')->first();
+        $recordlink = UploadingContent::latest('created_at')->first();
+        $showpdf = UploadingContent::latest('created_at')->first();
+        return view('uploading_section/uploading_materials',['Uploadingzooms' => $Uploadingzooms , 'recordlink' => $recordlink , 'pdf'=>$showpdf]);
     }
 
 

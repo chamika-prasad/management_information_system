@@ -33,7 +33,14 @@
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
                             <div class="col-2">
-                                <p class="align-baseline">link.zoom</p>
+                                {{-- <p class="align-baseline">link.zoom</p> --}}
+                                {{$Uploadingzooms->zoomLink}}
+                                {{-- @foreach ($Uploadingzooms as $Uploadingzoom)
+                                    <p class="align-baseline">
+                                        {{$Uploadingzoom->zoomLink}}
+                                    </p>
+                                @endforeach --}}
+                                
                             </div>
                             
                             <div class="col-7">
@@ -73,6 +80,7 @@
                             </div>
                             <div class="col-2">
                                 <p class="align-baseline">class.pdf</p>
+                                {{-- {{$showpdf->pdf}} --}}
                             </div>
                             
                             <div class="col-7">
@@ -110,13 +118,14 @@
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
                             <div class="col-2">
-                                <p class="align-baseline">lec.mp4</p>
-                                {{-- @foreach ($Uploadingzoomlink as $item)
+                                {{-- <p class="align-baseline">lec.mp4</p> --}}
+                                {{-- @foreach ($Uploadingzooms as $Uploadingzoom)
                                     <p class="align-baseline">
-                                        {{$item->zoomLink}}
+                                        {{$Uploadingzoom->zoomLink}}
                                     </p>
                                 @endforeach
                                  --}}
+                                 {{$recordlink->recordingLink}}
                             </div>
                             
                             <div class="col-7">

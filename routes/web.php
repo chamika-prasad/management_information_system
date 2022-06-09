@@ -72,16 +72,14 @@ Route::get('/',function(){
 
 // starting uploading section
 
-Route::get('/uploading_materials',function(){
-    return view ('uploading_section/uploading_materials');
-});
+Route::get('/uploading_materials',[UploadingContentController::class, 'displaymaterials']);
 
 Route::get('/uploading_zoomlink',function(){
     return view ('uploading_section/uploading_zoomlink');
 });
 
 Route::post('uploadZoomlink',[UploadingContentController::class, 'storezoomlink']);
-Route::get('storezoomlink',[UploadingContentController::class, 'displayzoomlink']);
+// Route::get('storezoomlink',[UploadingContentController::class, 'displayzoomlink']);
 
 
 Route::get('/uploading_pdf',function(){
@@ -108,6 +106,8 @@ Route::get('/teacher_module_view',function(){
 Route::get('/student_module_view',function(){
     return view ('uploading_section/student_ module_view');
 });
+
+// Route::get('/student_ module_view',[UploadingContentController::class, 'displayStudentModuleView']);
 
 
 
