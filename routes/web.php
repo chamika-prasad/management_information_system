@@ -3,6 +3,7 @@
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\uploading_pdfController;
 use App\Http\Controllers\FreeLearningController;
+use App\Http\Controllers\BankDepositController;
 use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
 use App\Models\User;
@@ -28,7 +29,7 @@ Route::get('payment_option/', function () {
     return view ('payment/payment_option');
 });
 
-Route::get('bank_deposit/', function () {
+Route::get('bank_deposit', function () {
     return view ('payment/bank_deposit');
 });
 
@@ -56,6 +57,10 @@ Route::get('admin_bank_deposite/', function () {
 Route::post('submit_free_learning_application/{user_id}', [FreeLearningController::class, 'addFreeLearning']);
 
 Route::get('admin_free_learning_application_action/{action}/{user_id}', [FreeLearningController::class, 'adminFreeLearningAction']);
+
+Route::post('upload_bank_slip/{user_id}', [BankDepositController::class, 'upload']);
+
+
 
 Auth::routes();
 
