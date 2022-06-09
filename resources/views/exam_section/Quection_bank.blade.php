@@ -92,7 +92,7 @@
       <a class="nav-link" href="#">
 
 
-        <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Student Mode</span> </a>
+        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:430px;">&ensp;Student Mode</span> </a>
     </li>
 
      
