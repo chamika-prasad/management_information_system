@@ -109,7 +109,7 @@
     <div class="container">
       <form class="d-flex" type="get" action="{{url('/search')}}">
     
-          <input class="form-control me-2" name="query" id="query"type="search" placeholder="Search book" aria-label="Search">
+          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book" aria-label="Search">
         
           <button class="btn btn-success" type="submit" >Search</button>
       </form>
@@ -131,14 +131,14 @@
           </tr>
         </thead>
         <tbody>
-        @foreach($books as $book)
-          <tr>
-              <td>{{$book->name}}</td>
-              <td>{{$book->category}}</td>
-              <td>{{$book->author}}</td>
-              <td>{{$book ->publisher}}</td>
-              <td><a href="{{url('/view',$book->id)}}">View</a></td>
-              <td><a href="{{url('/download',$book->file)}}">Download</a></td>
+          @foreach($books as $book)
+            <tr>
+                <td>{{$book->name}}</td>
+                <td>{{$book->category}}</td>
+                <td>{{$book->author}}</td>
+                <td>{{$book ->publisher}}</td>
+                <td><a href="{{url('/view',$book->id)}}">View</a></td>
+                <td><a href="{{url('/download',$book->file)}}">Download</a></td>
             </tr>
           @endforeach
         </tbody>

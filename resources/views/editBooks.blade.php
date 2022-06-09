@@ -147,6 +147,15 @@
               {{ session()->get('message') }}
           </div>
       @endif
-    </div>   
+    </div>  
+    <div class="container mt-2">
+      @if($errors->any())
+        @foreach($errors->all() as $error )
+          <div class="alert alert-danger" role="alert">
+          {{$error}}
+          </div>
+        @endforeach
+      @endif
+    </div>  
   </body>
 </html>
