@@ -81,6 +81,8 @@ Route::get('/uploading_zoomlink',function(){
 });
 
 Route::post('uploadZoomlink',[UploadingContentController::class, 'storezoomlink']);
+Route::get('storezoomlink',[UploadingContentController::class, 'displayzoomlink']);
+
 
 Route::get('/uploading_pdf',function(){
     return view ('uploading_section/uploading_pdf');

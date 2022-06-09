@@ -111,6 +111,12 @@
                             </div>
                             <div class="col-2">
                                 <p class="align-baseline">lec.mp4</p>
+                                {{-- @foreach ($Uploadingzoomlink as $item)
+                                    <p class="align-baseline">
+                                        {{$item->zoomLink}}
+                                    </p>
+                                @endforeach
+                                 --}}
                             </div>
                             
                             <div class="col-7">

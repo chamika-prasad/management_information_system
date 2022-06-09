@@ -19,8 +19,17 @@ class UploadingContentController extends Controller
         $Uploadingzoomlink->subject_id = '1';
         $Uploadingzoomlink->grade_name = '3';
         $Uploadingzoomlink-> save();
+
+
         return view('uploading_section/uploading_materials');
     }
+
+
+    // public function displayzoomlink()
+    // {
+    //     $Uploadingzoom = UploadingContent::all();
+    //     return view('/uploading_section/uploadingzoomlink', compact('uploadingzoom'));
+    // }
 
     //send record link to the database
 
