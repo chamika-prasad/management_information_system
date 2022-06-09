@@ -47,7 +47,7 @@
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/home">
           
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
           <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
@@ -86,6 +86,12 @@
 
           <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Grade Module</span> </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+  
+  
+          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:430px;">&ensp;Admin Mode</span> </a>
+      </li>
      
     </ul>
   
@@ -102,19 +108,22 @@
   </li>
    
   <!-- box -->
+  <form method="post" action="add_exam_details/1">
+   @csrf 
+
   <div class="row d-flex justify-content-center" style="width: 100%">
     <div class="card col-md-10" style="background-color: #6b7e51">
       <div class="card-body">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Description About Exam</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block">Add Exam Pepar</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Date and Time</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Guidlines</button>
+        <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #009dff; height:1.5cm;"><br>
+        <input type="file" class="form-control"  style="background: #009dff; height:1.5cm;"><br>
+        <input type="text" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;"><br>
+        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #009dff; height:1.5cm;"><br>
 <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
 </li>
 
 
     <div class="col">
-      <button type="button" class="btn btn-success" style="float:right">Submit</button>
+      <button type="submit" class="btn btn-success" style="float:right">Submit</button>
     </div>
  
     </div>
