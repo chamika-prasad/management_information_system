@@ -58,8 +58,7 @@
           
       </li>
 
-    <br/><br/>
-      </li>
+      <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div></li>
 
       <li class="nav-item">
         <a class="nav-link" href="#">
@@ -91,7 +90,7 @@
         <a class="nav-link" href="#">
   
   
-          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:500px;">&ensp;Admin Mode</span> </a>
+          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:420px;">&ensp;Student Mode</span> </a>
       </li>
      
     </ul>
@@ -103,22 +102,22 @@
   </li>
   <!-- section 1-->
   <nav>
-    <h1 style="padding-left:2cm;"> Budhdha Charithaya / Quiz </h1> 
+    <h2 style="padding-left:3cm;"> Budhdha Charithaya / online Exam </h2> 
   </nav>
   <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
   </li>
    
   <!-- box -->
-  <form action="/add_quiz/1" method="POST">
-    @csrf
+  <form method="post" action="add_exam_details/1">
+   @csrf 
+
   <div class="row d-flex justify-content-center" style="width: 100%">
     <div class="card col-md-10" style="background-color: #6b7e51">
       <div class="card-body">
-        <input type="text" class="form-control" placeholder="Description About Quiz " name="description" style="background: #009dff; height:1.5cm;"><br>
-        <input type="file" class="form-control"  style="background: #009dff; height:1.5cm;"><br>
-        <input type="text" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;"><br>
-        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #009dff; height:1.5cm;"><br>
-      
+        <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background:#a5be83; height:1.5cm;"><br>
+        <input type="file" class="form-control"  style="background: #a5be83; height:1.5cm;"><br>
+        <input type="text" class="form-control" placeholder="Date and Time " style="background: #a5be83; height:1.5cm;"><br>
+        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #a5be83; height:1.5cm;"><br>
 <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
 </li>
 
@@ -130,7 +129,6 @@
     </div>
   </div>
  </div>
-  </form>
 
  <div class="container" style="padding-top: 5px;">
   <div class="row">
@@ -139,6 +137,7 @@
       </div>
   </div>
 </div>
+
 
     
 

@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('exams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description_about_exam');
-            $table->string('add_exam_paper');
-            $table->time('date_and_time');
+            $table->string('add_exam_paper')->default(null);
+            $table->time('date_and_time')->default(null);
             $table->string('guidline');
-            $table->integer('grade');
+            $table->integer('grade')->default(null);
             $table->unsignedInteger('student_id');
             $table->unsignedInteger('teacher_id');
             $table->unsignedInteger('subject_id');

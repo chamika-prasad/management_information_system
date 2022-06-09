@@ -114,11 +114,22 @@
 
   <!-- card -->
 
-    <div class="form-group" class="card col-md-10" style="background-color: #6b7e51">
-      <label for="exampleFormControlTextarea1">Add a Quection</label >
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" class="card col-md-10" style="background-color: #6b7e51"></textarea>
+  <<div class="row d-flex justify-content-center" style="width: 100%">
+    <div class="card col-md-10" style="background-color: #6b7e51">
+      <div class="card-body">
+        <h1> Add a Question </h1>
+        <input type="text" class="form-control" placeholder="Description " name="description" style="background: #009dff; height:4cm;"><br>
+<li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+</li>
+
+
+    <div class="col">
+      <button type="submit" class="btn btn-success" style="float:right">Submit</button>
     </div>
-  </form>
+ 
+    </div>
+  </div>
+ </div>
 
   <!-- Card -->
 

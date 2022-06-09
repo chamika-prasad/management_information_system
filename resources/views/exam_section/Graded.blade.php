@@ -106,7 +106,7 @@
 
     <!-- section 1-->
     <div class="row">
-      <h2 style="padding-left:2cm;"> Budhdha Charithaya / online Exam </h2> 
+      <h2 style="padding-left:2cm;"> Budhdha Charithaya / Quiz </h2> 
     </div>
   
       
@@ -115,7 +115,7 @@
      <!-- table -->
   
     <div id="pricing" class="container-fluid">
-      <table class="table table-bordered table-striped table-secondary" style="width: 50%; border:1px #7C5D5D; " >
+      <table class="table table-bordered table-striped table-secondary" style="width: 75%; border:1px #7C5D5D; " >
      
         <tbody>
           <tr>
