@@ -90,7 +90,7 @@
                 @csrf
                 <!-- Input fields -->
                 <div class="form-group">
-                    <textarea class="form-control" name="description" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;" name="free_application"></textarea>
+                    <textarea class="form-control" name="description" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;" name="free_application" required></textarea>
                 </div>
 
                 <br>
