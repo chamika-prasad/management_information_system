@@ -143,9 +143,11 @@ Route::get('editDelete',[BooksController::class,'editDelete']);
 
 //edit
 Route::get('/editBooks/{id}',[BooksController::class,'edit']);
-Route::post('/editBooks/{id}',[BooksController::class,'update']);
-//'BooksController@edit'
 
+
+//Route::post('/editBooks/{id}',[BooksController::class,'update']);
+//'BooksController@edit'
+Route::put('/updateBooks/{id}',[BooksController::class,'update']);
 /*Route::get('/addBooks', function () {  
     return view('addBooks');
 });*/
