@@ -128,10 +128,13 @@
               <a class="btn btn-success mr-1" href="{{url('/editBooks/'.$book->id)}}">Edit</a>
             </td>
             <td>
-              <form action="{{url('/Delete/'.$book->id)}}" method="post">
+              <form action="{{url('/Delete/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
                 {{method_field('DELETE')}}  
                 {{csrf_field()}}
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger">Delete
+                  
+                </button>
+                   
               </form>
             </td>
           </tr>
