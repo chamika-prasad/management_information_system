@@ -99,7 +99,7 @@
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/viewBooks')}}">Go Back</a>
     <div>
     <br>
 
