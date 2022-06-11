@@ -10,7 +10,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <title>Add Books</title>
+      <title>View Books</title>
   </head>
   <body>
 
@@ -102,7 +102,7 @@
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/viewBooks')}}">Go Back</a>
     <div>
     <br>
 
