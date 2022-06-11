@@ -4,14 +4,14 @@ use Illuminate\Http\Request;
 
 use library;
 
-
+use Illuminate\Support\Facades\File;//file model used for update mehthod
 use Illuminate\Support\Facades\Stroage;//beacuse of we want to download files from our storage
 
 use App\Models\Books;//use Books model because import it
 
 
 class BooksController extends Controller
-{
+{       
     public function index()
     {
         $books=Books::all();//get all element in Books model
@@ -91,9 +91,9 @@ class BooksController extends Controller
 
     public function delete($book)
     {
-          Books::find($book)->delete();
-          //return redirect('/editDelete');
-          return redirect()->back()->with('message', 'Thank you!   The book has been deleted');
+        Books::find($book)->delete();
+        //return redirect('/editDelete');
+        return redirect()->back()->with('message', 'Thank you!   The book has been deleted');
         
     }
    
@@ -105,19 +105,44 @@ class BooksController extends Controller
         
     }
    
-    public function update(Request $request,$book)
+    public function update(Request $request, $book)
     {
-        $input=$request-> all();
+       
+        /*$book->name=$input['name'];
+        $book->publisher=$input['publisher'];
+        $book->author=$input['author'];
+        $book->file=$input['file'];*/
+       
+        //$input=$request-> all();
         $book=Books::find($book);
 
-        $book->name=$input['name'];
-        $book->author=$input['author'];
-        $book->publisher=$input['publisher'];
-        $book->file=$input['file'];
-        $book->save();
-        session()->flash('message',$input['name'].'   Successfully Updated');
+        $book->name=$request->input('name');
+        $book->author=$request->input('author');
+        $book->publisher=$request->input('publisher');
+        $book->file=$request->input('file');
+       
+        if ($request->hasfile('file')==null)
+        {
+            //session()->flash('message','Please upload file');
+            return redirect()->back()->with('message', 'Please upload file');
+        }
 
-        return  redirect('/editDelete');
+        if($request->hasfile('file'))
+        {
+           
+            $file=$request->file('file');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('pdfs/',$filename);
+            $book->file=$filename;
+
+        }
+        
+        
+        $book->update();
+        //session()->flash('message',$input['name'].'   Successfully Updated');
+
+        return  redirect('/editDelete'); 
     }
 
     public function search()
