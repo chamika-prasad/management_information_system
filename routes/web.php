@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UploadingContentController;
 use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
@@ -82,10 +84,12 @@ Route::post('uploadZoomlink',[UploadingContentController::class, 'storezoomlink'
 // Route::get('storezoomlink',[UploadingContentController::class, 'displayzoomlink']);
 
 
+
+
+// Route::get('uploading_pdf',[UploadingContentController::class, 'storepdf']);
 Route::get('/uploading_pdf',function(){
     return view ('uploading_section/uploading_pdf');
 });
-
 Route::post('uploadingPdf',[UploadingContentController::class, 'storepdf']);
 
 
@@ -98,10 +102,13 @@ Route::post('uploadRecording',[UploadingContentController::class, 'storerecord']
 Route::get('/select_module',function(){
     return view ('uploading_section/select_module');
 });
+Route::post('/submitgradesub',[SubjectController::class, 'selectSubjects']);
+// Route::post('/submitgradesub',[ClassroomController::class, 'selectGrades'],[SubjectController::class, 'selectSubjects']);
 
-Route::get('/teacher_module_view',function(){
-    return view ('uploading_section/teacher_module_view');
-});
+Route::get('/teacher_module_view',[SubjectController::class, 'displaymoduleview']);
+// Route::get('/teacher_module_view',function(){
+//     return view ('uploading_section/teacher_module_view');
+// });
 
 Route::get('/student_module_view',function(){
     return view ('uploading_section/student_ module_view');
