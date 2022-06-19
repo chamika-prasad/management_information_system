@@ -23,7 +23,7 @@
 
 
     <div class="container-fluid" style="width: 85%;">
-        <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 6 / grade 6 / Budhdha Charithaya</p>
+        <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 6 / grade {{$gradename->gradeName}} / {{$subjectname->subjectName}}</p>
         <div>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
@@ -48,7 +48,7 @@
                             </div>
                             
                             <div class="col-2">
-                                <a style="color: aliceblue" href="/uploading_zoomlink">
+                                <a style="color: aliceblue" href="{{url('/uploading_zoomlink')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"
@@ -134,7 +134,7 @@
                             </div>
                             
                             <div class="col-2">
-                                <a style="color: aliceblue" href="/uploading_recording">
+                                <a style="color: aliceblue" href="{{url('/uploading_recording')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"

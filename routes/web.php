@@ -57,7 +57,7 @@ Route::get('admin_free_learning/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-// Home page routes
+//----------------------------- Home page routes
 
 Route::get('/footer',function(){
     return view ('home_page/footer');
@@ -67,58 +67,54 @@ Route::get('/',function(){
     return view ('home_page/home_uploading');
 });
 
-// End of home page routes
+//-------------------------------- End of home page routes
 
 
 
 
-// starting uploading section
+// -----------------------------starting uploading section
 
+
+
+//uploading materials view
 Route::get('/uploading_materials',[UploadingContentController::class, 'displaymaterials']);
 
-Route::get('/uploading_zoomlink',function(){
-    return view ('uploading_section/uploading_zoomlink');
-});
 
+//zoom link upload view 
+Route::get('/uploading_zoomlink',[UploadingContentController::class, 'displayUploadZoom']);
 Route::post('uploadZoomlink',[UploadingContentController::class, 'storezoomlink']);
-// Route::get('storezoomlink',[UploadingContentController::class, 'displayzoomlink']);
 
 
-
-
-// Route::get('uploading_pdf',[UploadingContentController::class, 'storepdf']);
-Route::get('/uploading_pdf',function(){
-    return view ('uploading_section/uploading_pdf');
-});
+//pdf upload view
+Route::get('/uploading_pdf',[UploadingContentController::class, 'displayUploadPDF']);
 Route::post('uploadingPdf',[UploadingContentController::class, 'storepdf']);
 
 
-Route::get('/uploading_recording',function(){
-    return view ('uploading_section/uploading_recording');
-});
-
+//record upload view
+Route::get('/uploading_recording',[UploadingContentController::class, 'displayUploadRecord']);
 Route::post('uploadRecording',[UploadingContentController::class, 'storerecord']);
 
+
+//select module view
 Route::get('/select_module',function(){
     return view ('uploading_section/select_module');
 });
-Route::post('/submitgradesub',[SubjectController::class, 'selectSubjects']);
-// Route::post('/submitgradesub',[ClassroomController::class, 'selectGrades'],[SubjectController::class, 'selectSubjects']);
+Route::post('/submitgradesub',[UploadingContentController::class, 'selectSubjects']);
 
-Route::get('/teacher_module_view',[SubjectController::class, 'displaymoduleview']);
-// Route::get('/teacher_module_view',function(){
-//     return view ('uploading_section/teacher_module_view');
-// });
 
+//teacher module view
+Route::get('/teacher_module_view',[UploadingContentController::class, 'displaymoduleview']);
+
+
+
+//student module view
 Route::get('/student_module_view',function(){
     return view ('uploading_section/student_ module_view');
 });
 
-// Route::get('/student_ module_view',[UploadingContentController::class, 'displayStudentModuleView']);
 
 
-
-// end of uploading section
+//-------------------------------------------- end of uploading section
 
 
 
