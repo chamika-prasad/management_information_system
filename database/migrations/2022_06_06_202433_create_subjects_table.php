@@ -17,6 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('subjectName');
             $table->timestamps();
+            $table->unsignedInteger('teacher_id');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
