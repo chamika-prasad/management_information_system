@@ -21,7 +21,7 @@
     <!-- 1st row -->
 
 
-    <p class="font-weight-light" style="font-size:20px; padding-left: 120px; padding-top: 20px">grade 6/Budhdha Charithaya </p>
+    <p class="font-weight-light" style="font-size:20px; padding-left: 120px; padding-top: 20px">grade {{$gradename->gradeName}}/{{$subjectname->subjectName}} </p>
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         
         <div class="card" style="border-color:black; background-color:#98998f">
