@@ -32,9 +32,13 @@
                             <div class="col-2">
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
-                            <div class="col-2">
+                            <div class="col-7">
                                 {{-- <p class="align-baseline">link.zoom</p> --}}
-                                {{$Uploadingzooms->zoomLink}}
+
+                                
+                                <u>{{$lasts->zoomLink}}</u>
+                               
+
                                 {{-- @foreach ($Uploadingzooms as $Uploadingzoom)
                                     <p class="align-baseline">
                                         {{$Uploadingzoom->zoomLink}}
@@ -43,7 +47,7 @@
                                 
                             </div>
                             
-                            <div class="col-7">
+                            <div class="col-2">
                                 <a style="color: aliceblue" href="/uploading_zoomlink">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
@@ -78,13 +82,13 @@
                             <div class="col-2">
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
-                            <div class="col-2">
-                                <p class="align-baseline">class.pdf</p>
-                                {{-- {{$showpdf->pdf}} --}}
+                            <div class="col-7">
+                                <u>{{$lasts->pdf}}</u>
+                                
                             </div>
                             
-                            <div class="col-7">
-                                <a style="color: aliceblue" href="/uploading_pdf">
+                            <div class="col-2">
+                                <a style="color: aliceblue" href="{{url('/uploading_pdf')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"
@@ -117,7 +121,7 @@
                             <div class="col-2">
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
-                            <div class="col-2">
+                            <div class="col-7">
                                 {{-- <p class="align-baseline">lec.mp4</p> --}}
                                 {{-- @foreach ($Uploadingzooms as $Uploadingzoom)
                                     <p class="align-baseline">
@@ -125,10 +129,11 @@
                                     </p>
                                 @endforeach
                                  --}}
-                                 {{$recordlink->recordingLink}}
+                                 <u>{{$lasts->recordingLink}}</u>
+                                 
                             </div>
                             
-                            <div class="col-7">
+                            <div class="col-2">
                                 <a style="color: aliceblue" href="/uploading_recording">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"

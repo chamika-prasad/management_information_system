@@ -37,10 +37,9 @@
                         <br>
                         @if ($errors->any())
                             <div class="alert alert-danger" role="alert">
-                                {{$errors}}
+                                <p>This field is required</p>
                             </div>
                         @endif
-                        
                       </div>
                       
                     </div>

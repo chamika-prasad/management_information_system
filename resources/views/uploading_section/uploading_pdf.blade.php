@@ -30,9 +30,18 @@
             <div class="card-body">
                 <form method="POST" action="uploadingPdf" enctype="multipart/form-data">
                     @csrf
+                   
                     <div class="mb-3">
                         <label for="formFileMultiple" class="form-label">Choose file</label>
                         <input name="createPdf" class="form-control" type="file" id="formFileMultiple" multiple>
+                        <br>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                <div>{{ $error }}</div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                     <div class=" row" style="float: right; left: 100px; padding: 20px">
                         <button type="button" class="btn btn-light">cancel</button>
