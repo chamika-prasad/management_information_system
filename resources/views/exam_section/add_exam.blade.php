@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <title>Free_Learning_Application</title>
+    <title>add_exam</title>
 </head>
 <body>
     <!-- navbar 1-->
@@ -90,7 +90,7 @@
         <a class="nav-link" href="#">
   
   
-          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:430px;">&ensp;Admin Mode</span> </a>
+          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:570px;">&ensp;Teachers Mode</span> </a>
       </li>
      
     </ul>
@@ -98,28 +98,39 @@
   </nav>
 
   <!-- navbar 2-->
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
+<div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+
   <!-- section 1-->
   <nav>
     <h1 style="padding-left:2cm;"> Budhdha Charithaya / online Exam </h1> 
   </nav>
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
-   
+  <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+   {{-- @isset($message)
+      <div class="alert alert-success">
+        <strong>{{@message}}</strong>
+      </div>
+   @endisset --}}
+
+
+   @if (Session::has('success'))
+    <div class="alert alert-success" style="height: 1.3cm; text-align:center;">
+      <p>{{ Session::get('success') }}</p>
+    </div>
+    @endif
+
   <!-- box -->
-  <form method="post" action="add_exam_details/1">
+  <form method="post" action="add_exam_details/1" enctype="multipart/form-data">
    @csrf 
 
   <div class="row d-flex justify-content-center" style="width: 100%">
     <div class="card col-md-10" style="background-color: #6b7e51">
       <div class="card-body">
-        <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #009dff; height:1.5cm;"><br>
-        <input type="file" class="form-control"  style="background: #009dff; height:1.5cm;"><br>
-        <input type="text" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;"><br>
-        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #009dff; height:1.5cm;"><br>
-<li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-</li>
+        <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #009dff; height:1.5cm;" required><br>
+        <input name="uploadpdf" type="file" class="form-control"  style="background: #009dff; height:1.5cm;" required><br>
+        <input type="text" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;" required><br>
+        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #009dff; height:1.5cm;" required><br>
+  <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+
 
 
     <div class="col">

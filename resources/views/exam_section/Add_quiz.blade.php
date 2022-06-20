@@ -89,9 +89,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
+   
   
-  
-          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:500px;">&ensp;Admin Mode</span> </a>
+          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:670px;">&ensp;Teachers Mode</span> </a>
       </li>
      
     </ul>
@@ -107,15 +107,28 @@
   </nav>
   <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
   </li>
+  @if (Session::has('success'))
+    <div class="alert alert-success" style="height: 1.3cm; text-align:center;">
+      <p>{{ Session::get('success') }}</p>
+    </div>
+    @endif
    
   <!-- box -->
-  <form action="/add_quiz/1" method="POST">
+  <form action="/add_quiz/1" method="POST" enctype="multipart/form-data">
     @csrf
   <div class="row d-flex justify-content-center" style="width: 100%">
     <div class="card col-md-10" style="background-color: #6b7e51">
       <div class="card-body">
         <input type="text" class="form-control" placeholder="Description About Quiz " name="description" style="background: #009dff; height:1.5cm;"><br>
-        <input type="file" class="form-control"  style="background: #009dff; height:1.5cm;"><br>
+        <input name="uploadpdf" type="file" class="form-control"  style="background: #009dff; height:1.5cm;"><br>
+       
+
+        {{-- @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            {{$errors}}
+        </div>
+      @endif  --}}
+   
         <input type="text" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;"><br>
         <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #009dff; height:1.5cm;"><br>
       

@@ -98,14 +98,12 @@
   </nav>
 
   <!-- navbar 2-->
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
   <!-- section 1-->
   <nav>
     <h2 style="padding-left:3cm;"> Budhdha Charithaya / online Exam </h2> 
   </nav>
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
+  <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
    
   <!-- box -->
   <form method="post" action="add_exam_details/1">
@@ -118,8 +116,8 @@
         <input type="file" class="form-control"  style="background: #a5be83; height:1.5cm;"><br>
         <input type="text" class="form-control" placeholder="Date and Time " style="background: #a5be83; height:1.5cm;"><br>
         <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #a5be83; height:1.5cm;"><br>
-<li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-</li>
+  <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+
 
 
     <div class="col">

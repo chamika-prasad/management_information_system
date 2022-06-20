@@ -50,13 +50,17 @@ Route::get('admin_free_learning/', function () {
 
 // exam routes
 
-Route::get('/add_exam', function () {
-    return view ('exam_section/add_exam');
-});
+// Route::get('/add_exam', function () {
+//     return view ('exam_section/add_exam');
+// });
+Route::get('/add_exam', [App\Http\Controllers\ExamController::class, 'displayExam']);
+Route::get('/add_quiz', [App\Http\Controllers\QuizController::class, 'displayquiz']);
 
-Route::get('/add_quiz', function () {
-    return view ('exam_section/add_quiz');
-});
+
+//Route::get('/add_quiz', function () {
+    //return view ('exam_section/add_quiz');
+//});
+
 
 Route::get('/Graded', function () {
     return view ('exam_section/Graded');
