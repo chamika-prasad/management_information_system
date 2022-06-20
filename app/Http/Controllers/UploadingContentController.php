@@ -28,12 +28,10 @@ class UploadingContentController extends Controller
 
     public function displayStudentModuleView()
     {
-        $Uploadingzooms = UploadingContent::latest('created_at')->first();
-        $recordlink = UploadingContent::latest('created_at')->first();
-        $showpdf = UploadingContent::latest('created_at')->first();
+        $lasts = UploadingContent::latest('created_at')->first();
         $gradename = Classroom::latest('created_at')->first();
         $subjectname = Subject::latest('created_at')->first();
-        return view('uploading_section/student_ module_view',['Uploadingzooms' => $Uploadingzooms,'recordlink' => $recordlink ,  'pdf'=>$showpdf ,'gradename'=>$gradename , 'subjectname' => $subjectname]);
+        return view('uploading_section/student_ module_view',['lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname]);
     }
 
     //send zoom link to the data base
@@ -113,6 +111,7 @@ class UploadingContentController extends Controller
         {
             $pdfName = $request->file('createPdf')->getClientOriginalName();
             $extentionpdf = $request->file('createPdf')->getClientOriginalExtension();
+            $request->file('createPdf')->store('public/pdfs/');
             if ($extentionpdf=='pdf' || $extentionpdf == 'docx')   //check all validations are fine, if not then redirect and show error messages
             {
                 $lasts->pdf = $pdfName;

@@ -111,6 +111,7 @@ Route::get('/teacher_module_view',[UploadingContentController::class, 'displaymo
 Route::get('/student_module_view',function(){
     return view ('uploading_section/student_ module_view');
 });
+Route::get('/student_module_view',[UploadingContentController::class, 'displayStudentModuleView']);
 
 
 
