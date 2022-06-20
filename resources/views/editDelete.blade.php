@@ -60,7 +60,7 @@
 
         <li class="nav-item">
           <a class="nav-link" href="{{url('/')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Dash board</span> 
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Dashboard</span> 
           </a>
         </li>
 
