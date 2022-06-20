@@ -136,7 +136,7 @@
           </div>
 
 
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}}">Add</button>
+        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}}">Update</button>
           
 
       </form>
