@@ -141,7 +141,7 @@
                                   <li>{{$error}}</li>
                               @endforeach
                             
-                              @endif
+                            @endif
                               <br><br>
 
                             <div class="row">
