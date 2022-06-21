@@ -50,9 +50,9 @@ Route::get('/admin_free_learning/{user_id}',[FreeLearningController::class, 'adm
 
 Route::get('/admin_free_learning_list', [FreeLearningController::class, 'displayFreelearningList']);
 
-Route::get('admin_bank_deposite/', function () {
-    return view ('payment/admin_bank_deposite_approve');
-});
+Route::get('/admin_bank_deposit_list', [BankDepositController::class, 'displayBankDepositList']);
+
+Route::get('/admin_bank_deposite/{user_id}', [BankDepositController::class, 'adminBankdeposit']);
 
 Route::post('submit_free_learning_application/{user_id}', [FreeLearningController::class, 'addFreeLearning']);
 
