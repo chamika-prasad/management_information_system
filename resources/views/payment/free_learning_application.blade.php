@@ -84,30 +84,15 @@
 
 <!-- application -->
 
-  <!-- <div class="form-outline mb-4" style="margin-top:1.5cm;">
+   <div class="form-outline mb-4" style="margin-top:1.5cm;">
     <div class="container h-100">
       <div class="row h-100 justify-content-center align-items-center">
           <div class="col-10 col-md-8 col-lg-6"> -->
               <!-- Form -->
-<<<<<<< HEAD:resources/views/free_learning_application.blade.php
-            <!-- <form class = 'card p-5' style="background-color: #b6acab" action="" method="post"> -->
-=======
               <form class = 'card p-5' style="background-color: #b6acab" action="submit_free_learning_application/1" method="post">
->>>>>>> abaa09c087a3a55a6c632c50de65640af65d76fe:resources/views/payment/free_learning_application.blade.php
                 
                 @csrf
                 <!-- Input fields -->
-<<<<<<< HEAD:resources/views/free_learning_application.blade.php
-                <!-- <div class="form-group">
-                    <textarea class="form-control" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;"></textarea>
-                </div> -->
-<!-- 
-                <br>
-
-                <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
-                </div> -->
-=======
                 <div class="form-group">
                     <textarea class="form-control" name="description" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;" name="free_application" required></textarea>
                 </div>
@@ -117,20 +102,14 @@
                 <div class="col-md-12 text-center" >
                   <button type="submit" class="btn btn-success btn-lg" name="submit" ><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
                 </div>
->>>>>>> abaa09c087a3a55a6c632c50de65640af65d76fe:resources/views/payment/free_learning_application.blade.php
                 <!-- End input fields -->  
-             <!--  </form> -->
+            </form>
               <!-- Form end -->
-           <!--  </div>
+           </div>
         </div>
-<<<<<<< HEAD:resources/views/free_learning_application.blade.php
-      </div> -->
-    <!--</div>  application -->
-=======
       </div>
     </div>
   <!-- application -->
 
->>>>>>> abaa09c087a3a55a6c632c50de65640af65d76fe:resources/views/payment/free_learning_application.blade.php
 </body>
 </html>
