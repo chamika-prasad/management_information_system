@@ -33,7 +33,7 @@
         </div>
       </div>
       <div>&emsp;</div>
-      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
+      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
     </div>
   </nav>
   
@@ -55,6 +55,21 @@
 
           <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Home</span> </a>
           
+      </li>
+
+      <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+          </svg>
+
+          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Application List</span> </a>
       </li>
 
       <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
@@ -85,25 +100,35 @@
       <div class="row h-100 justify-content-center align-items-center">
           <div class="col-10 col-md-8 col-lg-6">
               <!-- Form -->
-              <form class = 'card p-5' style="background-color: #b6acab" action="" method="post">
+              <form class = 'card p-5' style="background-color: #b6acab; border-radius: 20px;" action="" method="post">
+
+                <div><p  style="color: black; font-weight: bold;">Index No : 194122P</p></div>
                 
-                <!-- Input fields -->
-                <div class="form-group">
-                    <textarea class="form-control" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;"></textarea>
+                <!-- description -->
+                <div >
+                    <div class="text-center">
+                        <img src="{{ asset('/img/img.jpg') }}" class="rounded" alt="..."n style="width: 100%;">
+                      </div>
+                    
                 </div>
+
+                <!-- End description --> 
 
                 <br>
 
+                <!-- buttons -->
                 <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
+                  <button type="submit" class="btn btn-success btn-lg" style="float: left;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Accept&ensp;&emsp;</span></button>
+                  <button type="submit" class="btn btn-danger btn-lg" style="float: right;"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Decline&ensp;&emsp;</span></button>
                 </div>
-                <!-- End input fields -->  
+                <!-- buttons -->  
               </form>
               <!-- Form end -->
             </div>
         </div>
       </div>
     </div>
+
   <!-- application -->
 
   
