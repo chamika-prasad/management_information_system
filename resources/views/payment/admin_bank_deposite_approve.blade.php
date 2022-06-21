@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <title>Free_Learning_Application</title>
+    <title>Bank_Deposit_Slip</title>
 </head>
 <body>
     <!-- navbar 1-->
@@ -102,16 +102,20 @@
               <!-- Form -->
               <form class = 'card p-5' style="background-color: #b6acab; border-radius: 20px;" action="" method="post">
 
-                <div><p  style="color: black; font-weight: bold;">Index No : 194122P</p></div>
+                @foreach($user_bankslips as $user_bankslip)
+
+                <div><p  style="color: black; font-weight: bold;">Index No : {{ $user_bankslip->user_id }}</p></div>
                 
                 <!-- description -->
                 <div >
                     <div class="text-center">
-                        <img src="{{ asset('/img/img.jpg') }}" class="rounded" alt="..."n style="width: 100%;">
+                        <img src="{{ asset('storage/images/'.$user_bankslip->slipName) }}" class="rounded" alt="..."n style="width: 100%;">
                       </div>
                     
                 </div>
 
+                @endforeach
+                
                 <!-- End description --> 
 
                 <br>
