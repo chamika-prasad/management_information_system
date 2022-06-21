@@ -17,7 +17,7 @@
     <div class="container" style="padding: 10px">
         <div class="card " style="border-color:black">
             <div class="card-body">
-              <h2 class="card-title">2022 January 6 / grade 6 /Budhdha Charithaya</h2>
+              <h2 class="card-title">2022 January 6 / grade {{$gradename->gradeName}} / {{$subjectname->subjectName}}</h2>
             </div>
         </div>
     </div>
@@ -28,19 +28,24 @@
                 <h4>upload soft copies</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="/uploading_pdf" enctype="multipart/form-data">
+                <form method="POST" action="uploadingPdf" enctype="multipart/form-data">
                     @csrf
-                    <div class="custom-file  row" style="padding: 20px;">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                   
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Choose file</label>
+                        <input name="createPdf" class="form-control" type="file" id="formFileMultiple" multiple>
+                        <br>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                <div>{{ $error }}</div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                     <div class=" row" style="float: right; left: 100px; padding: 20px">
                         <button type="button" class="btn btn-light">cancel</button>
-                        <a href="/uploading_materials">
-                            <button  type="button" class="btn btn-primary">
-                                save changes
-                            </button>
-                        </a>
+                        <button name="uploadPdf" type="submit" class="btn btn-primary">save changes</button>
                     </div>
                 </form>   
             </div>
