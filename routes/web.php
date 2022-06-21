@@ -5,6 +5,7 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\uploading_pdfController;
 use App\Http\Controllers\FreeLearningController;
 use App\Http\Controllers\BankDepositController;
+use App\Http\Controllers\StripeController;
 
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\SubjectController;
@@ -89,6 +90,13 @@ Route::post('submit_free_learning_application/{user_id}', [FreeLearningControlle
 Route::get('admin_free_learning_application_action/{action}/{user_id}', [FreeLearningController::class, 'adminFreeLearningAction']);
 
 Route::post('upload_bank_slip/{user_id}', [BankDepositController::class, 'upload']);
+
+Route::get('stripe', [StripeController::class, 'stripe']);
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
+
+Route::get('/export_pdf', [StripeController::class, 'exportPdf']);
+
+Route::get('/hello',[StripeController::class, 'sendInvoice']);
 
 
 
