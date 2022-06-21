@@ -87,7 +87,7 @@
 
             <a href="{{url('/admin_free_learning',$freeApplication->user_id)}}"><button type="button" class="list-group-item list-group-item-action">{{ $freeApplication->user_id }}</button></a>
          
-         @endforeach 
+         @endforeach
 
   </div>
 
