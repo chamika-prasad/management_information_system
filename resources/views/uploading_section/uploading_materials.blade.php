@@ -23,7 +23,7 @@
 
 
     <div class="container-fluid" style="width: 85%;">
-        <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 6 / grade 6 / Budhdha Charithaya</p>
+        <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 6 / grade {{$gradename->gradeName}} / {{$subjectname->subjectName}}</p>
         <div>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
@@ -32,12 +32,23 @@
                             <div class="col-2">
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
-                            <div class="col-2">
-                                <p class="align-baseline">link.zoom</p>
+                            <div class="col-7">
+                                {{-- <p class="align-baseline">link.zoom</p> --}}
+
+                                
+                                <u>{{$lasts->zoomLink}}</u>
+                               
+
+                                {{-- @foreach ($Uploadingzooms as $Uploadingzoom)
+                                    <p class="align-baseline">
+                                        {{$Uploadingzoom->zoomLink}}
+                                    </p>
+                                @endforeach --}}
+                                
                             </div>
                             
-                            <div class="col-7">
-                                <a style="color: aliceblue" href="/uploading_zoomlink">
+                            <div class="col-2">
+                                <a style="color: aliceblue" href="{{url('/uploading_zoomlink')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"
@@ -71,12 +82,13 @@
                             <div class="col-2">
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
-                            <div class="col-2">
-                                <p class="align-baseline">class.pdf</p>
+                            <div class="col-7">
+                                <u>{{$lasts->pdf}}</u>
+                                
                             </div>
                             
-                            <div class="col-7">
-                                <a style="color: aliceblue" href="/uploading_pdf">
+                            <div class="col-2">
+                                <a style="color: aliceblue" href="{{url('/uploading_pdf')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"
@@ -109,12 +121,20 @@
                             <div class="col-2">
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
-                            <div class="col-2">
-                                <p class="align-baseline">lec.mp4</p>
+                            <div class="col-7">
+                                {{-- <p class="align-baseline">lec.mp4</p> --}}
+                                {{-- @foreach ($Uploadingzooms as $Uploadingzoom)
+                                    <p class="align-baseline">
+                                        {{$Uploadingzoom->zoomLink}}
+                                    </p>
+                                @endforeach
+                                 --}}
+                                 <u>{{$lasts->recordingLink}}</u>
+                                 
                             </div>
                             
-                            <div class="col-7">
-                                <a style="color: aliceblue" href="/uploading_recording">
+                            <div class="col-2">
+                                <a style="color: aliceblue" href="{{url('/uploading_recording')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"

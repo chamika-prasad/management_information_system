@@ -17,6 +17,10 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('gradeName');
             $table->timestamps();
+            $table->unsignedInteger('teacher_id');
+            $table->unsignedInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -20,8 +20,10 @@
     <div>
         
     </div>
-    <div class="container-fluid" style="width: 85%;">
+    <div class="container-fluid form" style="width: 85%;">
         <p class="font-weight-light" style="font-size:20px; padding: 20px">Select Module</p>
+        <form action="/submitgradesub" method="POST">
+            @csrf
             <div class="col">
               <div class="card" style="background-color:#5C5F3A;  ">
                   <div class="card-body" style="color:white; height: 65px">
@@ -32,21 +34,21 @@
                           </div>
                           <div class="col-5"></div>
                           
-                          <div class="col-3" >
-                                  <select class="btn btn-danger"  name="City" id="City">
+                          <div class="col-3 form-group"  >
+                                  <select class="btn btn-danger"  name="selectGrade" id="City">
                                       <div>
                                           <option value="">Select grade...</option>
-                                          <option value="A">grade 1</option>
-                                          <option value="W">grade 2</option>
-                                          <option value="C">grade 3</option>
-                                          <option value="Q">grade 4</option>
-                                          <option value="D">grade 5</option>
-                                          <option value="D">grade 6</option>
-                                          <option value="D">grade 7</option>
-                                          <option value="D">grade 8</option>
-                                          <option value="D">grade 9</option>
-                                          <option value="D">grade 10</option>
-                                          <option value="D">grade 11</option>
+                                          <option value="1">grade 1</option>
+                                          <option value="2">grade 2</option>
+                                          <option value="3">grade 3</option>
+                                          <option value="4">grade 4</option>
+                                          <option value="5">grade 5</option>
+                                          <option value="6">grade 6</option>
+                                          <option value="7">grade 7</option>
+                                          <option value="8">grade 8</option>
+                                          <option value="9">grade 9</option>
+                                          <option value="10">grade 10</option>
+                                          <option value="11">grade 11</option>
                                       </div>
                                       
                                   </select>
@@ -70,13 +72,13 @@
                           </div>
                           <div class="col-5"></div>
                           
-                          <div class="col-3" >
-                                  <select class="btn btn-danger"  name="City" id="City">
+                          <div class="col-3 form-group" id="subject" >
+                                  <select class="btn btn-danger"  name="selectSubject" >
                                       <div>
                                           <option value="">Select subject...</option>
-                                          <option value="A">Budhdha Charithaya</option>
-                                          <option value="W">Pali</option>
-                                          <option value="C">Abhi Dharmaya</option>
+                                          <option value="Budhdha Charithaya">Budhdha Charithaya</option>
+                                          <option value="Pali">Pali</option>
+                                          <option value="Abhi Dharmaya">Abhi Dharmaya</option>
                                       </div>
                                       
                                   </select>
@@ -84,11 +86,13 @@
                         </div>  
                   </div>
               </div>
-          </div>
-          <hr>
-        <div class="col">
-            <a href="/teacher_module_view"><button class="btn btn-danger" style="font-size: 1.5rem; float:right; ">continue</button></a>
-        </div>
+            </div>
+            <div class="col mt-4">
+                <button class="btn btn-danger" type="submit" name="submitgradesub" style="font-size: 1.5rem; float:right; ">continue</button>
+            </div>
+        </form>
+        <hr>
+        
     </div>
 
     <div>
