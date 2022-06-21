@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -103,21 +103,21 @@ class ForgotPasswordController extends Controller
 
         if(!$updatePassword)
         {
-            //return back()->withInput()->with('error','Invalid token');
+            return back()->with('message','Invalid token');
             //new
-            return response([
+            /* return response([
                 'message'=>'Invalid token'
-            ],400);
+            ],400); */
         }
 
         $user = User::where('email',$request->email)
                 ->update(['password'=>Hash::make($request->password)]);
 
         DB::table('password_resets')->where(['email'=>$request->email])->delete();
-        return response([
+       /*  return response([
             'message'=>'success'
         ]);
-        
-       // return redirect('/login')->with('message','Your password has been changed');
+         */
+       return redirect('index')->with('message','Your password has been changed');
                     }
 }

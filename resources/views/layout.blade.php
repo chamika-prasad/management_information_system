@@ -10,10 +10,10 @@
                 margin:0;
                 font-size:.9rem;
                 font-weight:400;
-                line-height:1.6;
+                line-height:2;
                 color:#212529;
-                text-align:left;
-                background-color:#f5f8fa;
+                text-align:center;
+                background-color:#d7bea5;
             }
             .navbar-laravel
             {
@@ -46,9 +46,32 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Laravel</a>
+                <a class="navbar-brand" href="#">homelaravel</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-labeL="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class=navbar-nav ml-auto>
+                @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('abc') }}">Register</a>
+        </li>
+        <li class="nav-item">
+                    <a class="nav-link" href="{{route('index') }}">Login</a>
+        </li>
+        @else
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('logout')}}">Logout</a>
+        </li>
+        @endguest
+                </ul>
+
+        </div>
+        </div>
+        </nav>
+        @yield('content')
+        </body>
+        <html>

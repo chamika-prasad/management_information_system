@@ -19,6 +19,7 @@ class AuthController extends Controller
     }
     public function registration()
     {
+       
         return view('register');
     }
 
@@ -27,10 +28,13 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            "name"=>"required",
+          /* "firstName"=>"required|string:50",
+           "usertype"=>"required|string",
+            "lastName"=>"required|string:50",
+            "index"=>"required|string:50",
             "email"=>"required|email|unique:users",
             "password"=>"required|confirmed",
-            "birthdate"=>"required|date_format:Y-m-d",
+            "birthdate"=>"required|date_format:Y-m-d|before_or_equal:'today'",
             "birthplace"=>"required:string",
             "requestgrade"=>"required|numeric|max:12",
             "gender"=>"required|string|max:10",
@@ -44,15 +48,15 @@ class AuthController extends Controller
             "m_place"=>"required|string|max:255",
             "address"=>"required|string|max:255",
             "date_created"=>"required|date_format:Y-m-d",
-            "phone1"=>"required|digits:10",
-            "phone2"=>"required|digits:10",
-            "emergencyContact"=>"required|digits:10",
-            "admissioncategory"=>"required|string|max:12",
-        ]);
-
+            "mobileNumber"=>"required|digits:10",
+            "admissioncategory"=>"required|string|max:12"*/
+         ]);
         $user = new User();
-        $user->name = $request->name;
+        $user->firstName = $request->firstName;
+        $user->usertype=$request->usertype;
+        $user->lastName = $request->lastName;
         $user->email = $request->email;
+        $user->index = $request->index;
         $user->password = Hash::make($request->password);
         $user->birthdate = $request->birthdate;
         $user->birthplace = $request->birthplace;
@@ -66,21 +70,19 @@ class AuthController extends Controller
         $user->mothername = $request->mothername;
         $user->m_occupation = $request->m_occupation;
         $user->m_place = $request->m_place;
-        $user->phone1 = $request->phone1;
-        $user->phone2 = $request->phone2;
-        $user->emergencyContact = $request->emergencyContact;
+        $user->mobileNumber = $request->mobileNumber;
         $user->address = $request->address;
-        $user->date_created = $request->date_created;
         $user->admissioncategory = $request->admissioncategory;
         $user->save();
 
-        return response()->json([
+       /* return response()->json([
             "status" => 1,
             "message" => "user registered successfully"
         ]);
-        /*
-        return redirect("login")->withSuccess("You have successfully logged in");
         */
+        
+        return redirect('index')->with('message','You have successfully registered in');
+        
     }
 
     public function login(Request $request)
@@ -98,23 +100,26 @@ class AuthController extends Controller
             {
                 $token= $user->createToken("auth_token")->plainTextToken;
 
-                return response()->json([
+               /*  return response()->json([
                     "status"=>1,
                     "message"=>"user loggen in successfully",
                     "access_token"=>$token
-                ]);
+                ]); */
+                return redirect('/')->with('success', 'your have successfully logged in');   
             }
             else{
-                return response()->json([
+                /* return response()->json([
                     "status"=>0,
                     "message"=>"password didnt match"
-                ],404);
+                ],404); */
+                return back()->with('error','password didnt match');
             }
         }else{
-                return response()->json([
+                /* return response()->json([
                     "status"=>0,
                     "message"=>"User not found"
-                ],404);
+                ],404); */
+                return back()->with('error','User not found');
             }
     }
 
@@ -122,7 +127,7 @@ class AuthController extends Controller
     {
         Auth::logout();
         $request->session()->flush();
-        return redirect('/login');
+        return redirect('index');
     }
     
 
