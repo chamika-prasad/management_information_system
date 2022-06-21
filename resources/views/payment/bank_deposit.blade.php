@@ -94,6 +94,14 @@
 
 <!-- image upload -->
 
+  <div class="container mt-2">
+    @if(session()->has('message'))
+        <div class="alert alert-danger">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+  </div> 
+
 
     <div class="container h-100" style="margin-top: 2cm;">
       <div class="row h-100 justify-content-center align-items-center">
@@ -120,34 +128,36 @@
                     <div class="panel panel-primary">
                       
                       <div class="panel-body">
-                     
-                        @if ($message = Session::get('success'))
-                        <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                                <strong>{{ $message }}</strong>
-                        </div>
-                        <img src="images/{{ Session::get('image') }}">
-                        @endif
                     
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
 
                         <!-- image upload submit-->
                     
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="upload_bank_slip/1" method="POST" enctype="multipart/form-data">
                             @csrf
+
+                            @if(session('errors'))
+
+                              @foreach($errors as $error)
+                                  <li>{{$error}}</li>
+                              @endforeach
+                            
+                            @endif
+                              <br><br>
+
+                            <div class="row">
+                    
+                              <div class="col-md-12 text-center">
+                                  <input type="text " name="amount" class="form-control" placeholder="Enter Amount">
+                              </div>
+                   
+                          </div>
+                          <br>
+
                             <div class="row">
                     
                                 <div class="col-md-12">
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image" id="image" class="form-control">
+
                                 </div>
                      
                             </div>
