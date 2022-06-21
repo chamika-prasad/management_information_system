@@ -120,14 +120,7 @@
 
                 @endforeach
 
-                  <!-- End description -->
-     
-
-
-                
-                
-          
-                
+                  <!-- End description -->                
               </div>
               <!-- Form end -->
             </div>
