@@ -1,9 +1,15 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+
+use App\Http\Controllers\uploading_pdfController;
+use App\Http\Controllers\FreeLearningController;
+use App\Http\Controllers\BankDepositController;
+
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UploadingContentController;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
 use App\Models\User;
@@ -31,7 +37,7 @@ Route::get('payment_option/', function () {
     return view ('payment/payment_option');
 });
 
-Route::get('bank_deposit/', function () {
+Route::get('bank_deposit', function () {
     return view ('payment/bank_deposit');
 });
 
@@ -47,23 +53,28 @@ Route::get('online_payment_success/', function () {
     return view ('payment/online_payment_success');
 });
 
-Route::get('admin_free_learning/', function () {
-    return view ('payment/admin_free_learning_approve');
-});
+Route::get('/admin_free_learning/{user_id}',[FreeLearningController::class, 'adminFreelearning']);
 
 
-Route::get('admin_free_learning_list/', function () {
-    return view ('payment/admin_free_learning_application_list');
-});
+Route::get('/admin_free_learning_list', [FreeLearningController::class, 'displayFreelearningList']);
 
-Route::get('admin_bank_deposite/', function () {
-    return view ('payment/admin_bank_deposite_approve');
-});
+Route::get('/admin_bank_deposit_list', [BankDepositController::class, 'displayBankDepositList']);
+
+
+Route::get('/admin_bank_deposite/{user_id}', [BankDepositController::class, 'adminBankdeposit']);
+
+Route::post('submit_free_learning_application/{user_id}', [FreeLearningController::class, 'addFreeLearning']);
 
 // Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('admin_free_learning_application_action/{action}/{user_id}', [FreeLearningController::class, 'adminFreeLearningAction']);
+
+Route::post('upload_bank_slip/{user_id}', [BankDepositController::class, 'upload']);
+
+
+
+Auth::routes();
 
 
 //----------------------------- Home page routes
