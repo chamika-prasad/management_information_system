@@ -34,7 +34,7 @@
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">link.zoom</p>
+                                <u class="align-baseline">{{$lasts->zoomLink}}</u>
                             </div>
                             
                             <div class="col-3">
@@ -59,7 +59,7 @@
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">class.pdf</p>
+                                <u class="align-baseline">{{$lasts->pdf}}</u>
                             </div>
                             
                             <div class="col-3">
@@ -84,7 +84,7 @@
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">lec.mp4</p>
+                                <u class="align-baseline">{{$lasts->recordingLink}}</u>
                             </div>
                             
                             <div class="col-3">

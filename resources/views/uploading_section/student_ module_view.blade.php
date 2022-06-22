@@ -21,7 +21,7 @@
     <!-- 1st row -->
 
 
-    <p class="font-weight-light" style="font-size:20px; padding-left: 120px; padding-top: 20px">grade 6/Budhdha Charithaya </p>
+    <p class="font-weight-light" style="font-size:20px; padding-left: 120px; padding-top: 20px">grade {{$gradename->gradeName}} / {{$subjectname->subjectName}} </p>
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         
         <div class="card" style="border-color:black; background-color:#98998f">
@@ -34,7 +34,7 @@
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">link.zoom</p>
+                                <u class="align-baseline">{{$lasts->zoomLink}}</u>
                             </div>
                             
                             <div class="col-3">
@@ -59,7 +59,7 @@
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">class.pdf</p>
+                                <u class="align-baseline">{{$lasts->pdf}}</u>
                             </div>
                             
                             <div class="col-3">
@@ -84,7 +84,7 @@
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">record link</p>
+                                <u class="align-baseline">{{$lasts->recordingLink}}</u>
                             </div>
                             
                             <div class="col-3">
