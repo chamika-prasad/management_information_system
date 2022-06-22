@@ -33,7 +33,7 @@
         </div>
       </div>
       <div>&emsp;</div>
-      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
+      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
     </div>
   </nav>
   
@@ -92,7 +92,7 @@
       <a class="nav-link" href="#">
 
 
-        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:430px;">&ensp;Student Mode</span> </a>
+        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:600px;">&ensp;Student Mode</span> </a>
     </li>
 
      
@@ -152,13 +152,6 @@
     <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
     </li>
 
-    <div class="container" style="padding-top: 5px;">
-        <div class="row">
-            <div class="col-md-12 bg-light text-right" style="margin-left: 2cm;" color: #212529;>
-                <button type="button" class="btn btn-warning" style="width: 150px; padding:10px;">FINISH REVIEW</button>
-            </div>
-        </div>
-      </div>
       
 
    

@@ -33,7 +33,7 @@
         </div>
       </div>
       <div>&emsp;</div>
-      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
+      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
     </div>
   </nav>
   
@@ -81,9 +81,9 @@
 
           
 
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-nut-fill" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
-  <path d="M4.58 1a1 1 0 0 0-.868.504l-3.428 6a1 1 0 0 0 0 .992l3.428 6A1 1 0 0 0 4.58 15h6.84a1 1 0 0 0 .868-.504l3.429-6a1 1 0 0 0 0-.992l-3.429-6A1 1 0 0 0 11.42 1H4.58zm5.018 9.696a3 3 0 1 1-3-5.196 3 3 0 0 1 3 5.196z"/>
-</svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-nut-fill" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
+        <path d="M4.58 1a1 1 0 0 0-.868.504l-3.428 6a1 1 0 0 0 0 .992l3.428 6A1 1 0 0 0 4.58 15h6.84a1 1 0 0 0 .868-.504l3.429-6a1 1 0 0 0 0-.992l-3.429-6A1 1 0 0 0 11.42 1H4.58zm5.018 9.696a3 3 0 1 1-3-5.196 3 3 0 0 1 3 5.196z"/>
+      </svg>
 
           <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Grade Module</span> </a>
       </li>
@@ -92,7 +92,7 @@
       <a class="nav-link" href="#">
 
 
-        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:420px; ">&ensp;Student Mode</span> </a>
+        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:550px; ">&ensp;Student Mode</span> </a>
     </li>
 
      
@@ -103,49 +103,46 @@
   </nav>
 
   <!-- navbar 2-->
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
-  <!-- section 1-->
-  <nav>
-    <h4 style="padding-left:2cm;"> Quection Bank </h4> 
-  </nav>
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
-
-  <!-- card -->
-  <form action="/Quection_bank_add/1" method="POST">
-    @csrf
-
-  <<div class="row d-flex justify-content-center" style="width: 100%">
-    <div class="card col-md-10" style="background-color: #6b7e51">
-      <div class="card-body">
-        <h1> Add a Question </h1>
-        <input type="text" class="form-control" placeholder="Description " name="description" style="background: #009dff; height:4cm;"><br>
-  <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-
-
-    <div class="col">
-      <button type="submit" class="btn btn-success" style="float:right">Submit</button>
-    </div>
  
+  <!-- section 1-->
+  <div class="container-fluid" style="width: 80%">
+
+    <h4 class="mt-5" > Budhdha Charithaya/Exam </h4> 
+  <!-- information-->
+    <svg style="left: 2cm" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-mortarboard rounded mx-auto d-block mb-5 mt-5" viewBox="0 0 16 16"  >
+      <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
+      <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"/>
+    </svg>
+
+    <div>
+      <p style="text-align: center" > Exam 2021 would be conducted in online mode.The exams would be conducted for dhamma School subject by the varsity. <br>
+        has decided to conduct the exam in online by admin crew of dhamma School.<br>
+        main guidlones of student may uploaded down here login exam 31st january of 2022 at 8.30 am. 
+      </p>
     </div>
-  </div>
- </div>
-  </form>
-
-  <!-- Card -->
-
-
-    <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-    </li>
-
-    <div class="container" style="padding-top: 5px;">
-        <div class="row">
-            <div class="col-md-12 bg-light text-right" style="margin-left: 2cm;" color: #212529;>
-                <button type="button" class="btn btn-warning" style="width: 150px; padding:10px;">SUBMIT</button>
-            </div>
+    <div class="row d-flex justify-content-center" style="width: 100%">
+        <div class="card col-md-10" style="background-color: #6b7e51">
+          <div class="card-body">
+            
+            <input name="uploadpdf" type="file" class="form-control"  style="background: #009dff; height:1.5cm;" required><br>
+        
+      <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+    
+    
+    
+        <div class="col">
+          <button type="submit" class="btn btn-success" style="float:right">Submit</button>
         </div>
-      </div>
+
+
+
+
+
+
+  
+
+
+  
 
       
 

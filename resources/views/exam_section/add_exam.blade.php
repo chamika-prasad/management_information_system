@@ -33,7 +33,7 @@
         </div>
       </div>
       <div>&emsp;</div>
-      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
+      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
     </div>
   </nav>
   
@@ -127,7 +127,7 @@
       <div class="card-body">
         <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #009dff; height:1.5cm;" required><br>
         <input name="uploadpdf" type="file" class="form-control"  style="background: #009dff; height:1.5cm;" required><br>
-        <input type="text" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;" required><br>
+        <input type="datetime-local" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;" required><br>
         <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #009dff; height:1.5cm;" required><br>
   <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
 
@@ -141,13 +141,6 @@
   </div>
  </div>
 
- <div class="container" style="padding-top: 5px;">
-  <div class="row">
-      <div class="col-md-12 bg-light text-right" style="margin-left: 1.8cm;">
-          <button type="button" class="btn btn-warning" style="width: 100px; padding:10px;">Save</button>
-      </div>
-  </div>
-</div>
 
 
     

@@ -66,6 +66,10 @@ Route::get('/Graded', function () {
     return view ('exam_section/Graded');
 });
 
+Route::get('/exam_student_view', [App\Http\Controllers\ExamController::class, 'studentdisplayExam']);
+
+Route::get('/answer_uploade_student', [App\Http\Controllers\ExamController::class, 'studentuploadeanswer']);
+
 Route::get('/Submission_exam', function () {
     return view ('exam_section/Submission_exam');
 });
@@ -102,6 +106,8 @@ Route::get('/online_exam', function () {
 });
 
 Route::post('/add_exam_details/{subject_id}',[ExamController::class,'addExam']);
+
+Route::get('/view_pepar', [ExamController::class, 'view_pepar'])->name('view_pepar');
 
 
 // end of exam routes
