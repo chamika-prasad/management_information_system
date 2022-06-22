@@ -114,6 +114,16 @@ Route::get('/student_module_view',function(){
 Route::get('/student_module_view',[UploadingContentController::class, 'displayStudentModuleView']);
 
 
+//Grading view
+Route::get('/grading',[UploadingContentController::class, 'gradingview']);
+Route::post('/1stSemUpload',[UploadingContentController::class, 'uploading1stSem']);
+Route::post('/2ndSemUpload',[UploadingContentController::class, 'uploading2ndSem']);
+Route::post('/3rdSemUpload',[UploadingContentController::class, 'uploading3rdSem']);
+
+
+//show resault
+
+Route::get('/showResault',[UploadingContentController::class, 'showReasaultDisplay']);
 
 //-------------------------------------------- end of uploading section
 

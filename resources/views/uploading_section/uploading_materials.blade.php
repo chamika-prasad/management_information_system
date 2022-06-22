@@ -158,9 +158,11 @@
             </div>
 
             <hr>
-            <div class="col-sm-12">
-                <button class="btn btn-danger" style="font-size: 1.5rem;float:right; ">submit</button>
-            </div>
+            <a style="color: aliceblue" href="{{url('/teacher_module_view')}}">
+                <div class="col-sm-12">
+                        <button type="button" class="btn btn-danger" style="font-size: 1.5rem;float:right;">submit</button>
+                </div>
+            </a>
             
             <!----------------------upload materials to relevent subject------------------------------>
     
