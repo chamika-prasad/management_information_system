@@ -33,7 +33,7 @@
         </div>
       </div>
       <div>&emsp;</div>
-      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
+      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
     </div>
   </nav>
   
@@ -60,15 +60,16 @@
       <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
       </li>
 
+
       <li class="nav-item">
         <a class="nav-link" href="#">
 
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
             <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
           </svg>
 
-          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Free Learning Application</span> </a>
+          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Application List</span> </a>
       </li>
      
     </ul>
@@ -77,36 +78,21 @@
 
   <!-- navbar 2-->
 
+  <!-- applications list-->
 
-<!-- application -->
+  <div class="list-group" style="padding-top: 1cm;">
 
-  <div class="form-outline mb-4" style="margin-top:1.5cm;">
-    <div class="container h-100">
-      <div class="row h-100 justify-content-center align-items-center">
-          <div class="col-10 col-md-8 col-lg-6">
-              <!-- Form -->
-              <form class = 'card p-5' style="background-color: #b6acab" action="" method="post">
-                
-                <!-- Input fields -->
-                <div class="form-group">
-                    <textarea class="form-control" id="form4Example3" rows="8" placeholder="Type your reason.." style="background: #585858; color: black;"></textarea>
-                </div>
+    
+        @foreach ($freeApplications as $freeApplication)
 
-                <br>
+            <a href="{{url('/admin_free_learning',$freeApplication->user_id)}}"><button type="button" class="list-group-item list-group-item-action">{{ $freeApplication->user_id }}</button></a>
+         
+         @endforeach
 
-                <div class="col-md-12 text-center" >
-                  <button type="submit" class="btn btn-success btn-lg"><span  style="font-size:20px; vertical-align: middle;  color: black; font-weight: bold;">&emsp;&ensp;Submit&ensp;&emsp;</span></button>
-                </div>
-                <!-- End input fields -->  
-              </form>
-              <!-- Form end -->
-            </div>
-        </div>
-      </div>
-    </div>
-  <!-- application -->
+  </div>
 
-  
+  <!-- applications list-->
+
 
 </body>
 </html>

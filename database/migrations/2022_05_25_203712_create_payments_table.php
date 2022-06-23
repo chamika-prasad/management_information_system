@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedInteger('user_id');
             $table->decimal('amount');
             $table->string('type');
-            $table->boolean('approved')->default(null);
-            $table->string('slipPath')->default(null);
+            $table->integer('approved')->default(0);
+            $table->string('slipName')->default(null);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

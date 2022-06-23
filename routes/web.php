@@ -1,15 +1,26 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+
+use App\Http\Controllers\uploading_pdfController;
+use App\Http\Controllers\FreeLearningController;
+use App\Http\Controllers\BankDepositController;
+use App\Http\Controllers\StripeController;
+
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UploadingContentController;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\HomeController;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\UploadingContent;
 use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,41 +34,100 @@ use Illuminate\Support\Facades\App;
 */
 
 
+// Registration  routes
+Route::get('registration',[AuthController::class,'registration']);
+Route::post('/abc', 'App\Http\Controllers\AuthController@register')->name('abc');
+
+
+//login routes
+Route::get('index',[AuthController::class,'index']);
+Route::post('/def','App\Http\Controllers\AuthController@login')->name('def');
+
+
+//show forget password form
+Route::get('forgot_password',[ForgotPasswordController::class,'showForgetPasswordForm']);
+Route::post('forgot_password',[ForgotPasswordController::class,'submitForgetPasswordForm']);
+
+
+// show the resetpassword form 
+Route::get('reset.password.get/{token}',[ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset.password.post',[ForgotPasswordController::class,'submitResetPasswordForm'])->name('reset.password.post');
+
+//logout
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('free_learning_application/', function () {
-    return view ('free_learning_application');
+    return view ('payment/free_learning_application');
 });
 
 Route::get('payment_option/', function () {
-    return view ('payment_option');
+    return view ('payment/payment_option');
 });
 
-Route::get('bank_deposit/', function () {
-    return view ('bank_deposit');
+Route::get('bank_deposit', function () {
+    return view ('payment/bank_deposit');
 });
 
 Route::get('upload_success/', function () {
-    return view ('upload_success');
+    return view ('payment/upload_success');
 });
 
 Route::get('final_amount/', function () {
-    return view ('final_amount_online_payment');
+    return view ('payment/final_amount_online_payment');
 });
+
+Route::get('/', function () {
+    return view ('welcomehome');
+});
+
+Route::get('/selectuser', function () {
+    return view ('selectusertype');
+});
+
+Route::get('/usertype',[AuthController::class, 'usertype']);
+
 
 Route::get('online_payment_success/', function () {
-    return view ('online_payment_success');
+    return view ('payment/online_payment_success');
 });
 
-Route::get('admin_free_learning/', function () {
-    return view ('admin_free_learning_approve');
-});
+Route::get('/admin_free_learning/{user_id}',[FreeLearningController::class, 'adminFreelearning']);
+
+
+Route::get('/admin_free_learning_list', [FreeLearningController::class, 'displayFreelearningList']);
+
+Route::get('/admin_bank_deposit_list', [BankDepositController::class, 'displayBankDepositList']);
+
+
+Route::get('/admin_bank_deposite/{user_id}', [BankDepositController::class, 'adminBankdeposit']);
+
+Route::post('submit_free_learning_application/{user_id}', [FreeLearningController::class, 'addFreeLearning']);
 
 // Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('admin_free_learning_application_action/{action}/{user_id}', [FreeLearningController::class, 'adminFreeLearningAction']);
+
+Route::post('upload_bank_slip/{user_id}', [BankDepositController::class, 'upload']);
+
+Route::get('stripe', [StripeController::class, 'stripe']);
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
+
+Route::get('/export_pdf', [StripeController::class, 'exportPdf']);
+
+Route::get('/hello',[StripeController::class, 'sendInvoice']);
+
+
+
+
 
 
 //----------------------------- Home page routes
+Route::get('/home',function()
+{
+    return view('home');
+});
+
 
 Route::get('/footer',function(){
     return view ('home_page/footer');
@@ -168,9 +238,11 @@ Route::get('editDelete',[BooksController::class,'editDelete']);
 
 //edit
 Route::get('/editBooks/{id}',[BooksController::class,'edit']);
-Route::post('/editBooks/{id}',[BooksController::class,'update']);
-//'BooksController@edit'
 
+
+//Route::post('/editBooks/{id}',[BooksController::class,'update']);
+//'BooksController@edit'
+Route::put('/updateBooks/{id}',[BooksController::class,'update']);
 /*Route::get('/addBooks', function () {  
     return view('addBooks');
 });*/
@@ -184,6 +256,15 @@ Route::post('/addBooks',[BooksController::class,'store']);//store book in databa
 Route::delete('/Delete/{book}',[BooksController::class,'delete']);
 
 
+Auth::routes();
+
 //serach function//
 Route::get('search',[BooksController::class,'search']);
 
+
+Route::get('studentSerach',[BooksController::class,'studentSerach']);
+Route::get('/studentViewPdfs/{id}',[BooksController::class,'studentPdf']);
+Route::get('/studentView',[BooksController::class,'studentView']);
+Route::get('studentHome',function(){
+    return view ('studentHome');
+});

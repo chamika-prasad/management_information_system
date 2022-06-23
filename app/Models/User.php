@@ -33,8 +33,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        // 'password',
+        // 'remember_token',
+
     ];
 
     /**
@@ -47,7 +48,7 @@ class User extends Authenticatable
     ];
 
 
-    public function free_application(){ //table name in singular
+    /* public function free_application(){ //table name in singular
         return $this->hasOne(FreeApplication::class);//model name
     }
 
@@ -61,5 +62,13 @@ class User extends Authenticatable
 
     public function subject(){ //table name in singular
         return $this->hasMany(subject::class);//model name
-    }
+    } */
+
+    // protected $appends = [
+    //     '_profile_photo_url',
+    // ];
+    public function profile()
+    {
+    return $this->hasOne(Profile::class,'user_id');
+}
 }
