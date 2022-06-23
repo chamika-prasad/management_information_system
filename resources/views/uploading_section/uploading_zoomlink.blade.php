@@ -37,7 +37,7 @@
                         <br>
                         @if ($errors->any())
                             <div class="alert alert-danger" role="alert">
-                                <p>This field is required</p>
+                                <p>This field is required 'Input url' </p>
                             </div>
                         @endif
                       </div>
