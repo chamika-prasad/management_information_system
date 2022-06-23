@@ -206,7 +206,7 @@ Route::get('/showResault',[UploadingContentController::class, 'showReasaultDispl
 //-------------------------------------------- end of uploading section
 
 
-
+//--------------------------------------------Starting library mangement system
 // Route::get('/', function () {  
 //     return view('welcome');
 // });
@@ -268,3 +268,10 @@ Route::get('/studentView',[BooksController::class,'studentView']);
 Route::get('studentHome',function(){
     return view ('studentHome');
 });
+
+
+
+Route::get('/addBooksCategory',[BooksController::class,'addBooksCategory']);//add book category function 
+Route::post('/addBooksCategory',[BooksController::class,'storeBookCategory']);//store book Category in database
+
+//--------------------------------------------Ending library mangement system

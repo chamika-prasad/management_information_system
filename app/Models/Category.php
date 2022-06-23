@@ -8,7 +8,7 @@ use App\Books;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable =['name'];
+    protected $fillable =['name','description'];
 
     public function books()//create relationship with book and category
     {

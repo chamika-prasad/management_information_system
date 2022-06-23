@@ -169,5 +169,29 @@ class BooksController extends Controller
     }
 
 
+
+    public function addBooksCategory()
+    {
+        return view('addBooksCategory');
+
+    }
+
+    public function storeBookCategory(Request $request)
+    {
+        /*$input=$request-> all();
+        Books::create($input);
+        return  redirect('/');*/
+
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+
+        ]);
+        $input=$request-> all();
+        Category::create($input);
+
+        return redirect('/addBooksCategory')->with('message', 'New category  has been added');
+        
+    }
 }
 
