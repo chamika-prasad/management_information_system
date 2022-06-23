@@ -125,10 +125,17 @@
           <label for="input1">Book name</label>
           <input id="name" type="text" name="name" value="{{old('name')}}" class="form-control"  placeholder="Enter book Name" >
         </div>
-        <div class="mb-3 form-group">
-          <label for="input2">Category</label>
-          <input id="category" type="text" name="category"  value="{{old('category')}}" class="form-control"  placeholder="Enter Category Name">
+        
+        <div class="form-group">
+          <label for="input2" class="form-label">Category</label>       
+          <select id="disabledSelect" class="custom-select mr-sm-2" name="category">
+          <option selected hidden>Select Category</option>
+            @foreach($categories as $category)
+            <option value="{{$category->name}}">{{$category->name}}</option>
+            @endforeach
+          </select>
         </div>
+
         <div class="mb-3 form-group">
           <label for="input3">Author</label>
           <input id="author" type="text" name="author"  value="{{old('author')}}" class="form-control"  placeholder="Enter Author Name">

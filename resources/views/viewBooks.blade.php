@@ -97,6 +97,16 @@
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
         
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/addBookCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add category</span> 
+          </a>
+        </li>
+
+        <li>
+          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        </li>
+
       </ul>
     
     </nav>
