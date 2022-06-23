@@ -20,12 +20,6 @@ body
 {
     background-color:#ffff99;
 }
-#header{
-    background-color:#ffe6e6;
-    color:black;
-    padding:20px;
-    text-align:left;
-}
 .card-header{
     background-color:#ff9966;
     color:white;
@@ -43,7 +37,7 @@ input[type=submit]:hover{
     background-color: #66ffff;
 }
 </style>
-<h1 id="header"></h1>
+@include('layouts.Navbar')
 <main class="login-form">
     <div class="container">
         <div class="row justify-content-center">
@@ -106,7 +100,8 @@ input[type=submit]:hover{
         </div>
 
     </div>
-
+    <br><br><br><br><br><br><br><br><br><br>
+    @include('home_page.footer')
 </main>
 </body>
 </html>

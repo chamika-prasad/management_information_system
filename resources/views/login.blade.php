@@ -17,11 +17,13 @@
   box-sizing: border-box;
 }  
 #header{
-    background-color:#ffe6e6;
+    background-color: #FDEFEF;
     color:black;
-    padding:10px;
+    font-size:120%;
+    padding:20px;
     text-align:left;
     font-family:verdana;
+    font-weight: bold;
 }
 body
 {
@@ -46,7 +48,7 @@ input[type=submit]:hover{
 }
 
     </style>
-    <h1 id="header">Welcome to the E-learning</h1>
+    <h1 id="header">Welcome To The E-Learning of Dhamma school</h1>
 <main class="login-form">
     <div class="container">
         <div class="row justify-content-center">
@@ -115,6 +117,9 @@ input[type=submit]:hover{
             </div>
         </div>
     </div>
+    <br><br><br><br><br><br><br><br><br>
+    @include('home_page.footer')
 </main>
+
 </body>
 </html>

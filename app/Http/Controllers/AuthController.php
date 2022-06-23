@@ -75,13 +75,9 @@ class AuthController extends Controller
         $user->admissioncategory = $request->admissioncategory;
         $user->save();
 
-       /* return response()->json([
-            "status" => 1,
-            "message" => "user registered successfully"
-        ]);
-        */
+       
         
-        return redirect('index')->with('message','You have successfully registered in');
+        return redirect('index')->with('success','You have successfully registered in');
         
     }
 
@@ -100,25 +96,15 @@ class AuthController extends Controller
             {
                 $token= $user->createToken("auth_token")->plainTextToken;
 
-               /*  return response()->json([
-                    "status"=>1,
-                    "message"=>"user loggen in successfully",
-                    "access_token"=>$token
-                ]); */
+               
                 return redirect('/')->with('success', 'your have successfully logged in');   
             }
             else{
-                /* return response()->json([
-                    "status"=>0,
-                    "message"=>"password didnt match"
-                ],404); */
+               
                 return back()->with('error','password didnt match');
             }
         }else{
-                /* return response()->json([
-                    "status"=>0,
-                    "message"=>"User not found"
-                ],404); */
+                
                 return back()->with('error','User not found');
             }
     }
@@ -128,6 +114,28 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->flush();
         return redirect('index');
+    }
+
+    public function usertype(Request $request){
+
+        if($request->user==1){
+
+            return view('adminSignup');
+
+        }elseif($request->user==2){
+
+            return view('teacherSignup');
+            
+        }elseif($request->user==3){
+
+            return view('studentSignup',['user_type' => $request->user]);
+            
+        }elseif($request->user==4){
+
+            return view('parentSignup');
+            
+        }
+
     }
     
 
