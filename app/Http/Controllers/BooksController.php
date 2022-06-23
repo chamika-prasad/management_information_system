@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\File;//file model used for update mehthod
 use Illuminate\Support\Facades\Stroage;//beacuse of we want to download files from our storage
 
 use App\Models\Books;//use Books model because import it
-
+use App\Models\Category;
 
 class BooksController extends Controller
 {       
     public function index()
     {
-        $books=Books::all();//get all element in Books model
+        // $books=Books::all();//get all element in Books model
+        $books=Books::with('category')->get();
         return view('viewBooks',compact('books'));//target destination is viewBooks view
     }
 
@@ -26,7 +27,8 @@ class BooksController extends Controller
 
     public function add()
     {
-        return view('addBooks');
+        $categories=Category::all();
+        return view('addBooks',compact('categories'));
 
     }
     public function store(Request $request)
