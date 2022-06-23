@@ -73,18 +73,7 @@ input[type=submit]:hover{
                              </div> 
 
 
-                             <div class="form-group row">
-                             
-                                <label for="usertype" class="col-md-4 col-form-lable text-md-right">{{ __('usertype') }}</label>
-                                  <div class="col-md-6">
-                                    <select class="form-control" id="usertype" name="usertype" required focus>
-                                        <option value="Admin"  selected>Admin</option>        
-                                        <option value="Student"  selected>Student</option>        
-                                        <option value="Teacher" selected>Teacher</option>
-                                        <option value="Parent" selected>Parent</option>        
-                                    </select>
-                                  </div>
-                             </div>
+
                             <div class="form-group row">
                              
                             <label for="firstName" class="col-md-4 col-form-lable text-md-right">{{ __('FirstName') }}</label>

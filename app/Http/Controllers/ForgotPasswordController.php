@@ -47,14 +47,11 @@ class ForgotPasswordController extends Controller
         ]);
       /* return response([
             'message'=>'Check your email'
-        ]);*/
-        /*Mail::send('email.forgetPassword',['token'=>$token],function($message) use ($request)
+        ]);*/  /*Mail::send('email.forgetPassword',['token'=>$token],function($message) use ($request)
         {
             $message->to($request->email);
             $message->subject('Reset Password');
-        });*/
-        
-        /*return response([
+        });*/ /*return response([
             'message'=>'Check your email'
         ]);
     }catch(\Exception $exception)
@@ -62,8 +59,7 @@ class ForgotPasswordController extends Controller
         return response([
             'message'=>$exception->getMessage()
         ],400);
-    }*/
-    //Mail::to($request->all()['email']->send(new ResetPassword($token)));
+    }*/ //Mail::to($request->all()['email']->send(new ResetPassword($token)));
    // copy and paste in upper
     Mail::send('email.forgetPassword',['token'=>$token],function($message) use ($request)
         {
@@ -103,21 +99,15 @@ class ForgotPasswordController extends Controller
 
         if(!$updatePassword)
         {
-            return back()->with('message','Invalid token');
-            //new
-            /* return response([
-                'message'=>'Invalid token'
-            ],400); */
+            return back()->with('error','Invalid token');
+          
         }
 
         $user = User::where('email',$request->email)
                 ->update(['password'=>Hash::make($request->password)]);
 
         DB::table('password_resets')->where(['email'=>$request->email])->delete();
-       /*  return response([
-            'message'=>'success'
-        ]);
-         */
-       return redirect('index')->with('message','Your password has been changed');
+       
+       return redirect('index')->with('error','Your password has been changed');
                     }
 }
