@@ -24,61 +24,62 @@
                         <li class="list-group-item list-group-item-info">Semester 1</li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Budhdha Charithaya
-                        <span class="badge badge-primary badge-pill">{{$sem1budhdha}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem1->semOneBudhdha}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Pali
-                        <span class="badge badge-primary badge-pill">{{$sem1pali}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem1->semOnePali}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Abhidharmaya
-                        <span class="badge badge-primary badge-pill">{{$sem1abhi}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem1->semOneAbhi}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Assignments
-                        <span class="badge badge-primary badge-pill">{{$sem1ass}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem1->semOneAssignment}}</span>
                         </li>
                     </ul>
                     <ul class="list-group mt-3">
                         <li class="list-group-item list-group-item-info">Semester 2</li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Budhdha Charithaya
-                        <span class="badge badge-primary badge-pill">{{$sem2budhdha}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem2->semTwoBudhdha}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Pali
-                        <span class="badge badge-primary badge-pill">{{$sem2pali}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem2->semTwoPali}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Abhidharmaya
-                        <span class="badge badge-primary badge-pill">{{$sem2abhi}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem2->semTwoAbhi}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Assignments
-                        <span class="badge badge-primary badge-pill">{{$sem2ass}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem2->semTwoAssignment}}</span>
                         </li>
                     </ul>
                     <ul class="list-group mt-3">
                         <li class="list-group-item list-group-item-info">Semester 3</li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Budhdha Charithaya
-                        <span class="badge badge-primary badge-pill">{{$sem3budhdha}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem3->semThreeBudhdha}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Pali
-                        <span class="badge badge-primary badge-pill">{{$sem3pali}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem3->semThreePali}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Abhidharmaya
-                        <span class="badge badge-primary badge-pill">{{$sem3abhi}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem3->semThreeAbhi}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Assignments
-                        <span class="badge badge-primary badge-pill">{{$sem3ass}}</span>
+                        <span class="badge badge-primary badge-pill">{{$sem3->semThreeAssignment}}</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+    @include('home_page.footer')
 </body>

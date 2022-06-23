@@ -25,7 +25,7 @@
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         
         <div class="card" style="border-color:black; background-color:#98998f">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 6 </p>
+            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date}} </p>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
                     <div class="card-body" style="color:white; height: 65px">

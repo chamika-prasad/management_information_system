@@ -63,8 +63,16 @@ Route::get('/footer',function(){
     return view ('home_page/footer');
 });
 
-Route::get('/',function(){
-    return view ('home_page/home_uploading');
+Route::get('/teacher_home_uploading',function(){
+    return view ('home_page/teacher_home_uploading');
+});
+
+Route::get('/student_home_uploading',function(){
+    return view ('home_page/student_home_uploading');
+});
+
+Route::get('/admin_home_uploading',function(){
+    return view ('home_page/admin_home_uploading');
 });
 
 //-------------------------------- End of home page routes

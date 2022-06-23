@@ -33,7 +33,13 @@
                     <div class="form-group row">
                         <label for="inputlink3" class="col-sm-2 col-form-label">Record link</label>
                         <div class="col-sm-10">
-                          <input type="link" name="createrecord" class="form-control" id="inputlink3" placeholder="Enter recorded lecture recording link">
+                          <input type="link"  name="createrecord" class="form-control" id="inputlink3" placeholder="Enter recorded lecture recording link">
+                          <br>
+                          @if ($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                <p>This field is required 'Input url' </p>
+                            </div>
+                        @endif
                         </div>
                     </div>
                     <div class="form-group row" style="float: right; left: 100px">

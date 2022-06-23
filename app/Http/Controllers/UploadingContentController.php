@@ -14,6 +14,9 @@ class UploadingContentController extends Controller
     public function displaymaterials()
     {
 
+        $gradename = Classroom::latest('created_at')->first();
+        $subjectname = Subject::latest('created_at')->first();
+
         $Uploadingdummy = new UploadingContent();
         $Uploadingdummy->zoomLink = 'Zoom.link';
         $Uploadingdummy->pdf = 'file.pdf';
@@ -23,8 +26,7 @@ class UploadingContentController extends Controller
         $Uploadingdummy-> save();
 
         $lasts = UploadingContent::latest('created_at')->first();
-        $gradename = Classroom::latest('created_at')->first();
-        $subjectname = Subject::latest('created_at')->first();
+       
         
         return view('uploading_section/uploading_materials',['lasts' => $lasts , 'gradename'=>$gradename , 'subjectname' => $subjectname]);
     }
@@ -49,9 +51,10 @@ class UploadingContentController extends Controller
     public function  storezoomlink(Request $request)
     {
         $request-> validate([
-            'createzoomlink'=> 'required | min: 2'
+            'createzoomlink'=> 'required|url'
 
         ]);
+    
         $lasts = UploadingContent::latest('created_at')->first();
 
         $lasts->zoomLink = $request->createzoomlink;
@@ -78,6 +81,10 @@ class UploadingContentController extends Controller
     {
 
         $lasts = UploadingContent::latest('created_at')->first();
+        $request-> validate([
+            'createrecord'=> 'required|url'
+
+        ]);
 
         $lasts->recordingLink = $request->createrecord;
         $lasts->save();
@@ -146,19 +153,25 @@ class UploadingContentController extends Controller
         $sub -> save();
         $grd -> save();
 
+        $day=strtotime("next Sunday");
+        $date =  date('Y M d ' , $day);
+
         $gradename = Classroom::latest('created_at')->first();
         $subjectname = Subject::latest('created_at')->first();
         $lasts = UploadingContent::latest('created_at')->first();
-        return view('uploading_section/teacher_module_view',['lasts' => $lasts,'gradename'=>$gradename , 'subjectname' => $subjectname]);
+        return view('uploading_section/teacher_module_view',['lasts' => $lasts,'gradename'=>$gradename , 'subjectname' => $subjectname , 'date' => $date]);
     }
 
 
     public function displaymoduleview()
     {
+        $day=strtotime("next Sunday");
+        $date =  date('Y M d ' , $day);
+
         $lasts = UploadingContent::latest('created_at')->first();
         $subjectname = Subject::latest('created_at')->first();
         $gradename = Classroom::latest('created_at')->first();
-        return view('uploading_section/teacher_module_view',['lasts' => $lasts ,'subjectname' => $subjectname , 'gradename'=>$gradename]);
+        return view('uploading_section/teacher_module_view',['lasts' => $lasts ,'subjectname' => $subjectname , 'gradename'=>$gradename , 'date' => $date]);
     }
 
 
@@ -296,26 +309,12 @@ class UploadingContentController extends Controller
     public function showReasaultDisplay()
     {
 
-        $sem1budhdha = Grade::select('semOneBudhdha')->latest('created_at')->first();
-        $sem1pali = Grade::select('semOnePali')->latest('created_at')->first();
-        $sem1abhi = Grade::select('semOneAbhi')->latest('created_at')->first();
-        $sem1ass = Grade::select('semOneAssignment')->latest('created_at')->first();
+        $sem1 = Grade::latest('created_at')->first();
+        $sem2 = GradeSemtwo::latest('created_at')->first();
+        $sem3 = GradeSemThree::latest('created_at')->first();
 
 
-        $sem2budhdha = GradeSemtwo::select('semTwoBudhdha')->latest('created_at')->first();
-        $sem2pali = GradeSemtwo::select('semTwoPali')->latest('created_at')->first();
-        $sem2abhi = GradeSemtwo::select('semTwoAbhi')->latest('created_at')->first();
-        $sem2ass = GradeSemtwo::select('semTwoAssignment')->latest('created_at')->first();
-
-        
-
-        $sem3budhdha = GradeSemThree::select('semThreeBudhdha')->latest('created_at')->first();
-        $sem3pali = GradeSemThree::select('semThreePali')->latest('created_at')->first();
-        $sem3abhi = GradeSemThree::select('semThreeAbhi')->latest('created_at')->first();
-        $sem3ass = GradeSemThree::select('semThreeAssignment')->latest('created_at')->first();
-        return view('uploading_section/showResault',['sem1budhdha' => $sem1budhdha,'sem1pali' =>  $sem1pali,'sem1abhi' =>  $sem1abhi , 'sem1ass'=> $sem1ass 
-        ,'sem2budhdha' => $sem2budhdha,'sem2pali' =>  $sem2pali,'sem2abhi' =>  $sem2abhi , 'sem2ass'=> $sem2ass
-        ,'sem3budhdha' => $sem3budhdha,'sem3pali' =>  $sem3pali,'sem3abhi' =>  $sem3abhi , 'sem3ass'=> $sem3ass]);
+        return view('uploading_section/showResault',['sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3]);
     }
 
 }
