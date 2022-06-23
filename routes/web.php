@@ -31,21 +31,29 @@ use Illuminate\Support\Facades\App;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// Registration  routes
 Route::get('registration',[AuthController::class,'registration']);
-//Route::post('abc',[AuthController::class,'register'])->name('abc');
 Route::post('/abc', 'App\Http\Controllers\AuthController@register')->name('abc');
 
+
+//login routes
 Route::get('index',[AuthController::class,'index']);
-// Route::post('/login','App\Http\Controllers\AuthController@login')->name('login');
 Route::post('/def','App\Http\Controllers\AuthController@login')->name('def');
 
 
+//show forget password form
 Route::get('forgot_password',[ForgotPasswordController::class,'showForgetPasswordForm']);
 Route::post('forgot_password',[ForgotPasswordController::class,'submitForgetPasswordForm']);
+
+
+// show the resetpassword form 
 Route::get('reset.password.get/{token}',[ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset.password.post',[ForgotPasswordController::class,'submitResetPasswordForm'])->name('reset.password.post');
+
+//logout
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('dashboard', [AuthController::class, 'dashboard']);
 
 Route::get('free_learning_application/', function () {
     return view ('payment/free_learning_application');
@@ -66,6 +74,17 @@ Route::get('upload_success/', function () {
 Route::get('final_amount/', function () {
     return view ('payment/final_amount_online_payment');
 });
+
+Route::get('/', function () {
+    return view ('welcomehome');
+});
+
+Route::get('/selectuser', function () {
+    return view ('selectusertype');
+});
+
+Route::get('/usertype',[AuthController::class, 'usertype']);
+
 
 Route::get('online_payment_success/', function () {
     return view ('payment/online_payment_success');
@@ -94,13 +113,19 @@ Route::post('upload_bank_slip/{user_id}', [BankDepositController::class, 'upload
 
 
 
+
 //----------------------------- Home page routes
+Route::get('/home',function()
+{
+    return view('home');
+});
+
 
 Route::get('/footer',function(){
     return view ('home_page/footer');
 });
 
-Route::get('/',function(){
+Route::get('/user',function(){
     return view ('home_page/home_uploading');
 });
 
