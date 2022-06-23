@@ -93,16 +93,6 @@
           </a>
         </li>
 
-
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBookCategory')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View category</span> 
-          </a>
-        </li>
-
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
@@ -117,7 +107,12 @@
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
 
-        
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete category</span> 
+          </a>
+        </li>
+
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
@@ -125,11 +120,6 @@
     
     </nav>
     <br>
-
-          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
-           Edit or delete category
-          </a>
-
     <div class="container">
       <a class="btn btn-info float-right mb-4  custom" href="{{url('/')}}">Go Back</a>
     </div>
@@ -151,23 +141,16 @@
         <thead>
           <tr>
           
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Author</th>
-            <th scope="col">Publisher</th>
-            <th scope="col">View</th>
-            <th scope="col">Download</th>
-          </tr>
+          
+            <th scope="col">Category name</th>
+            <th scope="col">Description</th>
+
         </thead>
         <tbody>
-          @foreach($books as $book)
+          @foreach($category as $category)
             <tr>
-                <td>{{$book->name}}</td>
-                <td>{{$book->category}}</td>
-                <td>{{$book->author}}</td>
-                <td>{{$book ->publisher}}</td>
-                <td><a href="{{url('/view',$book->id)}}">View</a></td>
-                <td><a href="{{url('/download',$book->file)}}">Download</a></td>
+                <td>{{$category->name}}</td>
+                <td>{{$category->description}}</td>
             </tr>
           @endforeach
         </tbody>

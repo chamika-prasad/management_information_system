@@ -173,3 +173,17 @@ Route::get('/studentView',[BooksController::class,'studentView']);
 Route::get('studentHome',function(){
     return view ('studentHome');
 });
+Route::get('/viewBookCategory',[BooksController::class,'viewBookCategory']);
+
+Route::get('/addBooksCategory',[BooksController::class,'addBooksCategory']);//add book category function 
+Route::post('/addBooksCategory',[BooksController::class,'storeBookCategory']);//store book Category in database
+
+
+Route::get('/editDeleteBookCategory',[BooksController::class,'editDeleteBookCategory']);
+
+//edit
+Route::get('/editBookCategory/{id}',[BooksController::class,'editBookCategory']);
+Route::delete('/DeleteCategory/{category}',[BooksController::class,'deleteCategory']);
+Route::put('/updateBooksCategory/{id}',[BooksController::class,'updateBooksCategory']);
+
+//--------------------------------------------Ending library mangement system

@@ -167,6 +167,67 @@ class BooksController extends Controller
         $books=Books::all();//get all element in Books model
         return view('studentView',compact('books'));//target destination is viewBooks view
     }
+    public function addBooksCategory()
+    {
+        return view('addBooksCategory');
+
+    }
+
+    public function storeBookCategory(Request $request)
+    {
+        /*$input=$request-> all();
+        Books::create($input);
+        return  redirect('/');*/
+
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+
+        ]);
+        $input=$request-> all();
+        Category::create($input);
+
+        return redirect('/addBooksCategory')->with('message', 'New category  has been added');
+        
+    }
+    public function editDeleteBookCategory()
+    {
+        $category=Category::all();//get all element in Books model
+        return view('editDeleteBookCategory',compact('category'));
+    }
+    public function editBookCategory($id)
+    {
+          $category=Category::find($id);
+          
+          return view('editBookCategory',compact('category'));
+        
+    }
+
+    public function deleteCategory($category)
+    {
+        Category::find($category)->delete();
+        //return redirect('/editDelete');
+        return redirect()->back()->with('message', 'Thank you!   The book has been deleted');
+        
+    }
+
+    public function updateBooksCategory(Request $request, $id)
+    {
+       
+        $category=Category::find($id);
+
+        $category->name=$request->input('name');
+        $category->description=$request->input('description');
+
+        $category->update();
+        return  redirect('/editDeleteBookCategory'); 
+    }
+    public function viewBookCategory()
+    {
+        // $books=Books::all();//get all element in Books model
+        $category=Category::all();
+        return view('viewBookCategory',compact('category'));//target destination is viewBooks view
+    }
 
 
 }
