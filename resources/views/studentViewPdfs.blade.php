@@ -34,7 +34,7 @@
               </div>
             </div>
             <div>&emsp;</div>
-            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
+            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
           </div>
       </nav>
     
@@ -72,7 +72,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBooks')}}">
+          <a class="nav-link" href="{{url('/studentView')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
           </a>
         </li>
@@ -80,29 +80,13 @@
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/editDelete')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> 
-          </a>
-        </li>
-
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/addBooks')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add Books</span> </a>
-        </li>
-
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
+        
       </ul>
     
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/viewBooks')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/studentView')}}">Go Back</a>
     <div>
     <br>
 
@@ -119,6 +103,3 @@
     </div>   
   </body>
 </html>
-
-
-

@@ -108,12 +108,6 @@ class BooksController extends Controller
     public function update(Request $request, $book)
     {
        
-        /*$book->name=$input['name'];
-        $book->publisher=$input['publisher'];
-        $book->author=$input['author'];
-        $book->file=$input['file'];*/
-       
-        //$input=$request-> all();
         $book=Books::find($book);
 
         $book->name=$request->input('name');
@@ -140,7 +134,7 @@ class BooksController extends Controller
         
         
         $book->update();
-        //session()->flash('message',$input['name'].'   Successfully Updated');
+
 
         return  redirect('/editDelete'); 
     }
@@ -151,7 +145,26 @@ class BooksController extends Controller
           $books=Books::where('name','LIKE','%'.$search_text.'%')->orWhere('author','LIKE','%'.$search_text.'%')->orWhere('category','LIKE','%'.$search_text.'%')->orWhere('publisher','LIKE','%'.$search_text.'%')->get();
           return view('search',compact('books'));    
     }
+
+    public function studentSerach()
+    {
+          $s_text=$_GET['query'];
+          $books=Books::where('name','LIKE','%'.$s_text.'%')->orWhere('author','LIKE','%'.$s_text.'%')->orWhere('category','LIKE','%'.$s_text.'%')->orWhere('publisher','LIKE','%'.$s_text.'%')->get();
+          return view('studentSerach',compact('books'));    
+    }
    
+    public function studentPdf($id)
+    {
+        $data=Books::find($id);
+        return view('StudentViewPdfs',compact('data'));
+       
+    }
+
+    public function studentView()
+    {
+        $books=Books::all();//get all element in Books model
+        return view('studentView',compact('books'));//target destination is viewBooks view
+    }
 
 
 }

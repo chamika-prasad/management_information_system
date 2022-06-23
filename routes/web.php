@@ -166,3 +166,10 @@ Auth::routes();
 //serach function//
 Route::get('search',[BooksController::class,'search']);
 
+
+Route::get('studentSerach',[BooksController::class,'studentSerach']);
+Route::get('/studentViewPdfs/{id}',[BooksController::class,'studentPdf']);
+Route::get('/studentView',[BooksController::class,'studentView']);
+Route::get('studentHome',function(){
+    return view ('studentHome');
+});

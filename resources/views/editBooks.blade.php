@@ -30,7 +30,7 @@
               <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" type="button">My profile</button>
                 <button class="dropdown-item" type="button">Settings</button>
-                <button class="dropdown-item" type="button">Logout</button>
+                <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
               </div>
             </div>
             <div>&emsp;</div>

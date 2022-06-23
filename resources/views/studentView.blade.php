@@ -34,7 +34,7 @@
           </div>
         </div>
         <div>&emsp;</div>
-        <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
+        <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
       </div>
     </nav>
     
@@ -71,43 +71,30 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBooks')}}">
+          <a class="nav-link" >
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
           </a>
         </li>
 
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/editDelete')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> </a>
-        </li>
+        
 
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/addBooks')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add Books</span> 
-          </a>
-        </li>
+        
 
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
         
       </ul>
     
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/studentView')}}">Go Back</a>
     </div>
     <br>
     <br>
     <div class="container">
-      <form class="d-flex" type="get" action="{{url('/search')}}">
+      <form class="d-flex" type="get" action="{{url('studentSerach')}}">
     
           <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book" aria-label="Search">
         
@@ -137,7 +124,7 @@
                 <td>{{$book->category}}</td>
                 <td>{{$book->author}}</td>
                 <td>{{$book ->publisher}}</td>
-                <td><a href="{{url('/view',$book->id)}}">View</a></td>
+                <td><a href="{{url('/studentViewPdfs',$book->id)}}">View</a></td>
                 <td><a href="{{url('/download',$book->file)}}">Download</a></td>
             </tr>
           @endforeach
