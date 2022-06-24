@@ -10,9 +10,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <title>Add Books</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+      <title>Edit/Delete</title>
   </head>
   <body>
 
@@ -29,22 +27,19 @@
                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                       <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                     </svg>
-              <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">My profile</button>
-                <button class="dropdown-item" type="button">Settings</button>
-                <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
-              </div>
+            <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button">My profile</button>
+              <button class="dropdown-item" type="button">Settings</button>
+              <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
+            </div>
           </div>
           <div>&emsp;</div>
-            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
+          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
         </div>
-      </nav>
-      
-  
+    </nav>
     
+
     <nav class="navbar navbar-expand-sm " style="background-color: #7C5D5D;">
-
-
       <ul class="navbar-nav">
 
         <li class="nav-item">
@@ -84,8 +79,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('/editDelete')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> 
-          </a>
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> </a>
         </li>
 
         <li>
@@ -97,7 +91,7 @@
           </a>
         </li>
 
-        <li> 
+        <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
       </ul>
@@ -105,43 +99,52 @@
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
+    <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
     <div>
-    <br>
-
-      <form method="post"  enctype="multipart/form-data" action="{{url('/addBooksCategory')}}" id="form1">
-        @csrf
-        <div class=" mb-3 form-group">
-          <label for="input1">Category name</label>
-          <input id="name" type="text" name="name" value="{{old('name')}}" class="form-control"  placeholder="Enter book category Name" >
-        </div>
-        
-       
-        <div class="mb-3 form-group">
-          <label for="input3">Description</label>
-          <input id="description" type="text" name="description" class="form-control"  placeholder="Enter Description">
-        </div>
-
       <br>
-      <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooksCategory')}} " >Add</button>  
-    </div>
-      </form>
-      <div class="container mt-2">
-      @if(session()->has('message'))
-          <div class="alert alert-success">
-              {{ session()->get('message') }}
-          </div>
-      @endif
-    </div> 
-    <div class="container mt-2">
-      @if($errors->any())
-        @foreach($errors->all() as $error )
-          <div class="alert alert-danger" role="alert">
-          {{$error}}
-          </div>
+      <table class="table table-dark">
+      <thead>
+        <tr>
+        
+      
+          <th scope="col">Category Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Action</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($category as $category)
+          <tr>
+          
+              <td>{{$category->name}}</td>
+              <td>{{$category->description}}</td>
+
+          
+            <td style="display:flex">
+              <a class="btn btn-success mr-1" href="{{url('/editBookCategory/'.$category->id)}}">Edit</a>
+            </td>
+            <td>
+              <form action="{{url('/DeleteCategory/'.$category->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+                {{method_field('DELETE')}}  
+                {{csrf_field()}}
+                <button type="submit" class="btn btn-danger">Delete
+                  
+                </button>
+                   
+              </form>
+            </td>
+          </tr>
         @endforeach
+      </tbody>
+    </table>
+
+    <div class="container mt-2">
+      @if(session()->has('message'))
+        <div class="alert alert-success">
+          {{ session()->get('message') }}
+      </div>
       @endif
-    </div>  
+    </div>   
   </body>
 </html>

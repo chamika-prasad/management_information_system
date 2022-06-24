@@ -93,6 +93,16 @@
           </a>
         </li>
 
+
+        <li>
+          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/viewBookCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View category</span> 
+          </a>
+        </li>
+
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
@@ -107,11 +117,6 @@
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/addBookCategory')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete category</span> 
-          </a>
-        </li>
 
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
@@ -120,6 +125,11 @@
     
     </nav>
     <br>
+
+          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
+           Edit or delete category
+          </a>
+
     <div class="container">
       <a class="btn btn-info float-right mb-4  custom" href="{{url('/')}}">Go Back</a>
     </div>

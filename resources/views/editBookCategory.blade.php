@@ -10,37 +10,34 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <title>Add Books</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+      <title>Edit Books</title>
   </head>
   <body>
-
+    
       <nav class="navbar navbar-light " style="background-color: #FDEFEF;">
         <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Library Management System</span>
 
-        <div class="d-flex align-items-center">
-          <div class="dropdown">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
-                    id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    height="40"
-                    alt="Black and White Portrait of a Man"
-                    loading="lazy" viewBox="0 0 16 16" style="vertical-align: middle;">
-                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                    </svg>
+          <div class="d-flex align-items-center">
+            <div class="dropdown">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
+                      id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      height="40"
+                      alt="Black and White Portrait of a Man"
+                      loading="lazy" viewBox="0 0 16 16" style="vertical-align: middle;">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                      </svg>
               <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" type="button">My profile</button>
                 <button class="dropdown-item" type="button">Settings</button>
                 <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
               </div>
-          </div>
-          <div>&emsp;</div>
+            </div>
+            <div>&emsp;</div>
             <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
-        </div>
+          </div>
       </nav>
-      
-  
+
     
     <nav class="navbar navbar-expand-sm " style="background-color: #7C5D5D;">
 
@@ -75,8 +72,8 @@
 
         <li class="nav-item">
           <a class="nav-link" href="{{url('/viewBooks')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
-          </a>
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span>
+           </a>
         </li>
 
         <li>
@@ -84,8 +81,8 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('/editDelete')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> 
-          </a>
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span>
+           </a>
         </li>
 
         <li>
@@ -105,35 +102,35 @@
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
-    <div>
-    <br>
-
-      <form method="post"  enctype="multipart/form-data" action="{{url('/addBooksCategory')}}" id="form1">
-        @csrf
-        <div class=" mb-3 form-group">
-          <label for="input1">Category name</label>
-          <input id="name" type="text" name="name" value="{{old('name')}}" class="form-control"  placeholder="Enter book category Name" >
-        </div>
-        
-       
-        <div class="mb-3 form-group">
-          <label for="input3">Description</label>
-          <input id="description" type="text" name="description" class="form-control"  placeholder="Enter Description">
-        </div>
-
-      <br>
-      <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooksCategory')}} " >Add</button>  
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDelete')}}">Go Back</a>
     </div>
+    <br>
+    <div class="container">
+      <form method="post" action="{{url('/updateBooksCategory/'.$category->id)}}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+          <div class=" mb-3 form-group">
+            <label for="input1">Category name</label>
+            <input id="name" type="text" name="name" class="form-control"  value="{{$category->name}}">
+          </div>
+          <div class="mb-3 form-group">
+            <label for="input2">Description</label>
+            <input id="description" type="text" name="description" class="form-control" value="{{$category->description}}">
+          </div>
+
+        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooksCategory')}}">Update</button>
+          
+
       </form>
-      <div class="container mt-2">
+    </div>
+
+    <div class="container mt-2">
       @if(session()->has('message'))
           <div class="alert alert-success">
               {{ session()->get('message') }}
           </div>
       @endif
-    </div> 
+    </div>  
     <div class="container mt-2">
       @if($errors->any())
         @foreach($errors->all() as $error )
