@@ -167,29 +167,6 @@ class BooksController extends Controller
         $books=Books::all();//get all element in Books model
         return view('studentView',compact('books'));//target destination is viewBooks view
     }
-    public function addBooksCategory()
-    {
-        return view('addBooksCategory');
-
-    }
-
-    public function storeBookCategory(Request $request)
-    {
-        /*$input=$request-> all();
-        Books::create($input);
-        return  redirect('/');*/
-
-        $request->validate([
-            'name'=>'required',
-            'description'=>'required',
-
-        ]);
-        $input=$request-> all();
-        Category::create($input);
-
-        return redirect('/addBooksCategory')->with('message', 'New category  has been added');
-        
-    }
     public function editDeleteBookCategory()
     {
         $category=Category::all();//get all element in Books model
