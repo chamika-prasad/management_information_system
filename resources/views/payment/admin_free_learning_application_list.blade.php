@@ -82,10 +82,12 @@
 
   <div class="list-group" style="padding-top: 1cm;">
 
-    <button type="button" class="list-group-item list-group-item-action">Application 01</button>
-    <button type="button" class="list-group-item list-group-item-action">Application 02</button>
-    <button type="button" class="list-group-item list-group-item-action">Application 03</button>
-    <button type="button" class="list-group-item list-group-item-action">Application 04</button>
+    
+        @foreach ($freeApplications as $freeApplication)
+
+            <a href="{{url('/admin_free_learning',$freeApplication->user_id)}}"><button type="button" class="list-group-item list-group-item-action">{{ $freeApplication->user_id }}</button></a>
+         
+         @endforeach
 
   </div>
 
