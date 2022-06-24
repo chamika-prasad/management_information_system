@@ -117,7 +117,7 @@
           <div class="form-group">
           <label for="input2" class="form-label">Category</label>       
           <select id="disabledSelect" class="custom-select mr-sm-2" name="category" >
-          <option selected hidden>Select Category</option>
+          <option selected hidden>None</option>
             @foreach($categories as $category)
             <option value="{{$category->name}}">{{$category->name}}</option>
             @endforeach
