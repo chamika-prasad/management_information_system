@@ -12,9 +12,8 @@
     <title>teacher_module_view</title>
 </head>
 <body>
-    @include('layouts.Navbar')
+    @include('layouts.TeacherNavbar')
     @include('uploading_section.Navbar_module')
-    
     <!----------------------one week all materials to the class------------------------------>
 
 
@@ -25,7 +24,7 @@
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         
         <div class="card" style="border-color:black; background-color:#98998f">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date}} </p>
+            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date1}} </p>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
                     <div class="card-body" style="color:white; height: 65px">
@@ -99,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <a href="/uploading_materials">
+            <a href="{{url('/uploading_materials',$day1)}}">
 
                 <div class="btn btn-secondary container-fluid">Add</div>
             
@@ -122,7 +121,7 @@
 
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px;">
         <div class="card" style="border-color:black; background-color:#98998f;">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 13 </p>
+            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date2}} </p>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
                     <div class="card-body" style="color:white; height: 65px">
@@ -218,7 +217,7 @@
 
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         <div class="card" style="border-color:black; background-color:#98998f;">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 20</p>
+            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date3}}</p>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
                     <div class="card-body" style="color:white; height: 65px">
@@ -292,7 +291,8 @@
                     </div>
                 </div>
             </div>
-            <a href="/uploading_materials">
+            
+            <a href="{{url('/uploading_materials')}}">
 
                 <div class="btn btn-secondary container-fluid">Add</div>
             

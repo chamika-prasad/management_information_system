@@ -13,8 +13,7 @@
 </head>
 
 <body>
-    @include('layouts.Navbar')
-
+    @include('layouts.TeacherNavbar')
     @include('uploading_section.Navbar_module')
 
     <div>

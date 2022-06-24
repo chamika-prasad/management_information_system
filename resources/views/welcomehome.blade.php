@@ -14,5 +14,11 @@
 <a href="/selectuser">signup</a><br>
 <a href="">login</a>
 </form>
+
+<br><br>
+
+<a href="/student_home_uploading">student</a><br>
+<a href="/teacher_home_uploading">teacher</a><br>
+<a href="/admin_home_uploading">admin</a>
 </body>
 </html>

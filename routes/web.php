@@ -155,22 +155,24 @@ Route::get('/admin_home_uploading',function(){
 
 
 //uploading materials view
-Route::get('/uploading_materials',[UploadingContentController::class, 'displaymaterials']);
+Route::get('uploading_materials/{day1}',[UploadingContentController::class, 'displaymaterials']);
+
 
 
 //zoom link upload view 
-Route::get('/uploading_zoomlink',[UploadingContentController::class, 'displayUploadZoom']);
-Route::post('uploadZoomlink',[UploadingContentController::class, 'storezoomlink']);
+Route::get('/uploading_zoomlink/{day1}',[UploadingContentController::class, 'displayUploadZoom']);
+Route::post('uploadZoomlink/{day1}',[UploadingContentController::class, 'storezoomlink']);
+
 
 
 //pdf upload view
-Route::get('/uploading_pdf',[UploadingContentController::class, 'displayUploadPDF']);
-Route::post('uploadingPdf',[UploadingContentController::class, 'storepdf']);
+Route::get('/uploading_pdf/{day1}',[UploadingContentController::class, 'displayUploadPDF']);
+Route::post('uploadingPdf/{day1}',[UploadingContentController::class, 'storepdf']);
 
 
 //record upload view
-Route::get('/uploading_recording',[UploadingContentController::class, 'displayUploadRecord']);
-Route::post('uploadRecording',[UploadingContentController::class, 'storerecord']);
+Route::get('/uploading_recording/{day1}',[UploadingContentController::class, 'displayUploadRecord']);
+Route::post('uploadRecording/{day1}',[UploadingContentController::class, 'storerecord']);
 
 
 //select module view
