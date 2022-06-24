@@ -154,7 +154,9 @@
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
       <br>
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}}">Add</button>  
+      <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}} " >Add</button>  
+    </div>
       </form>
     <div class="container mt-2">
       @if(session()->has('message'))

@@ -113,10 +113,16 @@
             <label for="input1">Book name</label>
             <input id="name" type="text" name="name" class="form-control"  value="{{$book->name}}">
           </div>
-          <div class="mb-3 form-group">
-            <label for="input2">Category</label>
-            <input id="category" type="text" name="category" class="form-control" value="{{$book->category}}">
-          </div>
+
+          <div class="form-group">
+          <label for="input2" class="form-label">Category</label>       
+          <select id="disabledSelect" class="custom-select mr-sm-2" name="category" >
+          <option selected hidden>Select Category</option>
+            @foreach($categories as $category)
+            <option value="{{$category->name}}">{{$category->name}}</option>
+            @endforeach
+          </select>
+        </div>
           <div class="mb-3 form-group">
             <label for="input3">Author</label>
             <input id="author" type="text" name="author" class="form-control" value="{{$book->author}}" >
@@ -134,10 +140,9 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
-
-
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}}">Update</button>
-          
+        <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}} " >Update</button>  
+    </div>
 
       </form>
     </div>

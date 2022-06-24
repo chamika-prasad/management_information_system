@@ -102,8 +102,8 @@ class BooksController extends Controller
     public function edit($book)
     {
           $book=Books::find($book);
-          
-          return view('editBooks',compact('book'));
+          $categories=Category::all();
+          return view('editBooks',compact('book','categories'));
         
     }
    
@@ -113,6 +113,7 @@ class BooksController extends Controller
         $book=Books::find($book);
 
         $book->name=$request->input('name');
+        $book->category=$request->input('category');
         $book->author=$request->input('author');
         $book->publisher=$request->input('publisher');
         $book->file=$request->input('file');
@@ -133,7 +134,6 @@ class BooksController extends Controller
             $book->file=$filename;
 
         }
-        
         
         $book->update();
 
