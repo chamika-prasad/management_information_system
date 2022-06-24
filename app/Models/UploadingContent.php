@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UploadingContent extends Model
 {
     use HasFactory;
-    protected $fillable =['zoomLink','pdf','recordingLink'];
+    protected $fillable =['zoomLink','pdf','recordingLink','Date'];
 }

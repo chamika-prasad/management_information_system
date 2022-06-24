@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    @include('layouts.Navbar')
+    @include('layouts.TeacherNavbar')
     <div class="container" style="padding: 10px">
         <div class="card " style="border-color:black">
             <div class="card-body">
@@ -28,7 +28,7 @@
                 <h4>upload zoom link</h4>
             </div>
             <div class="card-body">
-                <form method="post" action="uploadZoomlink">
+                <form method="post" action="{{url('uploadZoomlink',$day1)}}">
                     @csrf
                     <div class="form-group row">
                       <label for="inputlink3" class="col-sm-2 col-form-label">Zoom link</label>
@@ -40,9 +40,16 @@
                                 <p>This field is required 'Input url' </p>
                             </div>
                         @endif
-                      </div>
-                      
+                        </div>
                     </div>
+                    
+                    <div class="form-group row" class="md-form md-outline input-with-post-icon datepicker">
+                        <label for="inputlink3" class="col-sm-2 col-form-label">Pick Date</label>
+                        <input  type="date" data-date-format="y m d" id="birthdaytime" name="datetime">
+                        
+                    </div>
+                      
+                    
                     <div class="form-group row" style="float: right; left: 100px">
                         <button type="button" class="btn btn-light">cancel</button>
                         <button type="submit" name="uploadzoomlink" class="btn btn-primary">save changes</button>

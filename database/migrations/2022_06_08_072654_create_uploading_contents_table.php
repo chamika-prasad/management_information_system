@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('zoomLink');
             $table->string('pdf');
             $table->string('recordingLink');
+            $table->date('Date');
             $table->unsignedInteger('subject_id');
             $table->unsignedInteger('grade_name');
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');

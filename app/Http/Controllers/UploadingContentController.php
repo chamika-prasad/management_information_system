@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class UploadingContentController extends Controller
 {
-    public function displaymaterials()
+    public function displaymaterials($day1)
     {
 
         $gradename = Classroom::latest('created_at')->first();
@@ -21,14 +21,17 @@ class UploadingContentController extends Controller
         $Uploadingdummy->zoomLink = 'Zoom.link';
         $Uploadingdummy->pdf = 'file.pdf';
         $Uploadingdummy->recordingLink='record Link';
+        $Uploadingdummy->Date='2022-12-23';
         $Uploadingdummy->subject_id = '1';
         $Uploadingdummy->grade_name = '3';
         $Uploadingdummy-> save();
 
         $lasts = UploadingContent::latest('created_at')->first();
-       
         
-        return view('uploading_section/uploading_materials',['lasts' => $lasts , 'gradename'=>$gradename , 'subjectname' => $subjectname]);
+        return view('uploading_section/uploading_materials',[
+            'lasts' => $lasts , 'gradename'=>$gradename , 'subjectname' => $subjectname,
+            'day1' => $day1
+        ]);
     }
 
     public function displayStudentModuleView()
@@ -36,48 +39,77 @@ class UploadingContentController extends Controller
         $lasts = UploadingContent::latest('created_at')->first();
         $gradename = Classroom::latest('created_at')->first();
         $subjectname = Subject::latest('created_at')->first();
-        return view('uploading_section/student_ module_view',['lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname]);
+        return view('uploading_section/student_ module_view',[
+            'lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname
+        ]);
     }
 
     //send zoom link to the data base
 
-    public function displayUploadZoom()
+    public function displayUploadZoom($day1)
     {
         $subjectname = Subject::latest('created_at')->first();
         $gradename = Classroom::latest('created_at')->first();
-        return view('uploading_section/uploading_zoomlink',['subjectname' => $subjectname , 'gradename'=>$gradename]);
+        return view('uploading_section/uploading_zoomlink',[
+            'subjectname' => $subjectname , 'gradename'=>$gradename,
+            'day1' => $day1
+        ]);
     }
 
-    public function  storezoomlink(Request $request)
+    public function  storezoomlink(Request $request , $day1)
     {
-        $request-> validate([
-            'createzoomlink'=> 'required|url'
+        $day1 = strtotime("next Sunday");
+        $date1 =  date('Y m d', $day1);
+        $day2 = strtotime("next Sunday -7 days");
+        $day3 = strtotime("next Sunday -14 days");
+        // dd($date1);
 
-        ]);
-    
         $lasts = UploadingContent::latest('created_at')->first();
+        $currentDate = $lasts->Date = $request->datetime;
+        $strdate1 = strval($currentDate);
+        $strdate2 = strval($date1);
 
-        $lasts->zoomLink = $request->createzoomlink;
-        $lasts->save();
-        $gradename = Classroom::latest('created_at')->first();
-        $subjectname = Subject::latest('created_at')->first();
-
-        return view('uploading_section/uploading_materials',['lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname]);
+        if($strdate1 == $strdate2)
+        {
+            $request-> validate([
+                'createzoomlink'=> 'required|url'
+    
+            ]);
         
+            $lasts = UploadingContent::latest('created_at')->first();
+    
+            $lasts->zoomLink = $request->createzoomlink;
+            $lasts->Date = $request->datetime;
+            $lasts->save();
+            $gradename = Classroom::latest('created_at')->first();
+            $subjectname = Subject::latest('created_at')->first();
+    
+            return view('uploading_section/uploading_materials',[
+                'lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname,
+                'day1' => $day1
+            ]);
+        }  
+        else
+        {
+            dd($strdate1);
+        }
     }
 
         
 
     //send record link to the database
 
-    public function displayUploadRecord()
+    public function displayUploadRecord($day1)
     {
         $subjectname = Subject::latest('created_at')->first();
         $gradename = Classroom::latest('created_at')->first();
-        return view('uploading_section/uploading_recording',['subjectname' => $subjectname , 'gradename'=>$gradename]);
+        return view('uploading_section/uploading_recording',[
+            'subjectname' => $subjectname , 'gradename'=>$gradename,
+            'day1' => $day1
+        ]);
     }
 
-    public function  storerecord(Request $request)
+    public function  storerecord(Request $request , $day1)
     {
 
         $lasts = UploadingContent::latest('created_at')->first();
@@ -91,20 +123,26 @@ class UploadingContentController extends Controller
         $gradename = Classroom::latest('created_at')->first();
         $subjectname = Subject::latest('created_at')->first();
 
-        return view('uploading_section/uploading_materials',['lasts' => $lasts , 'gradename'=>$gradename , 'subjectname' => $subjectname]);
+        return view('uploading_section/uploading_materials',[
+            'lasts' => $lasts , 'gradename'=>$gradename , 'subjectname' => $subjectname,
+            'day1' => $day1
+        ]);
     }
 
     //send pdf file to the database
 
-    public function displayUploadPDF()
+    public function displayUploadPDF($day1)
     {
         $subjectname = Subject::latest('created_at')->first();
         $gradename = Classroom::latest('created_at')->first();
-        return view('uploading_section/uploading_pdf',['subjectname' => $subjectname , 'gradename'=>$gradename]);
+        return view('uploading_section/uploading_pdf',[
+            'subjectname' => $subjectname , 'gradename'=>$gradename,
+            'day1' => $day1
+        ]);
     }
 
 
-    public function  storepdf(Request $request){
+    public function  storepdf(Request $request , $day1){
 
         $lasts = UploadingContent::latest('created_at')->first();
         
@@ -128,7 +166,10 @@ class UploadingContentController extends Controller
                 $lasts->save();
                 $gradename = Classroom::latest('created_at')->first();
                 $subjectname = Subject::latest('created_at')->first();
-                return view('uploading_section/uploading_materials',['lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname]);
+                return view('uploading_section/uploading_materials',[
+                    'lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname,
+                    'day1' => $day1
+                ]);
             }
             else
             {
@@ -141,6 +182,7 @@ class UploadingContentController extends Controller
 
     //teacher module view
 
+    //sent  $day1 to the uploading materials
     public function selectSubjects(Request $request)
     {
         $grd = new Classroom();
@@ -153,25 +195,50 @@ class UploadingContentController extends Controller
         $sub -> save();
         $grd -> save();
 
-        $day=strtotime("next Sunday");
-        $date =  date('Y M d ' , $day);
+        $day1=strtotime("next Sunday");
+        $date1 =  date('Y M d ' , $day1);
+
+        $day2=strtotime("next Sunday -7 days");
+        $date2 =  date('Y M d ' , $day2);
+
+        $day3=strtotime("next Sunday -14 days");
+        $date3 =  date('Y M d ' , $day3);
 
         $gradename = Classroom::latest('created_at')->first();
         $subjectname = Subject::latest('created_at')->first();
         $lasts = UploadingContent::latest('created_at')->first();
-        return view('uploading_section/teacher_module_view',['lasts' => $lasts,'gradename'=>$gradename , 'subjectname' => $subjectname , 'date' => $date]);
+        return view('uploading_section/teacher_module_view',[
+            'lasts' => $lasts,'gradename'=>$gradename , 'subjectname' => $subjectname , 
+            'day1' => $day1,
+            'date1' => $date1,
+            'date2' => $date2,
+            'date3' => $date3,
+        ]);
     }
 
+    //sent  $day1 to the uploading materials
 
     public function displaymoduleview()
     {
-        $day=strtotime("next Sunday");
-        $date =  date('Y M d ' , $day);
+        $day1=strtotime("next Sunday");
+        $date1 =  date('Y M d ' , $day1);
+
+        $day2=strtotime("next Sunday -7 days");
+        $date2 =  date('Y M d ' , $day2);
+
+        $day3=strtotime("next Sunday -14 days");
+        $date3 =  date('Y M d ' , $day3);
 
         $lasts = UploadingContent::latest('created_at')->first();
         $subjectname = Subject::latest('created_at')->first();
         $gradename = Classroom::latest('created_at')->first();
-        return view('uploading_section/teacher_module_view',['lasts' => $lasts ,'subjectname' => $subjectname , 'gradename'=>$gradename , 'date' => $date]);
+        return view('uploading_section/teacher_module_view',[
+            'lasts' => $lasts ,'subjectname' => $subjectname , 'gradename'=>$gradename ,
+            'day1' => $day1,
+            'date1' => $date1,
+            'date2' => $date2,
+            'date3' => $date3,
+        ]);
     }
 
 
@@ -316,5 +383,6 @@ class UploadingContentController extends Controller
 
         return view('uploading_section/showResault',['sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3]);
     }
+
 
 }

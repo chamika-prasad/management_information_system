@@ -28,7 +28,7 @@
                 <h4>upload Record link</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="uploadRecording">
+                <form method="POST" action="{{url('uploadRecording',$day1)}}">
                     @csrf
                     <div class="form-group row">
                         <label for="inputlink3" class="col-sm-2 col-form-label">Record link</label>

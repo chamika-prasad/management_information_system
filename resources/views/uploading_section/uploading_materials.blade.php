@@ -12,7 +12,7 @@
     <title>uploading materials</title>
 </head>
 <body>
-    @include('layouts.Navbar')
+    @include('layouts.TeacherNavbar')
     @include('uploading_section.Navbar_module')
 
     <!----------------------upload materials to relevent subject------------------------------>
@@ -48,7 +48,7 @@
                             </div>
                             
                             <div class="col-2">
-                                <a style="color: aliceblue" href="{{url('/uploading_zoomlink')}}">
+                                <a style="color: aliceblue" href="{{url('/uploading_zoomlink',$day1)}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"
@@ -86,9 +86,8 @@
                                 <u>{{$lasts->pdf}}</u>
                                 
                             </div>
-                            
                             <div class="col-2">
-                                <a style="color: aliceblue" href="{{url('/uploading_pdf')}}">
+                                <a style="color: aliceblue" href="{{url('/uploading_pdf',$day1)}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"
@@ -134,7 +133,7 @@
                             </div>
                             
                             <div class="col-2">
-                                <a style="color: aliceblue" href="{{url('/uploading_recording')}}">
+                                <a style="color: aliceblue" href="{{url('/uploading_recording',$day1)}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
                                         data-toggle="collapse" aria-haspopup="true" aria-expanded="false" data-target="#collapseExample" aria-controls="collapseExample"
                                         height="40"
