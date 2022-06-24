@@ -111,7 +111,10 @@ class BooksController extends Controller
     {
        
         $book=Books::find($book);
-
+        $request->validate([
+            'category'=>'required|not_in:None'
+        ]);
+        //must select category
         $book->name=$request->input('name');
         $book->category=$request->input('category');
         $book->author=$request->input('author');
