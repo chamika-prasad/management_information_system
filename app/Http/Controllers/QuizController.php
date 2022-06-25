@@ -38,6 +38,6 @@ class QuizController extends Controller
    public function displayquiz()
     {
         // $message = "uploaded Successfully";
-        return view('quiz_section/add_quiz');
+        return view('exam_section/add_quiz');
     }
 }

@@ -135,20 +135,20 @@ Route::get('/home',function()
 // Route::get('/add_exam', function () {
 //     return view ('exam_section/add_exam');
 // });
-Route::get('/add_exam', [App\Http\Controllers\ExamController::class, 'displayExam']);
-Route::get('/add_quiz', [App\Http\Controllers\QuizController::class, 'displayquiz']);
+Route::get('/add_exam', [ExamController::class, 'displayExam']);
+Route::get('/add_quiz', [QuizController::class, 'displayquiz']);
 
 
-Route::get('/add_quiz', function () {
-    return view ('exam_section/add_quiz');
-});
+// Route::get('/add_quiz', function () {
+//     return view ('exam_section/add_quiz');
+// });
 
 
 Route::get('/Graded', function () {
     return view ('exam_section/Graded');
 });
 
-Route::get('/exam_student_view', [App\Http\Controllers\ExamController::class, 'studentdisplayExam']);
+Route::get('/exam_student_view', [ExamController::class, 'studentdisplayExam']);
 
 Route::get('/Submission_exam', function () {
     return view ('exam_section/Submission_exam');

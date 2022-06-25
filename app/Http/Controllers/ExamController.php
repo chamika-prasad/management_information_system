@@ -39,7 +39,7 @@ class ExamController extends Controller
     {
         // $message = "uploaded Successfully";
         return view('exam_section/add_exam');
-    }
+     }
 
     public function studentdisplayExam()
     {
