@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('question');
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->unsignedInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
-            $table->timestamps();
+
         });
     }
 
@@ -31,6 +32,8 @@ return new class extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('questions');
+
     }
 };
