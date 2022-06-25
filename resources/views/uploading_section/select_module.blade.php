@@ -36,7 +36,6 @@
                           <div class="col-3 form-group"  >
                                   <select class="btn btn-danger"  name="selectGrade" id="City">
                                       <div>
-                                          <option value="">Select grade...</option>
                                           <option value="1">grade 1</option>
                                           <option value="2">grade 2</option>
                                           <option value="3">grade 3</option>
@@ -74,7 +73,6 @@
                           <div class="col-3 form-group" id="subject" >
                                   <select class="btn btn-danger"  name="selectSubject" >
                                       <div>
-                                          <option value="">Select subject...</option>
                                           <option value="Budhdha Charithaya">Budhdha Charithaya</option>
                                           <option value="Pali">Pali</option>
                                           <option value="Abhi Dharmaya">Abhi Dharmaya</option>

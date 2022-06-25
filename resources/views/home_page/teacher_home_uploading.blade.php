@@ -57,16 +57,13 @@
                     <a href="/select_module">
                         <button class="btn btn-secondary" >
                             <div class="card-body">
-                                <h5 class="card-title">Subjects</h5>
-                                <p class="card-text">Choose grade and subject via this button</p>
+                                <h5 class="card-title">Add lecture</h5>
+                                <p class="card-text">upload materials to the moodle</p>
                             </div>
                         </button>
                     </a>
                 </div>  
-                        
-                   
-                
-                
+
                 <div class="card border-secondary mb-3 bg-secondary text-white" style="text-align: center">
                     <a href="/select_module">
                         <button class="btn btn-secondary" >
@@ -77,6 +74,7 @@
                         </button>
                     </a>
                 </div>
+
                 <div class="card border-secondary mb-3 bg-secondary text-white" style="text-align: center">
                     <a href="/select_module">
                         <button class="btn btn-secondary" >
@@ -113,11 +111,11 @@
                     </a>
                 </div>
                 <div class="card border-secondary mb-3 bg-secondary text-white" style="text-align: center">
-                    <a href="/select_module">
+                    <a href="/grading">
                         <button class="btn btn-secondary" >
                             <div class="card-body">
-                                <h5 class="card-title">Subjects</h5>
-                                <p class="card-text">Choose grade and subject via this button</p>
+                                <h5 class="card-title">Grade Student</h5>
+                                <p class="card-text">Add Exam and assignmant marks to the student</p>
                             </div>
                         </button>
                     </a>

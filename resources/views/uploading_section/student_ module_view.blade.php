@@ -12,20 +12,22 @@
     <title>student_module_view</title>
 </head>
 <body>
-    @include('layouts.Navbar')
+    @include('layouts.TeacherNavbar')
     @include('uploading_section.Navbar_module')
+
     
     <!----------------------one week all materials to the class------------------------------>
 
 
     <!-- 1st row -->
 
+    @foreach ($lasts as $last)
 
     <p class="font-weight-light" style="font-size:20px; padding-left: 120px; padding-top: 20px">grade {{$gradename->gradeName}} / {{$subjectname->subjectName}} </p>
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         
         <div class="card" style="border-color:black; background-color:#98998f">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 6 </p>
+            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date1}}</p>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
                     <div class="card-body" style="color:white; height: 65px">
@@ -33,15 +35,8 @@
                             <div class="col-4">
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
-                            <div class="col-4">
-                                <u class="align-baseline">{{$lasts->zoomLink}}</u>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-                            <div class="col-1">
-                                
+                            <div class="col-8">
+                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$last->zoomLink}}">{{$last->zoomLink}}</a>
                             </div>
                         </div>
                     </div>
@@ -58,15 +53,8 @@
                             <div class="col-4">
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
-                            <div class="col-4">
-                                <u class="align-baseline">{{$lasts->pdf}}</u>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-                            <div class="col-1">
-                                
+                            <div class="col-8">
+                                <u class="align-baseline">{{$last->pdf}}</u>
                             </div>
                         </div>
                     </div>
@@ -83,17 +71,8 @@
                             <div class="col-4">
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
-                            <div class="col-4">
-                                <u class="align-baseline">{{$lasts->recordingLink}}</u>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-    
-                            
-                            <div class="col-1">
-                               
+                            <div class="col-8">
+                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$last->recordingLink}}">{{$last->recordingLink}}</a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +81,9 @@
             
 
         </div>
-    </div>    
+    </div>  
+    
+    @endforeach
 
     <!----------------------upload materials to relevent subject----------------------------->
     
@@ -113,11 +94,11 @@
 
     <!-- 1st row -->
 
-
+    @foreach ($fasts as $fast)
 
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px;">
         <div class="card" style="border-color:black; background-color:#98998f;">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 13 </p>
+            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date2}}</p>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
                     <div class="card-body" style="color:white; height: 65px">
@@ -125,15 +106,8 @@
                             <div class="col-4">
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
-                            <div class="col-4">
-                                <p class="align-baseline">link.zoom</p>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-                            <div class="col-1">
-                                
+                            <div class="col-8">
+                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$fast->zoomLink}}">{{$fast->zoomLink}}</a>
                             </div>
                         </div>
                     </div>
@@ -151,14 +125,7 @@
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
                             <div class="col-4">
-                                <p class="align-baseline">class.pdf</p>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-                            <div class="col-1">
-                                
+                                <u class="align-baseline">{{$fast->pdf}}</u>
                             </div>
                         </div>
                     </div>
@@ -175,17 +142,8 @@
                             <div class="col-4">
                                 <p class="align-baseline">upload recorded lecture</p>                       
                             </div>
-                            <div class="col-4">
-                                <p class="align-baseline">lec.mp4</p>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-    
-                            
-                            <div class="col-1">
-                               
+                            <div class="col-8">
+                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$fast->recordingLink}}">{{$fast->recordingLink}}</a>
                             </div>
                         </div>
                     </div>
@@ -196,98 +154,10 @@
         </div>
     </div>    
 
-    <!----------------------upload materials to relevent subject----------------------------->
-    
+    @endforeach
 
-        <!----------------------one week all materials to the class------------------------------>
+    <!----------------------upload materials to relevent subject----------------------------->  
 
-
-    <!-- 1st row -->
-
-
-
-    <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
-        <div class="card" style="border-color:black; background-color:#98998f;">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">2022 January 20</p>
-            <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
-                <div class="card" style="background-color:#5C5F3A;  ">
-                    <div class="card-body" style="color:white; height: 65px">
-                        <div class="row">
-                            <div class="col-4">
-                                <p class="align-baseline">Zoom link for login class</p>                       
-                            </div>
-                            <div class="col-4">
-                                <p class="align-baseline">link.zoom</p>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-                            <div class="col-1">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-                <!-- 2nd row -->
-    
-    
-            <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
-                <div class="card" style="background-color:#5C5F3A;  ">
-                    <div class="card-body" style="color:white; height: 65px">
-                        <div class="row">
-                            <div class="col-4">
-                                <p class="align-baseline">upload class materials</p>                       
-                            </div>
-                            <div class="col-4">
-                                <p class="align-baseline">class.pdf</p>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-                            <div class="col-1">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          <!-- 3rd row -->
-    
-    
-    
-            <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
-                <div class="card" style="background-color:#5C5F3A;  ">
-                    <div class="card-body" style="color:white; height: 65px">
-                        <div class="row">
-                            <div class="col-4">
-                                <p class="align-baseline">upload recorded lecture</p>                       
-                            </div>
-                            <div class="col-4">
-                                <p class="align-baseline">lec.mp4</p>
-                            </div>
-                            
-                            <div class="col-3">
-                                
-                            </div>
-    
-                            
-                            <div class="col-1">
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-
-        </div>
-    </div>    
-
-    <!----------------------upload materials to relevent subject----------------------------->
     @include('home_page.footer')
     
        

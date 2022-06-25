@@ -155,24 +155,24 @@ Route::get('/admin_home_uploading',function(){
 
 
 //uploading materials view
-Route::get('uploading_materials/{day1}',[UploadingContentController::class, 'displaymaterials']);
+Route::get('uploading_materials',[UploadingContentController::class, 'displaymaterials']);
 
 
 
-//zoom link upload view 
-Route::get('/uploading_zoomlink/{day1}',[UploadingContentController::class, 'displayUploadZoom']);
-Route::post('uploadZoomlink/{day1}',[UploadingContentController::class, 'storezoomlink']);
+// //zoom link upload view 
+// Route::get('/uploading_zoomlink/{day1}',[UploadingContentController::class, 'displayUploadZoom']);
+Route::post('uploadmaterials',[UploadingContentController::class, 'storematerials']);
 
 
 
-//pdf upload view
-Route::get('/uploading_pdf/{day1}',[UploadingContentController::class, 'displayUploadPDF']);
-Route::post('uploadingPdf/{day1}',[UploadingContentController::class, 'storepdf']);
+// //pdf upload view
+// Route::get('/uploading_pdf/{day1}',[UploadingContentController::class, 'displayUploadPDF']);
+// Route::post('uploadingPdf/{day1}',[UploadingContentController::class, 'storepdf']);
 
 
-//record upload view
-Route::get('/uploading_recording/{day1}',[UploadingContentController::class, 'displayUploadRecord']);
-Route::post('uploadRecording/{day1}',[UploadingContentController::class, 'storerecord']);
+// //record upload view
+// Route::get('/uploading_recording/{day1}',[UploadingContentController::class, 'displayUploadRecord']);
+// Route::post('uploadRecording/{day1}',[UploadingContentController::class, 'storerecord']);
 
 
 //select module view
@@ -188,9 +188,9 @@ Route::get('/teacher_module_view',[UploadingContentController::class, 'displaymo
 
 
 //student module view
-Route::get('/student_module_view',function(){
-    return view ('uploading_section/student_ module_view');
-});
+// Route::get('/student_module_view',function(){
+//     return view ('uploading_section/student_ module_view');
+// });
 Route::get('/student_module_view',[UploadingContentController::class, 'displayStudentModuleView']);
 
 

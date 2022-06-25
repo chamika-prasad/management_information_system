@@ -15,7 +15,6 @@
     @include('layouts.TeacherNavbar')
     @include('uploading_section.Navbar_module')
 
-
     <div class="container-fluid" style="width: 85%">
         <table class="table table-hover mt-5 table-responsive-sm">
             <thead>
@@ -76,9 +75,9 @@
               </tr>
             </tbody>
           </table>
-        @if ($errors->any())
-            <div class="alert alert-danger" role="alert">
-                <p>All fields are required</p>
+        @if($errors->any())
+            <div class="alert alert-danger">
+                {!! implode('', $errors->all('<div>:message</div>')) !!}
             </div>
         @endif
     </div>
