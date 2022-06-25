@@ -126,11 +126,11 @@
     <br>
     <br>
     <div class="container">
-      <form class="d-flex" type="get" action="{{url('/search')}}">
+      <form class="d-flex" type="get" action="{{url('/searchCategory')}}">
     
-          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book" aria-label="Search">
+          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book category" aria-label="Search">
         
-          <button class="btn btn-success" type="submit" >Search</button>
+          <button class="btn btn-primary" type="submit" >Search</button>
       </form>
     </div>
     <br>

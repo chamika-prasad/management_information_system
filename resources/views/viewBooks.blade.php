@@ -66,10 +66,10 @@
           </a>
         </li>
 
+
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-
         <li class="nav-item">
           <a class="nav-link" href="{{url('/viewBooks')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
@@ -133,18 +133,42 @@
     <div class="container">
       <a class="btn btn-info float-right mb-4  custom" href="{{url('/')}}">Go Back</a>
     </div>
-    <br>
-    <br>
+<br>
+<br>
     <div class="container">
-      <form class="d-flex" type="get" action="{{url('/search')}}">
-    
-          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book" aria-label="Search">
-        
-          <button class="btn btn-success" type="submit" >Search</button>
-      </form>
+    <div class="row justify-content-center">
+        <div class="col-md-12 mb-5">
+        <div class="container">
+      <form action="{{ route('books.filter') }}" method="GET">
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <label>Name</label>
+                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}">
+                            </div>
+                            <div class="col-xl-3">
+                                <label>Category</label>
+                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}">
+                            </div>
+                            <div class="col-xl-3 ">
+                                <label>Author</label>
+                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}">
+                            </div>
+                            <div class="col-xl-3">
+                                <label>Publisher</label>
+                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}">
+                            </div>
+                            <div class="col-xl-12 text-right mt-2">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+
+                        </div>
+                    </form>
     </div>
+    </div>
+    </div>
+
     <br>
-    <br>
+
     <div class='container'>
       <h3> Books</h3>
       <table class= "table table-dark">
@@ -180,6 +204,15 @@
               {{ session()->get('message') }}
           </div>
       @endif
-    </div>   
+    </div>  
+    
+    <style>
+      .w-5{
+        display:none
+      }
+    </style>
+  <div class="d-flex justify-content-center">
+    {!! $books->links() !!}
+</div>
   </body>
 </html>

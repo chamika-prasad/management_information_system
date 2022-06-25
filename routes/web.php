@@ -285,4 +285,9 @@ Route::delete('/DeleteCategory/{category}',[BooksController::class,'deleteCatego
 Route::put('/updateBooksCategory/{id}',[BooksController::class,'updateBooksCategory']);
 
 
+
+Route::get('book-filter',[BooksController::class,'filter'])->name('books.filter');
+Route::get('searchCategory',[BooksController::class,'searchCategory']);
+Route::get('editBookSerach',[BooksController::class,'editBookSerach'])->name('books.filer.edit');
+Route::get('editSearchCategory',[BooksController::class,'editSearchCategory'])->name('booksCategory.filer.edit');
 //--------------------------------------------Ending library mangement system
