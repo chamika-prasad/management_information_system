@@ -145,13 +145,7 @@
  </div>
   </form>
 
- <div class="container" style="padding-top: 5px;">
-  <div class="row">
-      <div class="col-md-12 bg-light text-right" style="margin-left: 1.8cm;">
-          <button type="button" class="btn btn-warning" style="width: 100px; padding:10px;">Save</button>
-      </div>
-  </div>
-</div>
+ 
 
     
 

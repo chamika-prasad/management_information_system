@@ -19,7 +19,7 @@ use App\Http\Controllers\QuizController;
 */
 
 
-Route::get('/', function () {
+Route::get('/free_learning_apply', function () {
     return view ('free_learning_application');
 });
 
@@ -57,9 +57,9 @@ Route::get('/add_exam', [App\Http\Controllers\ExamController::class, 'displayExa
 Route::get('/add_quiz', [App\Http\Controllers\QuizController::class, 'displayquiz']);
 
 
-//Route::get('/add_quiz', function () {
-    //return view ('exam_section/add_quiz');
-//});
+Route::get('/add_quiz', function () {
+    return view ('exam_section/add_quiz');
+});
 
 
 Route::get('/Graded', function () {
@@ -67,8 +67,6 @@ Route::get('/Graded', function () {
 });
 
 Route::get('/exam_student_view', [App\Http\Controllers\ExamController::class, 'studentdisplayExam']);
-
-Route::get('/answer_uploade_student', [App\Http\Controllers\ExamController::class, 'studentuploadeanswer']);
 
 Route::get('/Submission_exam', function () {
     return view ('exam_section/Submission_exam');
@@ -78,20 +76,20 @@ Route::get('/Submission_quiz', function () {
     return view ('exam_section/Submission_quiz');
 });
 
-Route::get('/Quection_bank', function () {
-    return view ('exam_section/Quection_bank');
+Route::get('/Quection_bank_view', function () {
+    return view ('exam_section/Quection_bank_view');
 });
 
 Route::get('/Quection_bank_add', function () {
     return view ('exam_section/Quection_bank_add');
 });
 
-Route::get('/Quiz_online', function () {
-    return view ('exam_section/Quiz_online');
+Route::get('/homesection', function () {
+    return view ('exam_section/homesection');
 });
 
-Route::get('/Marks_of_exam', function () {
-    return view ('exam_section/Marks_of_exam');
+Route::get('/Quiz_online', function () {
+    return view ('exam_section/Quiz_online');
 });
 
 Route::get('/Main_view_of_subject', function () {
@@ -103,6 +101,9 @@ Route::get('/Main_view_of_subject_admin', function () {
 });
 Route::get('/online_exam', function () {
     return view ('exam_section/online_exam');
+});
+Route::get('/answer_uploade_student', function () {
+    return view ('exam_section/answer_uploade_student');
 });
 
 Route::post('/add_exam_details/{subject_id}',[ExamController::class,'addExam']);
@@ -124,8 +125,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/add_quiz/{subject_id}', [App\Http\Controllers\QuizController::class, 'addQuiz']);
 
 Route::post('/Quection_bank_add/{subject_id}', [App\Http\Controllers\QuestionController::class, 'addQuestion']);
-
-
 
 
 

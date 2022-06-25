@@ -92,7 +92,7 @@
       <a class="nav-link" href="#">
 
 
-        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:550px; ">&ensp;Student Mode</span> </a>
+        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:600px; ">&ensp;Student Mode</span> </a>
     </li>
 
      
@@ -105,9 +105,9 @@
   <!-- navbar 2-->
  
   <!-- section 1-->
-  <div class="container-fluid" style="width: 80%">
+  <div class="container-fluid" style="width: 90%">
 
-    <h4 class="mt-5" > Budhdha Charithaya/Exam </h4> 
+    <h4 class="mt-5" > Budhdha Charithaya/Answer </h4> 
   <!-- information-->
     <svg style="left: 2cm" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-mortarboard rounded mx-auto d-block mb-5 mt-5" viewBox="0 0 16 16"  >
       <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
@@ -116,8 +116,7 @@
 
     <div>
       <p style="text-align: center" > Exam 2021 would be conducted in online mode.The exams would be conducted for dhamma School subject by the varsity. <br>
-        has decided to conduct the exam in online by admin crew of dhamma School.<br>
-        main guidlones of student may uploaded down here login exam 31st january of 2022 at 8.30 am. 
+        has decided to conduct the exam in online by admin crew of dhamma School.<br> 
       </p>
     </div>
     <div class="row d-flex justify-content-center" style="width: 100%">

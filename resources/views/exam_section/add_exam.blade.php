@@ -102,7 +102,7 @@
 
   <!-- section 1-->
   <nav>
-    <h1 style="padding-left:2cm;"> Budhdha Charithaya / online Exam </h1> 
+    <h1 style="padding-left:2cm;"> Budhdha Charithaya / Exam </h1> 
   </nav>
   <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
    {{-- @isset($message)
@@ -125,10 +125,10 @@
   <div class="row d-flex justify-content-center" style="width: 100%">
     <div class="card col-md-10" style="background-color: #6b7e51">
       <div class="card-body">
-        <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #009dff; height:1.5cm;" required><br>
-        <input name="uploadpdf" type="file" class="form-control"  style="background: #009dff; height:1.5cm;" required><br>
-        <input type="datetime-local" class="form-control" placeholder="Date and Time " style="background: #009dff; height:1.5cm;" required><br>
-        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #009dff; height:1.5cm;" required><br>
+        <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #a5be83; height:1.5cm;" required><br>
+        <input name="uploadpdf" type="file" class="form-control"  style="background: #a5be83; height:1.5cm;" required><br>
+        <input type="datetime-local" class="form-control" placeholder="Date and Time " style="background: #a5be83; height:1.5cm;" required><br>
+        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #a5be83; height:1.5cm;" required><br>
   <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
 
 
