@@ -16,15 +16,6 @@
     @include('uploading_section.Navbar_module')
 
     <div class="container-fluid" style="width: 85%">
-
-      <select class="form-control select2" style="width: 100%;" name="project_id">
-        <option value="project_id" selected>Select One</option>
-  
-        @foreach($students as $student)
-             <option value="{{$student->id}}">{{$student->name}}</option>
-        @endforeach
-  
-      </select>
         <table class="table table-hover mt-5 table-responsive-sm">
             <thead>
               <tr>
@@ -75,12 +66,20 @@
                 </form>
               </tr>
               <tr>
+                <form action="selectstu" method="post">
+                  @csrf
+                  <select class="form-control select2 mt-5" style="width: 50%;" name="stu_name">
+  
+                    @foreach($students as $student)
+                         <option value="{{$student->firstname}}&nbsp;{{$student->lastname}}"><p>{{$student->firstname}} {{$student->lastname}}</p></option>
+                    @endforeach
+              
+                  </select>
                     {{-- <th colspan="5" scope="row">Final</th> --}}
                     <td colspan="7"scope="col">
-                        <a href="{{url('/showResault')}}">
-                            <button type="submit" class="btn btn-secondary">send certificate</button>
-                        </a>
+                        <button type="submit" class="btn btn-secondary">send certificate</button>
                     </td>
+                </form>
               </tr>
             </tbody>
           </table>

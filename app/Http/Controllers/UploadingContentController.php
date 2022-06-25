@@ -168,13 +168,27 @@ class UploadingContentController extends Controller
 
     public function gradingview()
     {
-        return view('uploading_section/grading',['semOne' => $this-> semOne,'semTwo' =>  $this->semTwo,'semThree' =>  $this-> semThree, 'tot'=> $this-> tot]);
+        $students = DB::table("users")
+            ->select("firstname","lastname", "id")
+            ->where("usertype", "=", 3)
+            ->get();
+            return view('uploading_section/grading',[
+                'semOne' => $this-> semOne,
+                'semTwo' =>  $this->semTwo,
+                'semThree' =>  $this-> semThree , 
+                'tot'=> $this-> tot,
+                'students' => $students
+            ]);
     }
 
     private $semOne ,$semTwo,$semThree,$tot;
 
     public function uploading1stSem(Request $request)
     {
+        $students = DB::table("users")
+            ->select("firstname","lastname", "id")
+            ->where("usertype", "=", 3)
+            ->get();
         $request-> validate([
             'markBudhdhaCharithaya'=> 'required'
         ]);
@@ -199,12 +213,20 @@ class UploadingContentController extends Controller
         $this-> semOne = $sem1 -> semOneBudhdha + $sem1 -> semOnePali +  $sem1 -> semOneAbhi + $sem1 -> semOneAssignment;
         $sem1 -> save();
         return view('uploading_section/grading',[
-            'semOne' => $this-> semOne,'semTwo' =>  $this->semTwo,'semThree' =>  $this-> semThree , 'tot'=> $this-> tot
+            'semOne' => $this-> semOne,
+            'semTwo' =>  $this->semTwo,
+            'semThree' =>  $this-> semThree , 
+            'tot'=> $this-> tot,
+            'students' => $students,
         ]);
     }
 
     public function uploading2ndSem(Request $request)
     {
+        $students = DB::table("users")
+            ->select("firstname","lastname", "id")
+            ->where("usertype", "=", 3)
+            ->get();
         $request-> validate([
             'markBudhdhaCharithaya'=> 'required'
         ]);
@@ -229,7 +251,11 @@ class UploadingContentController extends Controller
         $this-> semTwo = $sem1 -> semTwoBudhdha + $sem1 -> semTwoPali +  $sem1 -> semTwoAbhi + $sem1 -> semTwoAssignment;
         $sem1 -> save();
         return view('uploading_section/grading',[
-            'semOne' => $this-> semOne,'semTwo' =>  $this->semTwo,'semThree' =>  $this-> semThree , 'tot'=> $this-> tot
+            'semOne' => $this-> semOne,
+            'semTwo' =>  $this->semTwo,
+            'semThree' =>  $this-> semThree , 
+            'tot'=> $this-> tot,
+            'students' => $students,
         ]);
         
     }
@@ -269,19 +295,35 @@ class UploadingContentController extends Controller
             'semTwo' =>  $this->semTwo,
             'semThree' =>  $this-> semThree , 
             'tot'=> $this-> tot,
-            'students' => $students
+            'students' => $students,
         ]);
         
     }
 
-    public function showReasaultDisplay()
+    public function showReasaultDisplay(Request $request)
     {
-
+        $selectStu = $request->stu_name;
         $sem1 = Grade::latest('created_at')->first();
         $sem2 = GradeSemtwo::latest('created_at')->first();
         $sem3 = GradeSemThree::latest('created_at')->first();
         
-        return view('uploading_section/showResault',['sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3]);
+        return view('uploading_section/showResault',[
+            'sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3,
+            'selectStu' => $selectStu
+        ]);
+    }
+
+    public function uploadingStuName(Request $request)
+    {
+        $selectStu = $request->stu_name;
+        $sem1 = Grade::latest('created_at')->first();
+        $sem2 = GradeSemtwo::latest('created_at')->first();
+        $sem3 = GradeSemThree::latest('created_at')->first();
+        
+        return view('uploading_section/showResault',[
+            'sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3,
+            'selectStu' => $selectStu
+        ]);
     }
 
     public function addsubjectDisplay()
