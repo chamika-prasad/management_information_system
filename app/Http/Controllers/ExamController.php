@@ -11,9 +11,9 @@ class ExamController extends Controller
 {
     public function addExam(Request $request,$subject_id){
         $file = $request->file('uploadpdf');
-$destinationPath = 'public/pdf-folder/';
-$originalFile = $file->getClientOriginalName();
-$file->move($destinationPath, $originalFile);
+        $destinationPath = 'public/pdf-folder/';
+        $originalFile = $file->getClientOriginalName();
+        $file->move($destinationPath, $originalFile);
 
         // $pdfname = $request->file('uploadpdf')->getClientOriginalName();
         // $request->file('uploadpdf')->store('public/pdf-folder/');
