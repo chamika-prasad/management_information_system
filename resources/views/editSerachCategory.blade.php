@@ -10,10 +10,10 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <title>Edit/Delete</title>
+      <title>Search Books</title>
   </head>
   <body>
-
+      
       <nav class="navbar navbar-light " style="background-color: #FDEFEF;">
         <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Library Management System</span>
 
@@ -38,7 +38,7 @@
         </div>
     </nav>
     
-
+    
     <nav class="navbar navbar-expand-sm " style="background-color: #7C5D5D;">
       <ul class="navbar-nav">
 
@@ -49,8 +49,7 @@
             <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
             </svg>
 
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Home</span> 
-          </a>
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Home</span> </a>
             
         </li>
 
@@ -79,7 +78,8 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('/editDelete')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> </a>
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> 
+          </a>
         </li>
 
         <li>
@@ -99,43 +99,32 @@
     </nav>
     <br>
     <div class="container">
-    <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
-    <br>
-<br>
-<div class="container">
-      <form class="d-flex" type="get" action="{{url('/editSearchCategory')}}">
-    
-          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book category" aria-label="Search">
-        
-          <button class="btn btn-primary" type="submit" >Search</button>
-      </form>
-    </div>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/viewBooks')}}">Go Back</a>
     <div>
-      <br>
-      <table class="table table-dark">
+    <br>
+
+    <table class="table table-dark">
       <thead>
         <tr>
         
-      
-          <th scope="col">Category Name</th>
-          <th scope="col">Description</th>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+
           <th scope="col">Action</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        @foreach($category as $category)
+        @foreach($books as $book)
           <tr>
-          
-              <td>{{$category->name}}</td>
-              <td>{{$category->description}}</td>
-
-          
+        
+            <td>{{$book->name}}</td>
+            <td>{{$book->description}}</td>
             <td style="display:flex">
-              <a class="btn btn-success mr-1" href="{{url('/editBookCategory/'.$category->id)}}">Edit</a>
+              <a class="btn btn-success mr-1" href="{{url('/editBookCategory/'.$book->id)}}">Edit</a>
             </td>
             <td>
-              <form action="{{url('/DeleteCategory/'.$category->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+              <form action="{{url('/DeleteCategory/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
                 {{method_field('DELETE')}}  
                 {{csrf_field()}}
                 <button type="submit" class="btn btn-danger">Delete
@@ -152,9 +141,10 @@
     <div class="container mt-2">
       @if(session()->has('message'))
         <div class="alert alert-success">
-          {{ session()->get('message') }}
-      </div>
+            {{ session()->get('message') }}
+        </div>
       @endif
     </div>   
   </body>
 </html>
+
