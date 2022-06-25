@@ -178,6 +178,7 @@ Route::get('/grading',[UploadingContentController::class, 'gradingview']);
 Route::post('/1stSemUpload',[UploadingContentController::class, 'uploading1stSem']);
 Route::post('/2ndSemUpload',[UploadingContentController::class, 'uploading2ndSem']);
 Route::post('/3rdSemUpload',[UploadingContentController::class, 'uploading3rdSem']);
+Route::post('/selectstu',[UploadingContentController::class, 'uploadingStuName']);
 
 
 //show resault
