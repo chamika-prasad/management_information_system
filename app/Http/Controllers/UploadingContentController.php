@@ -236,6 +236,11 @@ class UploadingContentController extends Controller
 
     public function uploading3rdSem(Request $request)
     {
+        $students = DB::table("users")
+            ->select("firstname", "id")
+            ->where("usertype", "=", 3)
+            ->get();
+        
         $request-> validate([
             'markBudhdhaCharithaya'=> 'required'
         ]);
@@ -260,7 +265,11 @@ class UploadingContentController extends Controller
         $this-> semThree = $sem1 -> semThreeBudhdha + $sem1 -> semThreePali +  $sem1 -> semThreeAbhi + $sem1 -> semThreeAssignment;
         $sem1 -> save();
         return view('uploading_section/grading',[
-            'semOne' => $this-> semOne,'semTwo' =>  $this->semTwo,'semThree' =>  $this-> semThree , 'tot'=> $this-> tot
+            'semOne' => $this-> semOne,
+            'semTwo' =>  $this->semTwo,
+            'semThree' =>  $this-> semThree , 
+            'tot'=> $this-> tot,
+            'students' => $students
         ]);
         
     }
@@ -271,9 +280,13 @@ class UploadingContentController extends Controller
         $sem1 = Grade::latest('created_at')->first();
         $sem2 = GradeSemtwo::latest('created_at')->first();
         $sem3 = GradeSemThree::latest('created_at')->first();
-
-
+        
         return view('uploading_section/showResault',['sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3]);
+    }
+
+    public function addsubjectDisplay()
+    {
+        return view(('uploading_section/addsubjects'));
     }
 
 

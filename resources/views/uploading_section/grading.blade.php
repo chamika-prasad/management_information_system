@@ -16,6 +16,15 @@
     @include('uploading_section.Navbar_module')
 
     <div class="container-fluid" style="width: 85%">
+
+      <select class="form-control select2" style="width: 100%;" name="project_id">
+        <option value="project_id" selected>Select One</option>
+  
+        @foreach($students as $student)
+             <option value="{{$student->id}}">{{$student->name}}</option>
+        @endforeach
+  
+      </select>
         <table class="table table-hover mt-5 table-responsive-sm">
             <thead>
               <tr>
