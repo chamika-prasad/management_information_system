@@ -190,7 +190,7 @@ class BooksController extends Controller
     {
         Category::find($category)->delete();
         //return redirect('/editDelete');
-        return redirect()->back()->with('message', 'Thank you!   The book has been deleted');
+        return redirect()->back()->with('message', 'Thank you!   The category has been deleted');
         
     }
 
@@ -227,13 +227,12 @@ class BooksController extends Controller
         return  redirect('/');*/
 
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|unique:categories',
             'description'=>'required',
 
         ]);
         $input=$request-> all();
         Category::create($input);
-
         return redirect('/addBooksCategory')->with('message', 'New category  has been added');
         
     }
@@ -322,6 +321,40 @@ class BooksController extends Controller
           $search_text=$_GET['query'];
           $books=Category::where('name','LIKE','%'.$search_text.'%')->get();
           return view('editSerachCategory',compact('books'));    
+    }
+    public function  studentSearch(Request $request)
+    {
+        $books = Books::query();
+
+        $name = $request->name;
+        $author = $request->author;
+        $publisher = $request->publisher;
+        $category = $request->category;
+
+        if ($name) {
+            $books->where('name','LIKE','%'.$name.'%');
+        }
+        if ($author) {
+            $books->where('author','LIKE','%'.$author.'%');
+        }
+
+        if ($publisher ) {
+            $books->where('publisher','LIKE','%'.$publisher .'%');
+        }
+
+        if ($category ) {
+            $books->where('category','LIKE','%'.$category .'%');
+        }
+
+        $data = [
+            'name' => $name,
+            'category' => $category,
+            'author' => $author,
+            'publisher' => $publisher,
+            'books' => $books->latest()->simplePaginate(20),
+        ];
+
+        return view('studentSerach',$data);
     }
 }
 

@@ -69,18 +69,10 @@
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBooks')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
-          </a>
-        </li>
-
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
+     
         <li class="nav-item">
           <a class="nav-link" href="{{url('/editDelete')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> </a>
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Books</span> </a>
         </li>
 
         <li>
@@ -97,40 +89,27 @@
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBookCategory')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View category</span> 
+          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Category</span> 
           </a>
         </li>
 
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-        
         <li class="nav-item">
           <a class="nav-link" href="{{url('/addBooksCategory')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add category</span> 
           </a>
         </li>
 
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
-
-
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
       </ul>
     
     </nav>
     <br>
 
-          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
-           Edit or delete category
-          </a>
-
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/viewBooks')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDelete')}}">Go Back</a>
     </div>
     <br>
     <br>
@@ -141,20 +120,20 @@
                     <form action="{{ route('books.filer.edit') }}" method="GET">
                         <div class="row">
                             <div class="col-xl-3">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}">
+                                <label></label>
+                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}"placeholder="Enter Book Name">
                             </div>
                             <div class="col-xl-3">
-                                <label>Category</label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}">
+                                <label></label>
+                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
                             </div>
                             <div class="col-xl-3 mt-2">
-                                <label>Author</label>
-                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}">
+                                <label></label>
+                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}"placeholder="Enter Author Name">
                             </div>
                             <div class="col-xl-3 mt-2">
-                                <label>Publisher</label>
-                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}">
+                                <label></label>
+                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}"placeholder="Enter Publisher Name">
                             </div>
                             <div class="col-xl-12 text-right mt-2">
                                 <button class="btn btn-primary" type="submit">Search</button>
