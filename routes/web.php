@@ -267,9 +267,9 @@ Route::get('search',[BooksController::class,'search']);
 Route::get('studentSerach',[BooksController::class,'studentSerach']);
 Route::get('/studentViewPdfs/{id}',[BooksController::class,'studentPdf']);
 Route::get('/studentView',[BooksController::class,'studentView']);
-Route::get('studentHome',function(){
+/*Route::get('studentHome',function(){
     return view ('studentHome');
-});
+});*/
 
 Route::get('/viewBookCategory',[BooksController::class,'viewBookCategory']);
 
@@ -290,4 +290,5 @@ Route::get('book-filter',[BooksController::class,'filter'])->name('books.filter'
 Route::get('searchCategory',[BooksController::class,'searchCategory']);
 Route::get('editBookSerach',[BooksController::class,'editBookSerach'])->name('books.filer.edit');
 Route::get('editSearchCategory',[BooksController::class,'editSearchCategory'])->name('booksCategory.filer.edit');
+Route::get('studentSearch',[BooksController::class,'studentSearch'])->name('studentSearch.filer');
 //--------------------------------------------Ending library mangement system

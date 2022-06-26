@@ -75,7 +75,6 @@
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
           </a>
         </li>
-
         
 
         <li>
@@ -90,21 +89,42 @@
     <br>
     <div class="container">
       <a class="btn btn-info float-right mb-4  custom" href="{{url('/studentView')}}">Go Back</a>
+      <br>
     </div>
-    <br>
-    <br>
     <div class="container">
-      <form class="d-flex" type="get" action="{{url('studentSerach')}}">
-    
-          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book" aria-label="Search">
-        
-          <button class="btn btn-success" type="submit" >Search</button>
-      </form>
+    <div class="row justify-content-center">
+        <div class="col-md-12 mb-5">
+        <div class="container">
+      <form action="{{ route('studentSearch.filer') }}" method="GET">
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <label></label>
+                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}" placeholder="Enter Book Name">
+                            </div>
+                            <div class="col-xl-3">
+                                <label></label>
+                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
+                            </div>
+                            <div class="col-xl-3 ">
+                                <label></label>
+                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}" placeholder="Enter Author Name">
+                            </div>
+                            <div class="col-xl-3">
+                                <label></label>
+                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}" placeholder="Enter Publisher Name">
+                            </div>
+                            <br>
+                            <div class="col-xl-12 text-right mt-2">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+
+                        </div>
+                    </form>
+    </div>
     </div>
     <br>
     <br>
     <div class='container'>
-      <h3> Books</h3>
       <table class= "table table-dark">
         <thead>
           <tr>

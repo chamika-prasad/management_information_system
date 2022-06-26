@@ -14,5 +14,6 @@ class Books extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);//this line Category mean model name
+        //return $this->belongsTo('Category', 'id');
     }
 }

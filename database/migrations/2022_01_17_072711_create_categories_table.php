@@ -14,8 +14,10 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
+            //$table->engine = 'InnoDB';
             $table->id();  
-            $table->String('name');
+            //$table->bigIncrements('id');
+            $table->String('name',200)->index();
             $table->String('description');
             $table->timestamps();
         });
@@ -29,5 +31,6 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categories');
+       
     }
 }
