@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <title>grading</title>
+    <title>resault sheet</title>
 </head>
 <body>
     @include('layouts.TeacherNavbar')
@@ -19,7 +19,7 @@
         <div class="card border-info mb-3 mt-5" >
             <div class="card-header">Resault Sheet 2021</div>
                 <div class="card-body text-info">
-                    <h5 class="card-title">125237A Munasinghe M.H.</h5>
+                    <h5 class="card-title">{{$selectStu}}</h5>
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-info">Semester 1</li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">

@@ -22,6 +22,7 @@ class FreeLearningController extends Controller
     public function displayFreelearningList(){
 
         $freeApplications = FreeApplication::all();//get all element in free learning application model
+        // dd($freeApplications);
         return view('payment/admin_free_learning_application_list',['freeApplications' => $freeApplications]);
     }
 

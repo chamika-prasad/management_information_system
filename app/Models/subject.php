@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
-    protected $fillable =['subjectName'];
+    protected $fillable =['subjectName','subjectCode','subGrade'];
 }
