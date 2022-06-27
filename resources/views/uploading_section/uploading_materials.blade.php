@@ -23,7 +23,7 @@
 
 
     <div class="container-fluid" style="width: 85%;">
-        <p class="font-weight-light" style="font-size:20px; padding: 20px">grade {{$gradename->gradeName}} / {{$subjectname->subjectName}}</p>
+        <p class="font-weight-light" style="font-size:20px; padding: 20px">grade {{$addGrade}} / {{--$subjectname->subjectName--}}</p>
         @if(session()->has('message'))
                 <div class="alert alert-success">
                     {{ session()->get('message') }}

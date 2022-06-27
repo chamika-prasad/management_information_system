@@ -27,7 +27,7 @@
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         
         <div class="card" style="border-color:black; background-color:#98998f">
-            <p class="font-weight-light" style="font-size:20px; padding: 20px">{{$date1}}</p>
+            <p class="font-weight-light" style="font-size:20px; padding: 20px; ">{{$date1}}</p>
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">
                     <div class="card-body" style="color:white; height: 65px">
@@ -36,7 +36,12 @@
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
                             <div class="col-8">
-                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$last->zoomLink}}">{{$last->zoomLink}}</a>
+                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                    <a
+                                     style="text-decoration: none; color:rgb(214, 221, 219)" 
+                                     href="{{$last->zoomLink}}">click to log in to the zoom
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -51,10 +56,15 @@
                     <div class="card-body" style="color:white; height: 65px">
                         <div class="row">
                             <div class="col-4">
-                                <p class="align-baseline">upload class materials</p>                       
+                                <p class="align-baseline">Class Materials</p>                       
                             </div>
                             <div class="col-8">
-                                <u class="align-baseline"><td><a href="{{url('/downloadpdf',$last->pdf)}}" download="{{$last->pdf}}">Download pdf file</a></td></u>
+                                <button type="button" class="btn btn-warning" style="width: 50%;">
+                                    <a
+                                     style="text-decoration: none; color:rgb(4, 24, 18)" 
+                                     href="{{url('/downloadpdf',$last->pdf)}}" download="{{$last->pdf}}">Download pdf file
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -69,10 +79,16 @@
                     <div class="card-body" style="color:white; height: 65px">
                         <div class="row">
                             <div class="col-4">
-                                <p class="align-baseline">upload recorded lecture</p>                       
+                                <p class="align-baseline">Recorded Class</p>                       
                             </div>
                             <div class="col-8">
-                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$last->recordingLink}}">{{$last->recordingLink}}</a>
+                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                    <a
+                                     style="text-decoration: none; color:rgb(214, 221, 219)" 
+                                     href="{{$last->recordingLink}}">click to refer records
+                                    </a>
+                                </button>
+                               
                             </div>
                         </div>
                     </div>
@@ -107,7 +123,12 @@
                                 <p class="align-baseline">Zoom link for login class</p>                       
                             </div>
                             <div class="col-8">
-                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$fast->zoomLink}}">{{$fast->zoomLink}}</a>
+                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                    <a
+                                     style="text-decoration: none; color:rgb(214, 221, 219)" 
+                                     href="{{$fast->zoomLink}}">click to log in to the zoom
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -122,10 +143,15 @@
                     <div class="card-body" style="color:white; height: 65px">
                         <div class="row">
                             <div class="col-4">
-                                <p class="align-baseline">upload class materials</p>                       
+                                <p class="align-baseline">Class Materials</p>                       
                             </div>
-                            <div class="col-4">
-                                <u class="align-baseline"><a href="{{url('/downloadpdf',$fast->pdf)}}" download="{{$fast->pdf}}">Download pdf file</a></u>
+                            <div class="col-8">
+                                <button type="button" class="btn btn-warning" style="width: 50%">
+                                    <a
+                                     style="text-decoration: none; color:rgb(1, 24, 18)" 
+                                     href="{{url('/downloadpdf',$fast->pdf)}}" download="{{$fast->pdf}}">Download pdf file
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -140,10 +166,16 @@
                     <div class="card-body" style="color:white; height: 65px">
                         <div class="row">
                             <div class="col-4">
-                                <p class="align-baseline">upload recorded lecture</p>                       
+                                <p class="align-baseline">Recorded Class</p>                       
                             </div>
                             <div class="col-8">
-                                <a style="text-decoration: none; color:rgb(27, 205, 146)" href="{{$fast->recordingLink}}">{{$fast->recordingLink}}</a>
+                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                    <a
+                                     style="text-decoration: none; color:rgb(214, 221, 219)" 
+                                     href="{{$fast->recordingLink}}">click to refer records
+                                    </a>
+                                </button>
+                                
                             </div>
                         </div>
                     </div>

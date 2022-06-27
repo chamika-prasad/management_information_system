@@ -13,15 +13,16 @@ use Illuminate\Support\Facades\DB;
 
 class UploadingContentController extends Controller
 {
-    public function displaymaterials()
+    public function displaymaterials($addGrade)
     {
 
-        $gradename = Classroom::latest('created_at')->first();
-        $subjectname = Subject::latest('created_at')->first();
+        // $gradename = Classroom::latest('created_at')->first();
+        // $subjectname = Subject::latest('created_at')->first();
         
         return view('uploading_section/uploading_materials'
         ,[
-            'gradename'=>$gradename , 'subjectname' => $subjectname,
+            'addGrade'=>$addGrade , 
+            // 'subjectname' => $subjectname,
         ]);
     }
 

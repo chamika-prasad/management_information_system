@@ -53,7 +53,7 @@
                                             line-height: 28px;
                                             color:white"
                         >
-                            &ensp;select module
+                            &ensp;Select Module
                         </span> 
                     </a>
                 </li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
@@ -72,7 +72,7 @@
                                             line-height: 28px;
                                             color:white"
                         >
-                            &ensp;grade student
+                            &ensp;Grade Student
                         </span> 
                     </a>
                 </li>
