@@ -34,7 +34,7 @@
             </div>
           </div>
           <div>&emsp;</div>
-          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
+          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
         </div>
     </nav>
     
@@ -66,66 +66,56 @@
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/studentView')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
+          <a class="nav-link" href="{{url('/editDelete')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Books</span> 
           </a>
         </li>
 
-        
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/addBooks')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add Books</span> 
+          </a>
+        </li>
+
+        <li>
+          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Category</span> 
+          </a>
+        </li>
+
+        <li>
+          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/addBooksCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add category</span> 
+          </a>
         </li>
       </ul>
     
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/studentView')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDeleteBookCategory')}}">Go Back</a>
     <div>
     <br>
-    <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12 mb-5">
-            <div class="container">
-                    <form action="{{ route('studentSearch.filer') }}" method="GET">
-                        <div class="row">
-                            <div class="col-xl-3">
-                                <label></label>
-                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}"placeholder="Enter Book Name">
-                            </div>
-                            <div class="col-xl-3">
-                                <label></label>
-                                <input type="text" name="category_id" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
-                            </div>
-                            <div class="col-xl-3 mt-2">
-                                <label></label>
-                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}"placeholder="Enter Author Name">
-                            </div>
-                            <div class="col-xl-3 mt-2">
-                                <label></label>
-                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}"placeholder="Enter Publisher Name">
-                            </div>
-                            <div class="col-xl-12 text-right mt-2">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
 
-                        </div>
-                    </form>
-                </div>
-            </div>
     <table class="table table-dark">
       <thead>
         <tr>
         
           <th scope="col">Name</th>
           <th scope="col">Category</th>
-          <th scope="col">Author</th>
-          <th scope="col">Publisher</th>
-          <th scope="col">View</th>
-          <th scope="col">Download</th>
-          
+
+          <th scope="col">Action</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -133,12 +123,20 @@
           <tr>
         
             <td>{{$book->name}}</td>
-            <td>{{$book->category->name}}</td>
-            <td>{{$book->author}}</td>
-            <td>{{$book->publisher}}</td>
-            <td><a href="{{url('/studentViewPdfs',$book->id)}}">View</a></td>
-            <td><a href="{{url('/download',$book->file)}}">Download</a></td>
-      
+            <td>{{$book->description}}</td>
+            <td style="display:flex">
+              <a class="btn btn-success mr-1" href="{{url('/editBookCategory/'.$book->id)}}">Edit</a>
+            </td>
+            <td>
+              <form action="{{url('/DeleteCategory/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+                {{method_field('DELETE')}}  
+                {{csrf_field()}}
+                <button type="submit" class="btn btn-danger">Delete
+                  
+                </button>
+                   
+              </form>
+            </td>
           </tr>
         @endforeach
       </tbody>

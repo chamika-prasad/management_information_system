@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8">
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,11 +10,10 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <title>View Books</title>
-  </head>
-  <body>
-    
-    <nav class="navbar navbar-light " style="background-color: #FDEFEF;">
+      <title>Serach Books</title>
+</head>
+<body>
+<nav class="navbar navbar-light " style="background-color: #FDEFEF;">
       <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Library Management System</span>
 
       <div class="d-flex align-items-center">
@@ -70,18 +69,10 @@
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBooks')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
-          </a>
-        </li>
-
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
+     
         <li class="nav-item">
           <a class="nav-link" href="{{url('/editDelete')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete Books</span> </a>
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Books</span> </a>
         </li>
 
         <li>
@@ -98,59 +89,51 @@
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBookCategory')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View category</span> 
+          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Category</span> 
           </a>
         </li>
 
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
-        
         <li class="nav-item">
           <a class="nav-link" href="{{url('/addBooksCategory')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add category</span> 
           </a>
         </li>
 
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
       </ul>
     
     </nav>
     <br>
 
-          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
-           Edit or delete category
-          </a>
-
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDelete')}}">Go Back</a>
     </div>
-<br>
-<br>
-    <div class="container">
+    <br>
+    <br>
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 mb-5">
-        <div class="container">
-      <form action="{{ route('books.filter') }}" method="GET">
+            <div class="container">
+                    <form action="{{ route('books.filer.edit') }}" method="GET">
                         <div class="row">
                             <div class="col-xl-3">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}">
+                                <label></label>
+                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}" placeholder="Enter Book Name">
                             </div>
                             <div class="col-xl-3">
-                                <label>Category</label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}">
+                                <label></label>
+                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}" placeholder="Enter Category">
                             </div>
-                            <div class="col-xl-3 ">
-                                <label>Author</label>
-                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}">
+                            <div class="col-xl-3 mt-2">
+                                <label></label>
+                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}"placeholder="Enter Author Name">
                             </div>
-                            <div class="col-xl-3">
-                                <label>Publisher</label>
-                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}">
+                            <div class="col-xl-3 mt-2">
+                                <label></label>
+                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}"placeholder="Enter Publisher Name">
                             </div>
                             <div class="col-xl-12 text-right mt-2">
                                 <button class="btn btn-primary" type="submit">Search</button>
@@ -158,56 +141,51 @@
 
                         </div>
                     </form>
-    </div>
-    </div>
-    </div>
-
-    <br>
-
-    <div class='container'>
-      <h3> Books</h3>
-      <table class= "table table-dark">
-        <thead>
-          <tr>
-          
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Author</th>
-            <th scope="col">Publisher</th>
-            <th scope="col">View</th>
-            <th scope="col">Download</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($books as $book)
+                </div>
+            </div>
+            <br>
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">Action</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($books as $key => $book)
             <tr>
-                <td>{{$book->name}}</td>
-                <td>{{$book->category}}</td>
-                <td>{{$book->author}}</td>
-                <td>{{$book ->publisher}}</td>
-                <td><a href="{{url('/view',$book->id)}}">View</a></td>
-                <td><a href="{{url('/download',$book->file)}}">Download</a></td>
+            <td> {{ $key+1 }}</td>
+            <td> {{ $book->name }}</td>
+            <td>{{ $book->category->name}}</td>
+            <td>{{ $book->author }}</td>
+            <td>{{ $book->publisher }}</td>
+            <td style="display:flex">
+              <a class="btn btn-success mr-1" href="{{url('/editBooks/'.$book->id)}}">Edit</a>
+            </td>
+            <td>
+              <form action="{{url('/Delete/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+                {{method_field('DELETE')}}  
+                {{csrf_field()}}
+                <button type="submit" class="btn btn-danger">Delete
+                  
+                </button>
+                   
+              </form>
+            </td>
             </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
 
-    <div class="container mt-2">
-      @if(session()->has('message'))
-          <div class="alert alert-success">
-              {{ session()->get('message') }}
-          </div>
-      @endif
-    </div>  
-    
-    <style>
-      .w-5{
-        display:none
-      }
-    </style>
-  <div class="d-flex justify-content-center">
-    {!! $books->links() !!}
+        @endforeach
+                </tbody>
+            </table>
+            {{ $books->links() }}
+        </div>
+    </div>
 </div>
-  </body>
+
+</body>
 </html>

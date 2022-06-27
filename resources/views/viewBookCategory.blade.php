@@ -66,10 +66,10 @@
           </a>
         </li>
 
-
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="{{url('/viewBooks')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View Books</span> 
@@ -93,16 +93,6 @@
           </a>
         </li>
 
-
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewBookCategory')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;View category</span> 
-          </a>
-        </li>
-
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
@@ -116,77 +106,51 @@
         <li>
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
+            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Edit or delete category</span> 
+          </a>
+        </li>
+
+        <li>
+          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        </li>
       </ul>
     
     </nav>
     <br>
-
-          <a class="nav-link" href="{{url('/editDeleteBookCategory')}}">
-           Edit or delete category
-          </a>
-
     <div class="container">
       <a class="btn btn-info float-right mb-4  custom" href="{{url('/')}}">Go Back</a>
     </div>
-<br>
-<br>
-    <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12 mb-5">
-        <div class="container">
-      <form action="{{ route('books.filter') }}" method="GET">
-                        <div class="row">
-                            <div class="col-xl-3">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}">
-                            </div>
-                            <div class="col-xl-3">
-                                <label>Category</label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}">
-                            </div>
-                            <div class="col-xl-3 ">
-                                <label>Author</label>
-                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}">
-                            </div>
-                            <div class="col-xl-3">
-                                <label>Publisher</label>
-                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}">
-                            </div>
-                            <div class="col-xl-12 text-right mt-2">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
-
-                        </div>
-                    </form>
-    </div>
-    </div>
-    </div>
-
     <br>
-
+    <br>
+    <div class="container">
+      <form class="d-flex" type="get" action="{{url('/searchCategory')}}">
+    
+          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book category" aria-label="Search">
+        
+          <button class="btn btn-primary" type="submit" >Search</button>
+      </form>
+    </div>
+    <br>
+    <br>
     <div class='container'>
       <h3> Books</h3>
       <table class= "table table-dark">
         <thead>
           <tr>
           
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Author</th>
-            <th scope="col">Publisher</th>
-            <th scope="col">View</th>
-            <th scope="col">Download</th>
-          </tr>
+          
+            <th scope="col">Category name</th>
+            <th scope="col">Description</th>
+
         </thead>
         <tbody>
-          @foreach($books as $book)
+          @foreach($category as $category)
             <tr>
-                <td>{{$book->name}}</td>
-                <td>{{$book->category}}</td>
-                <td>{{$book->author}}</td>
-                <td>{{$book ->publisher}}</td>
-                <td><a href="{{url('/view',$book->id)}}">View</a></td>
-                <td><a href="{{url('/download',$book->file)}}">Download</a></td>
+                <td>{{$category->name}}</td>
+                <td>{{$category->description}}</td>
             </tr>
           @endforeach
         </tbody>
@@ -199,15 +163,6 @@
               {{ session()->get('message') }}
           </div>
       @endif
-    </div>  
-    
-    <style>
-      .w-5{
-        display:none
-      }
-    </style>
-  <div class="d-flex justify-content-center">
-    {!! $books->links() !!}
-</div>
+    </div>   
   </body>
 </html>

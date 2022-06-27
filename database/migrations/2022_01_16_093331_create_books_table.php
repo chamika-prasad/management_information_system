@@ -14,13 +14,20 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
+           // $table->engine = 'InnoDB';
             $table->id();
             $table->String('name');
-            $table->String('category');//relational database
+            //$table->foreignId('category')->constrained()->nullable();//relational database
+            //$table->String('category',200)->references('name')->on('categories')->onDelete()->onUpdate();
+            //$table->integer('category_id')->unsigned();
+            //$table->String('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->String('author');
             $table->String('publisher');
             $table->string('file');
             $table->timestamps();
+            //$table->foreign('category')->references('name')->on('categories')->onDelete('cascade');
+            //$table->foreignId('category')->constrained('category')->onDelete('cascade');
 
         });
     }

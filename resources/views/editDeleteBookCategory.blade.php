@@ -10,19 +10,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <title>Add Books</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script>
-        $(document).ready(function()
-        {
-          $("#Clear").click(function()
-          {
-            $("#form1")[0].reset();
-          }
-          );
-        }
-        );
-      </script>
+      <title>Edit/Delete</title>
   </head>
   <body>
 
@@ -39,21 +27,19 @@
                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                       <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                     </svg>
-              <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">My profile</button>
-                <button class="dropdown-item" type="button">Settings</button>
-                <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
-              </div>
+            <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button">My profile</button>
+              <button class="dropdown-item" type="button">Settings</button>
+              <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
+            </div>
           </div>
           <div>&emsp;</div>
-            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
+          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
         </div>
-      </nav>
-      
-  
+    </nav>
     
-    <nav class="navbar navbar-expand-sm " style="background-color: #7C5D5D;">
 
+    <nav class="navbar navbar-expand-sm " style="background-color: #7C5D5D;">
     <ul class="navbar-nav">
 
 <li class="nav-item">
@@ -113,68 +99,65 @@
   </a>
 </li>
 </ul>
-    
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Clear</a>
-    <div>
+    <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
     <br>
-
-      <form method="post"  enctype="multipart/form-data" action="{{url('/addBooks')}}" id="form1">
-        @csrf
-        <div class=" mb-3 form-group">
-          <label for="input1">Book name</label>
-          <input id="name" type="text" name="name" value="{{old('name')}}" class="form-control"  placeholder="Enter book Name" >
-        </div>
+<br>
+<div class="container">
+      <form class="d-flex" type="get" action="{{url('/editSearchCategory')}}">
+    
+          <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search book category" aria-label="Search">
         
-        <div class="form-group">
-          <label for="input2" class="form-label">Category</label>       
-          <select id="disabledSelect" class="custom-select mr-sm-2" name="category_id">
-          <option selected hidden>Select Category</option>
-            @foreach($categories as $category)
-            <option value="{{$category->id}}">{{$category->name}}</option>
-            @endforeach
-          </select>
-        </div>
-
-        <div class="mb-3 form-group">
-          <label for="input3">Author</label>
-          <input id="author" type="text" name="author"  value="{{old('author')}}" class="form-control"  placeholder="Enter Author Name">
-        </div>
-        <div class="mb-3 form-group">
-          <label for="input4">Publisher</label>
-          <input id="publisher" type="text" name="publisher"  value="{{old('publisher')}}" class="form-control"  placeholder="Enter Publisher Name">
-        </div>
-
-        <div class="mb-3 form-group">
-          <input type="file" name="file"  value="{{old('file')}}">
-        </div>
-
-        <div class="mb-3 form-check mt-4">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <br>
-      <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}} " >Add</button>  
-    </div>
+          <button class="btn btn-primary" type="submit" >Search</button>
       </form>
+    </div>
+    <div>
+      <br>
+      <table class="table table-dark">
+      <thead>
+        <tr>
+        
+      
+          <th scope="col">Category Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Action</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($category as $category)
+          <tr>
+          
+              <td>{{$category->name}}</td>
+              <td>{{$category->description}}</td>
+
+          
+            <td style="display:flex">
+              <a class="btn btn-success mr-1" href="{{url('/editBookCategory/'.$category->id)}}">Edit</a>
+            </td>
+            <td>
+              <form action="{{url('/DeleteCategory/'.$category->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+                {{method_field('DELETE')}}  
+                {{csrf_field()}}
+                <button type="submit" class="btn btn-danger">Delete
+                  
+                </button>
+                   
+              </form>
+            </td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
+
     <div class="container mt-2">
       @if(session()->has('message'))
-          <div class="alert alert-success">
-              {{ session()->get('message') }}
-          </div>
+        <div class="alert alert-success">
+          {{ session()->get('message') }}
+      </div>
       @endif
-    </div> 
-    <div class="container mt-2">
-      @if($errors->any())
-        @foreach($errors->all() as $error )
-          <div class="alert alert-danger" role="alert">
-          {{$error}}
-          </div>
-        @endforeach
-      @endif
-    </div>  
+    </div>   
   </body>
 </html>

@@ -99,53 +99,31 @@
           <a class="nav-link" href="{{url('/addBooksCategory')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add category</span> 
           </a>
+        </li>
 
       </ul>
     
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDelete')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDeleteBookCategory')}}">Go Back</a>
     </div>
     <br>
     <div class="container">
-      <form method="post" action="{{url('/updateBooks/'.$book->id)}}" enctype="multipart/form-data">
+      <form method="post" action="{{url('/updateBooksCategory/'.$category->id)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
           <div class=" mb-3 form-group">
-            <label for="input1">Book name</label>
-            <input id="name" type="text" name="name" class="form-control"  value="{{$book->name}}">
-          </div>
-
-          <div class="form-group">
-          <label for="input2" class="form-label">Category</label>       
-          <select id="disabledSelect" class="custom-select mr-sm-2" name="category_id" >
-          <option selected hidden>None</option>
-            @foreach($categories as $category)
-            <option value="{{$category->id}}">{{$category->name}}</option>
-            @endforeach
-          </select>
-        </div>
-          <div class="mb-3 form-group">
-            <label for="input3">Author</label>
-            <input id="author" type="text" name="author" class="form-control" value="{{$book->author}}" >
+            <label for="input1">Category name</label>
+            <input id="name" type="text" name="name" class="form-control"  value="{{$category->name}}">
           </div>
           <div class="mb-3 form-group">
-            <label for="input4">Publisher</label>
-            <input id="publisher" type="text" name="publisher" class="form-control" value="{{$book->publisher}}">
+            <label for="input2">Description</label>
+            <input id="description" type="text" name="description" class="form-control" value="{{$category->description}}">
           </div>
 
-          <div class="mb-3 form-group">
-            <input type="file" name="file"  value="{{$book->file}}" src="{{('/pdfs/'.$book->file)}}">
-          </div>
-
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-        <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}} " >Update</button>  
-    </div>
+        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooksCategory')}}">Update</button>
+          
 
       </form>
     </div>

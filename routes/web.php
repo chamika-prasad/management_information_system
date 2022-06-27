@@ -195,7 +195,7 @@ Route::post('/addingnewsubject',[UploadingContentController::class, 'addingSubje
 //-------------------------------------------- end of uploading section
 
 
-
+//--------------------------------------------Starting library mangement system
 // Route::get('/', function () {  
 //     return view('welcome');
 // });
@@ -254,15 +254,28 @@ Route::get('search',[BooksController::class,'search']);
 Route::get('studentSerach',[BooksController::class,'studentSerach']);
 Route::get('/studentViewPdfs/{id}',[BooksController::class,'studentPdf']);
 Route::get('/studentView',[BooksController::class,'studentView']);
-Route::get('studentHome',function(){
+/*Route::get('studentHome',function(){
     return view ('studentHome');
-});
+});*/
+
+Route::get('/viewBookCategory',[BooksController::class,'viewBookCategory']);
+
+Route::get('/addBooksCategory',[BooksController::class,'addBooksCategory']);//add book category function 
+Route::post('/addBooksCategory',[BooksController::class,'storeBookCategory']);//store book Category in database
+
+
+Route::get('/editDeleteBookCategory',[BooksController::class,'editDeleteBookCategory']);
+
+//edit
+Route::get('/editBookCategory/{id}',[BooksController::class,'editBookCategory']);
+Route::delete('/DeleteCategory/{category}',[BooksController::class,'deleteCategory']);
+Route::put('/updateBooksCategory/{id}',[BooksController::class,'updateBooksCategory']);
 
 
 
-// Route::get('/test',[AjaxDemoController::class,'myform']);
-// Route::post('/select-ajax',[AjaxDemoController::class,'selectAjax']
-
-
-// Route::get('cat', [AjaxDemoController::class, 'index']);
-// Route::get('/subcat/{id}', [AjaxDemoController::class, 'subCat']);
+Route::get('book-filter',[BooksController::class,'filter'])->name('books.filter');
+Route::get('searchCategory',[BooksController::class,'searchCategory']);
+Route::get('editBookSerach',[BooksController::class,'editBookSerach'])->name('books.filer.edit');
+Route::get('editSearchCategory',[BooksController::class,'editSearchCategory'])->name('booksCategory.filer.edit');
+Route::get('studentSearch',[BooksController::class,'studentSearch'])->name('studentSearch.filer');
+//--------------------------------------------Ending library mangement system
