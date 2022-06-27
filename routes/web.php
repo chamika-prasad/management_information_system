@@ -6,6 +6,8 @@ use App\Http\Controllers\uploading_pdfController;
 use App\Http\Controllers\FreeLearningController;
 use App\Http\Controllers\BankDepositController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\AjaxDemoController;
+
 
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\SubjectController;
@@ -161,12 +163,13 @@ Route::post('uploadmaterials',[UploadingContentController::class, 'storematerial
 
 
 //select module view
-Route::get('/select_module',function(){
-    return view ('uploading_section/select_module');
-});
-Route::post('/submitgradesub',[UploadingContentController::class, 'selectSubjects']);
+Route::get('/select_module',[UploadingContentController::class, 'displayModuleSelection']);
+Route::get('/findGrade',[UploadingContentController::class, 'findGrade']);
+//pdf download
+Route::get('/downloadpdf/{pdf}',[UploadingContentController::class,'downloadpdf']);
 
 //teacher module view
+Route::post('/submitgradesub',[UploadingContentController::class, 'selectSubjects']);
 Route::get('/teacher_module_view',[UploadingContentController::class, 'displaymoduleview']);
 
 //student module view
@@ -187,6 +190,7 @@ Route::get('/showResault',[UploadingContentController::class, 'showReasaultDispl
 
 //admin add subjects
 Route::get('/addsubjects',[UploadingContentController::class, 'addsubjectDisplay']);
+Route::post('/addingnewsubject',[UploadingContentController::class, 'addingSubject']);
 
 //-------------------------------------------- end of uploading section
 
@@ -253,3 +257,12 @@ Route::get('/studentView',[BooksController::class,'studentView']);
 Route::get('studentHome',function(){
     return view ('studentHome');
 });
+
+
+
+// Route::get('/test',[AjaxDemoController::class,'myform']);
+// Route::post('/select-ajax',[AjaxDemoController::class,'selectAjax']
+
+
+// Route::get('cat', [AjaxDemoController::class, 'index']);
+// Route::get('/subcat/{id}', [AjaxDemoController::class, 'subCat']);

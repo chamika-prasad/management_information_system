@@ -15,4 +15,36 @@
     @include('layouts.AdminNavbar')
     @include('uploading_section.Navbar_admin')
 
+    <div class="container-fluid mt-5" style="width: 60%">
+        <h4>Add a new subject to the selected grade</h4>
+        <hr>
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+         @endif
+        @if($errors->any())
+            <div class="alert alert-danger">
+                {!! implode('', $errors->all('<div>:message</div>')) !!}
+            </div>
+        @endif
+        <form action="addingnewsubject" method="POST">
+            @csrf
+            <div class="form-group">
+                <label >Grade</label>
+                <input type="text" class="form-control" name="addGrade"  placeholder="Enter Grade">
+            </div>
+            <div class="form-group">
+                <label >Subject Code</label>
+                <input type="text" class="form-control" name="addSubCode" placeholder="Enter Subject Code">
+            </div>
+            <div class="form-group">
+                <label >Subject Name</label>
+                <input type="text" class="form-control" name="addSubName" placeholder="Enter Subject Name">
+            </div>
+            <button style="float: right" type="submit" class="btn btn-primary" name="addingnewsubject">Submit</button>
+        </form>
+    </div>
+    @include('home_page.footer')
+
 </body>

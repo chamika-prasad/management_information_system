@@ -10,6 +10,7 @@ use App\Models\GradeSemtwo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class UploadingContentController extends Controller
 {
     public function displaymaterials()
@@ -33,17 +34,20 @@ class UploadingContentController extends Controller
         $date2 =  date('d', strtotime("next Sunday +7 days"));
 
         $request-> validate([
-            'createzoomlink'=> 'required|url'          
+            'createzoomlink'=> 'required|url' ,
+            'createrecord'=> 'required|url' ,
+            'createPdf' => 'required|mimes:pdf,doc,docx|max:4096', 
+            'datetime'=> 'required'        
         ]);
-        $request-> validate([
-            'createrecord'=> 'required|url'          
-        ]);
-        $request-> validate([
-            'createPdf' => 'required|mimes:pdf,doc,docx|max:4096',          
-        ]);
-        $request-> validate([
-            'datetime'=> 'required'          
-        ]);
+        // $request-> validate([
+        //     'createrecord'=> 'required|url'          
+        // ]);
+        // $request-> validate([
+        //     'createPdf' => 'required|mimes:pdf,doc,docx|max:4096',          
+        // ]);
+        // $request-> validate([
+        //     'datetime'=> 'required'          
+        // ]);
 
         $pdfName = $request->file('createPdf')->getClientOriginalName();
         $request->file('createPdf')->store('public/pdfs/');
@@ -54,7 +58,7 @@ class UploadingContentController extends Controller
         $Uploadingdummy->pdf = $pdfName;
         $Uploadingdummy->recordingLink= $request->createrecord;
         $currentDate = $Uploadingdummy->Date= $request->datetime;
-        $Uploadingdummy->subject_id = '1';
+        $Uploadingdummy->subject_id = '153';
         $Uploadingdummy->grade_name = '3';
 
         $strcurrentDate = strval($currentDate);
@@ -102,66 +106,90 @@ class UploadingContentController extends Controller
         $day2=strtotime("next Sunday +7 days");
         $date2 =  date('Y M d ' , $day2);
 
-        return view('uploading_section/student_ module_view',[
+        return view('uploading_section/student_module_view',[
             'lasts' => $lasts ,'gradename'=>$gradename , 'subjectname' => $subjectname ,
             'fasts' => $fasts , 'date1' => $date1 , 'date2' => $date2
         ]);
     }
 
+    public function downloadpdf($pdf)
+    {
+        return response()->download(public_path('pdfs/'.$pdf));
+    }
+
+    //select module view
+
+    public function displayModuleSelection(Request $request)
+    {
+        $addNewSubject = new Subject();
+        $addNewSubject -> subjectName = $request->addSubName;
+        $addNewSubject -> subjectCode = $request->addSubCode;
+        $addNewSubject -> subGrade = $request->addGrade;
+        $addNewSubject -> teacher_id = '1' ;
+
+        $grades = DB::table("subjects")
+            ->select("subGrade")
+            ->orderBy('subGrade','ASC')
+            ->distinct()
+            ->get();   
+
+        // $select_subject = DB::table("subjects")
+        //     ->select("subjectName")
+        //     ->where("subGrade", "=", 1)
+        //     ->get();
+
+        return view('uploading_section/select_module',compact('grades'),[
+            // 'grades' => $grades ,
+            // 'select_subject' => $select_subject 
+        ]);
+    }
+    // select module view jquery method
+    public function findGrade(Request $request)
+    {
+        $data = DB::table("subjects")
+        ->select("subjectName")
+        ->where("subGrade", "=", $request->subGrade)
+        ->orderBy('subjectName','ASC')
+        ->get();
+        return response()->json($data);
+    }
+
+
 
     // //teacher module view
-
-    //sent  $day1 to the uploading materials
     public function selectSubjects(Request $request)
     {
-        $grd = new Classroom();
-        $sub = new Subject();
-        $grd -> gradeName = $request->selectGrade;
-        $grd -> teacher_id = '1' ;
-        $grd -> student_id = '1' ;
-        $sub -> subjectName = $request->selectSubject;
-        $sub -> teacher_id = '1' ;
-        $sub -> save();
-        $grd -> save();
-
+        $addGrade = $request->stu_name1;
+        $addSubject = $request->stu_name2;
+        
         $day1=strtotime("next Sunday");
         $date1 =  date('Y M d ' , $day1);
 
         $day2=strtotime("next Sunday +7 days");
         $date2 =  date('Y M d ' , $day2);
 
-        $gradename = Classroom::latest('created_at')->first();
-        $subjectname = Subject::latest('created_at')->first();
-    //     $lasts = UploadingContent::latest('created_at')->first();
-    //     $fast = UploadingContent::latest('created_at')->first();
         return view('uploading_section/teacher_module_view',[
-            'gradename'=>$gradename , 'subjectname' => $subjectname , 
+            'addGrade' => $addGrade , 
+            'addSubject' => $addSubject ,
             'date1' => $date1,
             'date2' => $date2,
         ]);
     }
 
-    //sent  $day1 to the uploading materials
 
-    public function displaymoduleview()
-    {
-        $day1=strtotime("next Sunday");
-        $date1 =  date('Y M d ' , $day1);
+    // public function displaymoduleview()
+    // {
+    //     $day1=strtotime("next Sunday");
+    //     $date1 =  date('Y M d ' , $day1);
 
-        $day2=strtotime("next Sunday +7 days");
-        $date2 =  date('Y M d ' , $day2);
+    //     $day2=strtotime("next Sunday +7 days");
+    //     $date2 =  date('Y M d ' , $day2);
 
-        $lasts = UploadingContent::latest('created_at')->first();
-        $subjectname = Subject::latest('created_at')->first();
-        $gradename = Classroom::latest('created_at')->first();
-        $fast = UploadingContent::latest('created_at')->first();
-        return view('uploading_section/teacher_module_view',[
-            'subjectname' => $subjectname , 
-            'gradename'=>$gradename ,
-            'date1' => $date1,
-            'date2' => $date2,
-        ]);
-    }
+    //     return view('uploading_section/teacher_module_view',[
+    //         'date1' => $date1,
+    //         'date2' => $date2,
+    //     ]);
+    // }
 
 
     //grading view
@@ -190,19 +218,11 @@ class UploadingContentController extends Controller
             ->where("usertype", "=", 3)
             ->get();
         $request-> validate([
-            'markBudhdhaCharithaya'=> 'required'
-        ]);
-
-        $request-> validate([
-            'markPali'=> 'required'
-        ]);
-
-        $request-> validate([
-            'markAbhi'=> 'required'
-        ]);
-
-        $request-> validate([
+            'markBudhdhaCharithaya'=> 'required',
+            'markPali'=> 'required',
+            'markAbhi'=> 'required',
             'markAssignment'=> 'required'
+
         ]);
         $sem1 = new Grade();
         $sem1 -> semOneBudhdha = $request->markBudhdhaCharithaya;
@@ -227,21 +247,15 @@ class UploadingContentController extends Controller
             ->select("firstname","lastname", "id")
             ->where("usertype", "=", 3)
             ->get();
-        $request-> validate([
-            'markBudhdhaCharithaya'=> 'required'
-        ]);
 
         $request-> validate([
-            'markPali'=> 'required'
-        ]);
-
-        $request-> validate([
-            'markAbhi'=> 'required'
-        ]);
-
-        $request-> validate([
+            'markBudhdhaCharithaya'=> 'required',
+            'markPali'=> 'required',
+            'markAbhi'=> 'required',
             'markAssignment'=> 'required'
+    
         ]);
+
         $sem1 = new GradeSemtwo();
         $sem1 -> semTwoBudhdha = $request->markBudhdhaCharithaya;
         $sem1 -> semTwoPali = $request->markPali;
@@ -268,20 +282,13 @@ class UploadingContentController extends Controller
             ->get();
         
         $request-> validate([
-            'markBudhdhaCharithaya'=> 'required'
-        ]);
-
-        $request-> validate([
-            'markPali'=> 'required'
-        ]);
-
-        $request-> validate([
-            'markAbhi'=> 'required'
-        ]);
-
-        $request-> validate([
+            'markBudhdhaCharithaya'=> 'required',
+            'markPali'=> 'required',
+            'markAbhi'=> 'required',
             'markAssignment'=> 'required'
+
         ]);
+
         $sem1 = new GradeSemThree();
         $sem1 -> semThreeBudhdha = $request->markBudhdhaCharithaya;
         $sem1 -> semThreePali = $request->markPali;
@@ -331,5 +338,24 @@ class UploadingContentController extends Controller
         return view(('uploading_section/addsubjects'));
     }
 
+    public function addingSubject(Request $request)
+    {
+        $request-> validate([
+            'addSubName'=> 'required'
+        ]);
+        $request-> validate([
+            'addSubCode'=> 'required'
+        ]);
+        $request-> validate([
+            'addGrade'=> 'required|integer|between:1,11',
+        ]);
 
+        $addNewSubject = new Subject();
+        $addNewSubject -> subjectName = $request->addSubName;
+        $addNewSubject -> subjectCode = $request->addSubCode;
+        $addNewSubject -> subGrade = $request->addGrade;
+        $addNewSubject -> teacher_id = '1' ;
+        $addNewSubject -> save();
+        return redirect()->back()->with('message', 'Subject Added Successfully');
+    }
 }

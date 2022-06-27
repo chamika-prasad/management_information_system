@@ -12,7 +12,7 @@
     <title>student_module_view</title>
 </head>
 <body>
-    @include('layouts.TeacherNavbar')
+    @include('layouts.StudentNavbar')
     @include('uploading_section.Navbar_module')
 
     
@@ -54,7 +54,7 @@
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
                             <div class="col-8">
-                                <u class="align-baseline">{{$last->pdf}}</u>
+                                <u class="align-baseline"><td><a href="{{url('/downloadpdf',$last->pdf)}}" download="{{$last->pdf}}">Download pdf file</a></td></u>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                                 <p class="align-baseline">upload class materials</p>                       
                             </div>
                             <div class="col-4">
-                                <u class="align-baseline">{{$fast->pdf}}</u>
+                                <u class="align-baseline"><a href="{{url('/downloadpdf',$fast->pdf)}}" download="{{$fast->pdf}}">Download pdf file</a></u>
                             </div>
                         </div>
                     </div>
