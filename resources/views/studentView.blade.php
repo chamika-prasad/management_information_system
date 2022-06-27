@@ -141,7 +141,7 @@
           @foreach($books as $book)
             <tr>
                 <td>{{$book->name}}</td>
-                <td>{{$book->category}}</td>
+                <td>{{$book->category->name}}</td>
                 <td>{{$book->author}}</td>
                 <td>{{$book ->publisher}}</td>
                 <td><a href="{{url('/studentViewPdfs',$book->id)}}">View</a></td>

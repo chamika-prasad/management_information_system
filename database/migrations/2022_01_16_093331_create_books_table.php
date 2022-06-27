@@ -18,7 +18,10 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->String('name');
             //$table->foreignId('category')->constrained()->nullable();//relational database
-            $table->String('category',200)->references('name')->on('categories')->onDelete()->onUpdate();
+            //$table->String('category',200)->references('name')->on('categories')->onDelete()->onUpdate();
+            //$table->integer('category_id')->unsigned();
+            //$table->String('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->String('author');
             $table->String('publisher');
             $table->string('file');
