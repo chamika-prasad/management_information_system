@@ -97,7 +97,7 @@
                             </div>
                             <div class="col-xl-3">
                                 <label></label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
+                                <input type="text" name="category_id" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
                             </div>
                             <div class="col-xl-3 mt-2">
                                 <label></label>
@@ -133,7 +133,7 @@
           <tr>
         
             <td>{{$book->name}}</td>
-            <td>{{$book->category}}</td>
+            <td>{{$book->category->name}}</td>
             <td>{{$book->author}}</td>
             <td>{{$book->publisher}}</td>
             <td><a href="{{url('/studentViewPdfs',$book->id)}}">View</a></td>

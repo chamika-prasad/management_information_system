@@ -45,7 +45,7 @@ class BooksController extends Controller
             'author'=>'required',
             'publisher'=>'required',
             'file'=>'required',
-            'category'=>'required'
+            'category_id'=>'required'
         ]);
 
 
@@ -61,7 +61,7 @@ class BooksController extends Controller
 
         $data->file=$filename;
         $data->name=$request->name;
-        $data->category=$request->category;
+        $data->category_id=$request->category_id;
         $data->author=$request->author;
         $data->publisher=$request->publisher;
         $data->save();
@@ -115,11 +115,11 @@ class BooksController extends Controller
        
         $book=Books::find($book);
         $request->validate([
-            'category'=>'required|not_in:None'
+            'category_id'=>'required|not_in:None'
         ]);
         //must select category
         $book->name=$request->input('name');
-        $book->category=$request->input('category');
+        $book->category_id=$request->input('category_id');
         $book->author=$request->input('author');
         $book->publisher=$request->input('publisher');
         $book->file=$request->input('file');
@@ -144,7 +144,7 @@ class BooksController extends Controller
         $book->update();
 
 
-        return  redirect('/editDelete'); 
+        return  redirect('/editDelete')->with('message', 'Thank you!   Your submission has been received'); 
     }
 
     public function search()
@@ -288,7 +288,7 @@ class BooksController extends Controller
         $name = $request->name;
         $author = $request->author;
         $publisher = $request->publisher;
-        $category = $request->category;
+        $category= $request->category;
 
         if ($name) {
             $books->where('name','LIKE','%'.$name.'%');
@@ -301,8 +301,8 @@ class BooksController extends Controller
             $books->where('publisher','LIKE','%'.$publisher .'%');
         }
 
-        if ($category ) {
-            $books->where('category','LIKE','%'.$category .'%');
+        if ($category) {
+            $books->where('category','LIKE','%'.$category.'%');
         }
 
         $data = [

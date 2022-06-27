@@ -103,9 +103,6 @@
     </nav>
     <br>
     <div class="container">
-    <a class="btn btn-info float-right mb-4  custom" href="{{url('/addBooks')}}">Go Back</a>
-    <br>
-    <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 mb-5">
         <div class="container">
@@ -117,7 +114,7 @@
                             </div>
                             <div class="col-xl-3">
                                 <label></label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
+                                <input type="text" name="category_id" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
                             </div>
                             <div class="col-xl-3 ">
                                 <label></label>
@@ -159,7 +156,7 @@
           <tr>
           
               <td>{{$book->name}}</td>
-              <td>{{$book->category}}</td>
+              <td>{{$book->category->name}}</td>
               <td>{{$book->author}}</td>
               <td>{{$book->publisher}}</td>
               <td><a href="{{url('/view',$book->id)}}">View</a></td>

@@ -106,7 +106,7 @@
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDelete')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDeleteBookCategory')}}">Go Back</a>
     </div>
     <br>
     <div class="container">

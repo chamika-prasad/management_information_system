@@ -8,7 +8,7 @@ use App\Models\Category;
 class Books extends Model
 {
     use HasFactory;
-    protected $fillable =['id','name','category','author','publisher','file'];
+    protected $fillable =['id','name','category_id','author','publisher','file'];
 
     //book is belongs to category
     public function category()
