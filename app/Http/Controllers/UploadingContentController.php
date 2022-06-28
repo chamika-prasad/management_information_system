@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class UploadingContentController extends Controller
 {
-    public function displaymaterials($addGrade)
+    public function displaymaterials($addGrade,$addSubject)
     {
 
         // $gradename = Classroom::latest('created_at')->first();
@@ -22,7 +22,7 @@ class UploadingContentController extends Controller
         return view('uploading_section/uploading_materials'
         ,[
             'addGrade'=>$addGrade , 
-            // 'subjectname' => $subjectname,
+            'addSubject' => $addSubject,
         ]);
     }
 
@@ -201,12 +201,20 @@ class UploadingContentController extends Controller
             ->select("firstname","lastname", "id")
             ->where("usertype", "=", 3)
             ->get();
+
+        $stu_grades = DB::table("subjects")
+            ->select("subGrade")
+            ->orderBy('subGrade','ASC')
+            ->distinct()
+            ->get();
+
             return view('uploading_section/grading',[
                 'semOne' => $this-> semOne,
                 'semTwo' =>  $this->semTwo,
                 'semThree' =>  $this-> semThree , 
                 'tot'=> $this-> tot,
-                'students' => $students
+                'students' => $students,
+                'stu_grades' => $stu_grades
             ]);
     }
 
@@ -218,6 +226,13 @@ class UploadingContentController extends Controller
             ->select("firstname","lastname", "id")
             ->where("usertype", "=", 3)
             ->get();
+
+        $stu_grades = DB::table("subjects")
+            ->select("subGrade")
+            ->orderBy('subGrade','ASC')
+            ->distinct()
+            ->get();
+            
         $request-> validate([
             'markBudhdhaCharithaya'=> 'required',
             'markPali'=> 'required',
@@ -239,6 +254,7 @@ class UploadingContentController extends Controller
             'semThree' =>  $this-> semThree , 
             'tot'=> $this-> tot,
             'students' => $students,
+            'stu_grades'=> $stu_grades,
         ]);
     }
 
@@ -247,6 +263,12 @@ class UploadingContentController extends Controller
         $students = DB::table("users")
             ->select("firstname","lastname", "id")
             ->where("usertype", "=", 3)
+            ->get();
+        
+        $stu_grades = DB::table("subjects")
+            ->select("subGrade")
+            ->orderBy('subGrade','ASC')
+            ->distinct()
             ->get();
 
         $request-> validate([
@@ -271,6 +293,8 @@ class UploadingContentController extends Controller
             'semThree' =>  $this-> semThree , 
             'tot'=> $this-> tot,
             'students' => $students,
+            'stu_grades' => $stu_grades,
+            
         ]);
         
     }
@@ -290,6 +314,12 @@ class UploadingContentController extends Controller
 
         ]);
 
+        $stu_grades = DB::table("subjects")
+            ->select("subGrade")
+            ->orderBy('subGrade','ASC')
+            ->distinct()
+            ->get();
+
         $sem1 = new GradeSemThree();
         $sem1 -> semThreeBudhdha = $request->markBudhdhaCharithaya;
         $sem1 -> semThreePali = $request->markPali;
@@ -304,6 +334,7 @@ class UploadingContentController extends Controller
             'semThree' =>  $this-> semThree , 
             'tot'=> $this-> tot,
             'students' => $students,
+            'stu_grades' => $stu_grades,
         ]);
         
     }
@@ -311,26 +342,28 @@ class UploadingContentController extends Controller
     public function showReasaultDisplay(Request $request)
     {
         $selectStu = $request->stu_name;
+        $selectGrd = $request->grd_name;
         $sem1 = Grade::latest('created_at')->first();
         $sem2 = GradeSemtwo::latest('created_at')->first();
         $sem3 = GradeSemThree::latest('created_at')->first();
         
         return view('uploading_section/showResault',[
             'sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3,
-            'selectStu' => $selectStu
+            'selectStu' => $selectStu , 'selectGrd' => $selectGrd
         ]);
     }
 
     public function uploadingStuName(Request $request)
     {
         $selectStu = $request->stu_name;
+        $selectGrd = $request->grd_name;
         $sem1 = Grade::latest('created_at')->first();
         $sem2 = GradeSemtwo::latest('created_at')->first();
         $sem3 = GradeSemThree::latest('created_at')->first();
         
         return view('uploading_section/showResault',[
             'sem1' => $sem1 , 'sem2' => $sem2 , 'sem3' => $sem3,
-            'selectStu' => $selectStu
+            'selectStu' => $selectStu , 'selectGrd' => $selectGrd
         ]);
     }
 

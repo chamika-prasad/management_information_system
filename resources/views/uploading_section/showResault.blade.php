@@ -19,7 +19,7 @@
         <div class="card border-info mb-3 mt-5" >
             <div class="card-header">Resault Sheet 2021</div>
                 <div class="card-body text-info">
-                    <h5 class="card-title">{{$selectStu}}</h5>
+                    <h5 class="card-title">grade {{$selectGrd}}-{{$selectStu}}</h5>
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-info">Semester 1</li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">

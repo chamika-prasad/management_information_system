@@ -157,7 +157,7 @@ Route::get('/admin_home_uploading',function(){
 
 
 //uploading materials view
-Route::get('/uploading_materials/{addGrade}',[UploadingContentController::class, 'displaymaterials']);
+Route::get('/uploading_materials/{addGrade}/{addSubject}',[UploadingContentController::class, 'displaymaterials']);
 Route::post('uploadmaterials',[UploadingContentController::class, 'storematerials']);
 
 

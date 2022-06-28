@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{url('/uploading_materials/{'$addGrade'}')}}">
+            <a href="{{url('/uploading_materials',[$addGrade,$addSubject])}}">
 
                 <div class="btn btn-secondary container-fluid">Add</div>
             

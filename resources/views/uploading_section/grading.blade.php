@@ -68,13 +68,22 @@
               <tr>
                 <form action="selectstu" method="post">
                   @csrf
-                  <select class="form-control select2 mt-5" style="width: 50%;" name="stu_name">
-  
-                    @foreach($students as $student)
-                         <option value="{{$student->firstname}}&nbsp;{{$student->lastname}}"><p>{{$student->firstname}} {{$student->lastname}}</p></option>
-                    @endforeach
-              
-                  </select>
+                  <div class="d-flex align-items-start">
+                    <select class="form-control select2 mt-5 ml-5 mr-3" style="width: 40%;" name="grd_name">
+    
+                      @foreach($stu_grades as $stu_grade)
+                          <option value="{{$stu_grade->subGrade}}"><p>grade {{$stu_grade->subGrade}}</p></option>
+                      @endforeach
+                
+                    </select>
+                    <select class="form-control select2 mt-5" style="width: 50%;" name="stu_name">
+    
+                      @foreach($students as $student)
+                          <option value="{{$student->firstname}}&nbsp;{{$student->lastname}}"><p>{{$student->firstname}} {{$student->lastname}}</p></option>
+                      @endforeach
+                
+                    </select>
+                  </div>
                     {{-- <th colspan="5" scope="row">Final</th> --}}
                     <td colspan="7"scope="col">
                         <button type="submit" class="btn btn-secondary">send certificate</button>
