@@ -44,7 +44,7 @@ class BooksController extends Controller
             'name'=>'required',
             'author'=>'required',
             'publisher'=>'required',
-            'file'=>'required',
+            'file'=>'required|mimes:pdf,doc',
             'category_id'=>'required'
         ]);
 
@@ -203,7 +203,7 @@ class BooksController extends Controller
         $category->description=$request->input('description');
 
         $category->update();
-        return  redirect('/editDeleteBookCategory'); 
+        return  redirect('/editDeleteBookCategory')->with('message', 'Thank you!   The category has been updated');; 
     }
     public function viewBookCategory()
     {
