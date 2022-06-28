@@ -195,8 +195,9 @@
         display:none
       }
     </style>
-  <div class="d-flex justify-content-center">
-    {!! $books->links() !!}
-</div>
+
+<div class="d-flex justify-content-center">
+            {!! $books->links() !!}
+        </div>
   </body>
 </html>
