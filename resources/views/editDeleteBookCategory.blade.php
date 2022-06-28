@@ -122,6 +122,8 @@
       
           <th scope="col">Category Name</th>
           <th scope="col">Description</th>
+          <th scope="col">Created at</th>
+          <th scope="col">Updated at</th>
           <th scope="col">Action</th>
           <th scope="col"></th>
         </tr>
@@ -132,7 +134,8 @@
           
               <td>{{$category->name}}</td>
               <td>{{$category->description}}</td>
-
+              <td>{{$category->created_at->diffForHumans()}}</td>
+                <td>{{$category->updated_at->diffForHumans()}}</td>
           
             <td style="display:flex">
               <a class="btn btn-success mr-1" href="{{url('/editBookCategory/'.$category->id)}}">Edit</a>
