@@ -89,7 +89,7 @@
     </nav>
     <br>
     <div class="container">
-      <a class="btn btn-info float-right mb-4  custom" href="{{url('/editDelete')}}">Go Back</a>
+      <a class="btn btn-info float-right mb-4  custom" href="{{url('/viewNotices')}}">Go Back</a>
     </div>
     <br>
     <div class="container">
@@ -103,7 +103,7 @@
 
           <div class="mb-3 form-group">
             <label for="input3">Description</label>
-            <input id="description" type="text" name="description" class="form-control" value="{{$book->description}}" >
+            <input id="description" type="text" name="description" class="form-control" value="{{$book->description}}" ></textarea>
           </div>
          
           <div class="mb-3 form-group">

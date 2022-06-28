@@ -97,7 +97,11 @@
         <p class="card-text"><small class="text-muted"></small></p>
         <br>
         <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary">See Image</a>
-              
+        <div>
+                <small >Created at:{{$book->created_at->diffForHumans()}}</small>
+                <br>
+                <small>Updated at:{{$book->updated_at->diffForHumans()}}</small>
+              </div>
       </div>
     </div>
   </div>
@@ -116,7 +120,14 @@
     </div>  
     <br>
  
-
+    <style>
+      .w-5{
+        display:none
+      }
+    </style>
+  <div class="d-flex justify-content-center">
+    {!! $notices->links() !!}
+</div>
  
 
   </body>
