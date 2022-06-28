@@ -34,7 +34,7 @@
             </div>
           </div>
           <div>&emsp;</div>
-          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
+          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
         </div>
     </nav>
     
@@ -114,9 +114,13 @@
                 <button type="submit" class="btn btn-danger mb-4 ">Delete
                   
                 </button>
-
                    
               </form> 
+              <div>
+                <small >Created at:{{$book->created_at->diffForHumans()}}</small>
+                <br>
+                <small>Updated at:{{$book->updated_at->diffForHumans()}}</small>
+              </div>
       </div>
     </div>
   </div>
