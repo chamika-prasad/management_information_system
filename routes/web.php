@@ -6,6 +6,8 @@ use App\Http\Controllers\uploading_pdfController;
 use App\Http\Controllers\FreeLearningController;
 use App\Http\Controllers\BankDepositController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\AjaxDemoController;
+
 
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\SubjectController;
@@ -157,42 +159,22 @@ Route::get('/admin_home_uploading',function(){
 
 
 //uploading materials view
-Route::get('uploading_materials/{day1}',[UploadingContentController::class, 'displaymaterials']);
+Route::get('/uploading_materials/{addGrade}',[UploadingContentController::class, 'displaymaterials']);
+Route::post('uploadmaterials',[UploadingContentController::class, 'storematerials']);
 
-
-
-//zoom link upload view 
-Route::get('/uploading_zoomlink/{day1}',[UploadingContentController::class, 'displayUploadZoom']);
-Route::post('uploadZoomlink/{day1}',[UploadingContentController::class, 'storezoomlink']);
-
-
-
-//pdf upload view
-Route::get('/uploading_pdf/{day1}',[UploadingContentController::class, 'displayUploadPDF']);
-Route::post('uploadingPdf/{day1}',[UploadingContentController::class, 'storepdf']);
-
-
-//record upload view
-Route::get('/uploading_recording/{day1}',[UploadingContentController::class, 'displayUploadRecord']);
-Route::post('uploadRecording/{day1}',[UploadingContentController::class, 'storerecord']);
 
 
 //select module view
-Route::get('/select_module',function(){
-    return view ('uploading_section/select_module');
-});
-Route::post('/submitgradesub',[UploadingContentController::class, 'selectSubjects']);
-
+Route::get('/select_module',[UploadingContentController::class, 'displayModuleSelection']);
+Route::get('/findGrade',[UploadingContentController::class, 'findGrade']);
+//pdf download
+Route::get('/downloadpdf/{pdf}',[UploadingContentController::class,'downloadpdf']);
 
 //teacher module view
+Route::post('/submitgradesub',[UploadingContentController::class, 'selectSubjects']);
 Route::get('/teacher_module_view',[UploadingContentController::class, 'displaymoduleview']);
 
-
-
 //student module view
-Route::get('/student_module_view',function(){
-    return view ('uploading_section/student_ module_view');
-});
 Route::get('/student_module_view',[UploadingContentController::class, 'displayStudentModuleView']);
 
 
@@ -201,11 +183,16 @@ Route::get('/grading',[UploadingContentController::class, 'gradingview']);
 Route::post('/1stSemUpload',[UploadingContentController::class, 'uploading1stSem']);
 Route::post('/2ndSemUpload',[UploadingContentController::class, 'uploading2ndSem']);
 Route::post('/3rdSemUpload',[UploadingContentController::class, 'uploading3rdSem']);
+Route::post('/selectstu',[UploadingContentController::class, 'uploadingStuName']);
 
 
 //show resault
-
 Route::get('/showResault',[UploadingContentController::class, 'showReasaultDisplay']);
+
+
+//admin add subjects
+Route::get('/addsubjects',[UploadingContentController::class, 'addsubjectDisplay']);
+Route::post('/addingnewsubject',[UploadingContentController::class, 'addingSubject']);
 
 //-------------------------------------------- end of uploading section
 
@@ -305,3 +292,4 @@ Route::get('/editNotices/{id}',[NoticeController::class,'edit']);
 Route::put('/updateNotices/{id}',[NoticeController::class,'update']);
 
 Route::get('/studentNotices',[NoticeController::class,'studentNotice']);
+

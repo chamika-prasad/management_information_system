@@ -15,7 +15,6 @@
     @include('layouts.TeacherNavbar')
     @include('uploading_section.Navbar_module')
 
-
     <div class="container-fluid" style="width: 85%">
         <table class="table table-hover mt-5 table-responsive-sm">
             <thead>
@@ -67,18 +66,26 @@
                 </form>
               </tr>
               <tr>
+                <form action="selectstu" method="post">
+                  @csrf
+                  <select class="form-control select2 mt-5" style="width: 50%;" name="stu_name">
+  
+                    @foreach($students as $student)
+                         <option value="{{$student->firstname}}&nbsp;{{$student->lastname}}"><p>{{$student->firstname}} {{$student->lastname}}</p></option>
+                    @endforeach
+              
+                  </select>
                     {{-- <th colspan="5" scope="row">Final</th> --}}
                     <td colspan="7"scope="col">
-                        <a href="{{url('/showResault')}}">
-                            <button type="submit" class="btn btn-secondary">send certificate</button>
-                        </a>
+                        <button type="submit" class="btn btn-secondary">send certificate</button>
                     </td>
+                </form>
               </tr>
             </tbody>
           </table>
-        @if ($errors->any())
-            <div class="alert alert-danger" role="alert">
-                <p>All fields are required</p>
+        @if($errors->any())
+            <div class="alert alert-danger">
+                {!! implode('', $errors->all('<div>:message</div>')) !!}
             </div>
         @endif
     </div>
