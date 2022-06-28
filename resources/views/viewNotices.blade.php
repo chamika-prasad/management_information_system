@@ -104,20 +104,19 @@
         <p class="card-text">Description:{{$book->description}}</p>
         <p class="card-text"><small class="text-muted"></small></p>
         <br>
-        <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary">See Image</a>
-
-        <a class="btn btn-success mr-1" href="{{url('/editNotices/'.$book->id)}}">Edit</a>
-        <button type="submit" class="btn btn-danger" style="display:inline-block">Delete
-              <form action="{{url('/DeleteNotice/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+        <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary mb-4">See Image</a>
+<br>
+        <a class="btn btn-success mr-1 mb-4 " href="{{url('/editNotices/'.$book->id)}}">Edit</a>
+<br>
+                <form action="{{url('/DeleteNotice/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
                 {{method_field('DELETE')}}  
-                {{csrf_field()}}<div class="space">
-                </div> 
-                </form>
+                {{csrf_field()}}
+                <button type="submit" class="btn btn-danger mb-4 ">Delete
+                  
+                </button>
 
-
-                </button> 
-    
-              
+                   
+              </form> 
       </div>
     </div>
   </div>

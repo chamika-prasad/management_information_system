@@ -68,18 +68,10 @@
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewNotices')}}">
+          <a class="nav-link" href="{{url('/studentNotices')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Notices</span> </a>
         </li>
 
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/addNotices')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add Notices</span> 
-          </a>
-        </li>
     
       </ul>
     
