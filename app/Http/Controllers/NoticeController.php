@@ -14,14 +14,15 @@ class NoticeController extends Controller
     public function index()
     {
         //$notices=Notice::all()->sortByDesc('created_at');
-        $notices = Notice::orderBy('created_at')->paginate(2);
+        $notices = Notice::orderByDesc('created_at')->paginate(2);
         return view('viewNotices',compact('notices'));
     }
 
     public function studentNotice()
     {
         //$notices=Notice::all()->sortByDesc('created_at');
-        $notices = Notice::all();
+        //$notices = Notice::all()->sortByDesc('created_at');
+        $notices = Notice::orderByDesc('created_at')->paginate(2);
         return view('studentNotice',compact('notices'));
         //return view('studentNotic')->with('messages', $notices);
     }

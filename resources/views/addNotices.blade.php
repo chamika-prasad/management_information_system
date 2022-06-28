@@ -114,7 +114,8 @@
 
         <div class="mb-3 form-group">
           <label for="input3">Description</label>
-          <input id="description" type="text" name="description"  value="{{old('description')}}" rows="3" class="form-control"  placeholder="Enter description">
+          <textarea id="description" type="text" name="description"  value="{{old('description')}}"  class="form-control"  placeholder="Enter description">
+          </textarea>
         </div>
 
         <div class="mb-3 form-group">

@@ -68,18 +68,10 @@
           <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/viewNotices')}}">
+          <a class="nav-link" href="{{url('/studentNotices')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Notices</span> </a>
         </li>
 
-        <li>
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/addNotices')}}">
-            <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Add Notices</span> 
-          </a>
-        </li>
     
       </ul>
     
@@ -105,7 +97,11 @@
         <p class="card-text"><small class="text-muted"></small></p>
         <br>
         <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary">See Image</a>
-              
+        <div>
+                <small >Created at:{{$book->created_at->diffForHumans()}}</small>
+                <br>
+                <small>Updated at:{{$book->updated_at->diffForHumans()}}</small>
+              </div>
       </div>
     </div>
   </div>
@@ -124,7 +120,14 @@
     </div>  
     <br>
  
-
+    <style>
+      .w-5{
+        display:none
+      }
+    </style>
+  <div class="d-flex justify-content-center">
+    {!! $notices->links() !!}
+</div>
  
 
   </body>
