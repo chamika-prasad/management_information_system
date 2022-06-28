@@ -19,6 +19,8 @@ use App\Http\Controllers\HomeController;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\UploadingContent;
+use App\Models\Notice;
+use App\Http\Controllers\NoticeController;
 use Illuminate\Support\Facades\App;
 
 
@@ -292,3 +294,14 @@ Route::get('editBookSerach',[BooksController::class,'editBookSerach'])->name('bo
 Route::get('editSearchCategory',[BooksController::class,'editSearchCategory'])->name('booksCategory.filer.edit');
 Route::get('studentSearch',[BooksController::class,'studentSearch'])->name('studentSearch.filer');
 //--------------------------------------------Ending library mangement system
+
+Route::get('/viewNotices',[NoticeController::class,'index']);
+Route::get('/addNotices',[NoticeController::class,'add']);
+Route::post('/addNotices',[NoticeController::class,'store']);
+Route::delete('/DeleteNotice/{notice}',[NoticeController::class,'delete']);
+
+
+Route::get('/editNotices/{id}',[NoticeController::class,'edit']);
+Route::put('/updateNotices/{id}',[NoticeController::class,'update']);
+
+Route::get('/studentNotices',[NoticeController::class,'studentNotice']);
