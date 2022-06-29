@@ -101,10 +101,18 @@
                                 <label></label>
                                 <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}" placeholder="Enter Book Name">
                             </div>
-                            <div class="col-xl-3">
-                                <label></label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
-                            </div>
+                            
+                            <div class="form-group">
+                            <label></label>       
+                            <select id="disabledSelect" class="custom-select mr-sm-2" name="category_id">
+                            <option selected hidden>Select Category</option>
+                            
+                              @foreach($category as $category)
+                              <option value="{{$category->id}}">{{$category->name}}</option>
+                              @endforeach
+                            </select>
+                          </div>
+
                             <div class="col-xl-3 ">
                                 <label></label>
                                 <input type="text" name="author" class="form-control" value="{{ $author?? '' }}" placeholder="Enter Author Name">
@@ -159,5 +167,14 @@
           </div>
       @endif
     </div>   
+
+    <style>
+      .w-5{
+        display:none
+      }
+    </style>
+  <div class="d-flex justify-content-center">
+    {!! $books->links() !!}
+</div>
   </body>
 </html>

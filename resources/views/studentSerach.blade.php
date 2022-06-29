@@ -86,35 +86,8 @@
     <div>
     <br>
     <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12 mb-5">
-            <div class="container">
-                    <form action="{{ route('studentSearch.filer') }}" method="GET">
-                        <div class="row">
-                            <div class="col-xl-3">
-                                <label></label>
-                                <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}"placeholder="Enter Book Name">
-                            </div>
-                            <div class="col-xl-3">
-                                <label></label>
-                                <input type="text" name="category_id" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
-                            </div>
-                            <div class="col-xl-3 mt-2">
-                                <label></label>
-                                <input type="text" name="author" class="form-control" value="{{ $author?? '' }}"placeholder="Enter Author Name">
-                            </div>
-                            <div class="col-xl-3 mt-2">
-                                <label></label>
-                                <input type="text" name="publisher" class="form-control" value="{{ $publisher ?? '' }}"placeholder="Enter Publisher Name">
-                            </div>
-                            <div class="col-xl-12 text-right mt-2">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-            </div>
+    
+            
     <table class="table table-dark">
       <thead>
         <tr>
@@ -143,7 +116,7 @@
         @endforeach
       </tbody>
     </table>
-
+    </div>
     <div class="container mt-2">
       @if(session()->has('message'))
         <div class="alert alert-success">
@@ -151,6 +124,16 @@
         </div>
       @endif
     </div>   
+
+    <style>
+      .w-5{
+        display:none
+      }
+    </style>
+  <div class="d-flex justify-content-center">
+    {!! $books->links() !!}
+</div>
+
   </body>
 </html>
 
