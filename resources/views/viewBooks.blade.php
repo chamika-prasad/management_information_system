@@ -136,14 +136,25 @@
         <div class="container">
       <form action="{{ route('books.filter') }}" method="GET">
                         <div class="row">
+                  
+                            <div class="form-group">
+                              <label for="input2" class="form-label">Category</label>       
+                              <select id="disabledSelect" class="custom-select mr-sm-2" name="category_id">
+                              <option selected hidden>Select Category</option>
+                              
+                                @foreach($category as $category)
+                                <option value="{{$category->id ?? ''}}">{{$category->name}}</option>
+                                @endforeach
+                              </select>
+                            </div>
+
                             <div class="col-xl-3">
                                 <label>Name</label>
                                 <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}">
                             </div>
-                            <div class="col-xl-3">
-                                <label>Category</label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}">
-                            </div>
+                            
+
+
                             <div class="col-xl-3 ">
                                 <label>Author</label>
                                 <input type="text" name="author" class="form-control" value="{{ $author?? '' }}">

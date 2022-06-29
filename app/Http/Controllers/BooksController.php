@@ -18,8 +18,9 @@ class BooksController extends Controller
   
         // $books=Books::all();//get all element in Books model
         //$books=Books::with('category')->get();//that's one with category
+        $category=Category::all();
         $books=Books::paginate(2);
-        return view('viewBooks',compact('books'));//target destination is viewBooks view
+        return view('viewBooks',compact('books','category'));//target destination is viewBooks view
     }
 
     public function download(Request $request,$file)
@@ -89,8 +90,9 @@ class BooksController extends Controller
     
     public function editDelete()
     {
-        $books=Books::paginate(2);//get all element in Books model
-        return view('editDelete',compact('books'));
+        $category=Category::all();
+        $books=Books::paginate(3);//get all element in Books model
+        return view('editDelete',compact('books','category'));
     }
     
 
@@ -170,12 +172,13 @@ class BooksController extends Controller
 
     public function studentView()
     {
-        $books=Books::all();//get all element in Books model
-        return view('studentView',compact('books'));//target destination is viewBooks view
+        $category=Category::all();
+        $books=Books::paginate(4);
+        return view('studentView',compact('books','category'));//target destination is viewBooks view
     }
     public function editDeleteBookCategory()
     {
-        $category=Category::all();//get all element in Books model
+        $category=Category::all();
         return view('editDeleteBookCategory',compact('category'));
     }
     public function editBookCategory($id)
@@ -241,37 +244,37 @@ class BooksController extends Controller
 
     public function filter(Request $request)
     {
-        $books = Books::query();
-
-        $name = $request->name;
-        $author = $request->author;
-        $publisher = $request->publisher;
-        $category = $request->category;
-
-        if ($name) {
-            $books->where('name','LIKE','%'.$name.'%');
-        }
-        if ($author) {
-            $books->where('author','LIKE','%'.$author.'%');
-        }
-
-        if ($publisher ) {
-            $books->where('publisher','LIKE','%'.$publisher .'%');
-        }
-
-        if ($category ) {
-            $books->where('category','LIKE','%'.$category.'%');
-        }
-
-        $data = [
-            'name' => $name,
-            'category' => $category,
-            'author' => $author,
-            'publisher' => $publisher,
-            'books' => $books->latest()->simplePaginate(3),
-        ];
-
-        return view('bookSerach',$data);
+            $books = Books::query();
+            //$category=Category::query();
+            $name = $request->name;
+            $author = $request->author;
+            $publisher = $request->publisher;
+            $category= $request->category;
+    
+            if ($category) {
+                $books->where('category','LIKE', $category);
+            }
+    
+            if ($name) {
+                $books->where('name','LIKE','%'.$name.'%');
+            }
+            if ($author) {
+                $books->where('author','LIKE','%'.$author.'%');
+            }
+    
+            if ($publisher ) {
+                $books->where('publisher','LIKE','%'.$publisher .'%');
+            }
+ 
+            $data = [
+                'name' => $name,
+                'category' => $category,
+                'author' => $author,
+                'publisher' => $publisher,
+                'books' => $books->latest()->simplePaginate(3),
+            ];
+    
+            return view('bookSerach',$data);    
     }
 
     public function searchCategory()
@@ -283,13 +286,13 @@ class BooksController extends Controller
 
     public function editBookSerach(Request $request)
     {
-        $books = Books::query();
+        /*$books = Books::query();
 
         $name = $request->name;
         $author = $request->author;
         $publisher = $request->publisher;
         $category= $request->category;
-
+               
         if ($name) {
             $books->where('name','LIKE','%'.$name.'%');
         }
@@ -311,6 +314,37 @@ class BooksController extends Controller
             'author' => $author,
             'publisher' => $publisher,
             'books' => $books->latest()->simplePaginate(20),
+        ];*/
+        
+        $books = Books::query();
+        $category=Category::query();
+
+        $name = $request->name;
+        $author = $request->author;
+        $publisher = $request->publisher;
+        $category_id= $request->category_id;
+
+        if ($name) {
+            $books->where('name','LIKE','%'.$name.'%');
+        }
+        if ($author) {
+            $books->where('author','LIKE','%'.$author.'%');
+        }
+
+        if ($publisher ) {
+            $books->where('publisher','LIKE','%'.$publisher .'%');
+        }
+
+        if ($category_id) {
+            $books->where('category_id','LIKE', $category_id);
+        }
+
+        $data = [
+            'name' => $name,
+            'category_id' => $category_id,
+            'author' => $author,
+            'publisher' => $publisher,
+            'books' => $books->latest()->simplePaginate(3),
         ];
 
         return view('editBookSerach',$data);
@@ -324,7 +358,7 @@ class BooksController extends Controller
     }
     public function  studentSearch(Request $request)
     {
-        $books = Books::query();
+        /*$books = Books::query();
 
         $name = $request->name;
         $author = $request->author;
@@ -352,7 +386,39 @@ class BooksController extends Controller
             'author' => $author,
             'publisher' => $publisher,
             'books' => $books->latest()->simplePaginate(20),
+        ];*/
+
+        $books = Books::query();
+        $category=Category::query();
+
+        $name = $request->name;
+        $author = $request->author;
+        $publisher = $request->publisher;
+        $category_id= $request->category_id;
+
+        if ($name) {
+            $books->where('name','LIKE','%'.$name.'%');
+        }
+        if ($author) {
+            $books->where('author','LIKE','%'.$author.'%');
+        }
+
+        if ($publisher ) {
+            $books->where('publisher','LIKE','%'.$publisher .'%');
+        }
+
+        if ($category_id) {
+            $books->where('category_id','LIKE', $category_id);
+        }
+
+        $data = [
+            'name' => $name,
+            'category_id' => $category_id,
+            'author' => $author,
+            'publisher' => $publisher,
+            'books' => $books->latest()->simplePaginate(3),
         ];
+
 
         return view('studentSerach',$data);
     }
