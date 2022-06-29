@@ -260,7 +260,7 @@ class BooksController extends Controller
         }
 
         if ($category ) {
-            $books->where('category','LIKE','%'.$category .'%');
+            $books->where('category','LIKE','%'.$category.'%');
         }
 
         $data = [
@@ -268,7 +268,7 @@ class BooksController extends Controller
             'category' => $category,
             'author' => $author,
             'publisher' => $publisher,
-            'books' => $books->latest()->simplePaginate(20),
+            'books' => $books->latest()->simplePaginate(3),
         ];
 
         return view('bookSerach',$data);
