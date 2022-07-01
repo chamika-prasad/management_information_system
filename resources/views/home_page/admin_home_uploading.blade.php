@@ -72,7 +72,7 @@
                         <button class="btn btn-secondary" >
                             <div class="card-body">
                                 <h5 class="card-title">Notices</h5>
-                                <p class="card-text">Choose grade and subject via this button</p>
+                                <p class="card-text">See new updates</p>
                             </div>
                         </button>
                     </a>

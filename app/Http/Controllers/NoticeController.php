@@ -62,6 +62,13 @@ class NoticeController extends Controller
         $data->save();
         //return  redirect('/');
         return redirect()->back()->with('message', 'Thank you!   Your submission has been received');*/
+
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'image'=>'mimes:png,jpeg,gif,svg,avif'
+        ]);
+
         $data= new Notice();
 
         if($request->file('image')){
@@ -70,6 +77,7 @@ class NoticeController extends Controller
             $file-> move(public_path('public/Image'), $filename);
             $data['image']= $filename;
         }
+        
         $data->title=$request->title;
         $data->description=$request->description;
         $data->save();
@@ -104,11 +112,11 @@ class NoticeController extends Controller
         $book->description=$request->input('description');
         $book->image=$request->input('image');
        
-        if($request->hasfile('image')==null)
+        /*if($request->hasfile('image')==null)
         {
 
             return redirect()->back()->with('message', 'Please upload file');
-        }
+        }*/
 
         if($request->hasfile('image'))
         {

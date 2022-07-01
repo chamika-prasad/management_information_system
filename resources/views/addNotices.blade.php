@@ -114,7 +114,7 @@
 
         <div class="mb-3 form-group">
           <label for="input3">Description</label>
-          <textarea id="description" type="text" name="description"  value="{{old('description')}}"  class="form-control"  placeholder="Enter description">
+          <textarea id="description" type="text" name="description"  value="{{old('description')}}"  class="form-control" >
           </textarea>
         </div>
 
@@ -122,10 +122,7 @@
           <input type="file" name="image"  value="{{old('image')}}">
         </div>
 
-        <div class="mb-3 form-check mt-4">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
+        
       <br>
       <div class="row justify-content-center">
         <button type="submit" class="btn btn-primary custom" href="{{url('/addNotices')}} " >Add</button>  
