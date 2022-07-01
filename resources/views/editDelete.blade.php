@@ -108,22 +108,24 @@
         <div class="container">
       <form action="{{ route('books.filer.edit') }}" method="GET">
                         <div class="row">
-                            <div class="col-xl-3">
+                            
+                        <div class="col-xl-3">
                                 <label></label>
                                 <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}" placeholder="Enter Book Name">
                             </div>
-                            
+
                           
                         <div class="form-group">
                             <label></label>       
                             <select id="disabledSelect" class="custom-select mr-sm-2" name="category_id">
-                            <option selected hidden>Select Category</option>
-                            
+                            <option selected hidden value=0>Select Category</option>
                               @foreach($category as $category)
                               <option value="{{$category->id ?? ''}}">{{$category->name}}</option>
                               @endforeach
                             </select>
                           </div>
+
+                          
                             <div class="col-xl-3 ">
                                 <label></label>
                                 <input type="text" name="author" class="form-control" value="{{ $author?? '' }}" placeholder="Enter Author Name">

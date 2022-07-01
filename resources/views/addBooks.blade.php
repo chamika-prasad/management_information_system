@@ -152,10 +152,7 @@
           <input type="file" name="file"  value="{{old('file')}}">
         </div>
 
-        <div class="mb-3 form-check mt-4">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
+      
       <br>
       <div class="row justify-content-center">
         <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}} " >Add</button>  
