@@ -34,7 +34,7 @@
             </div>
           </div>
           <div>&emsp;</div>
-          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Teacher</span>
+          <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
         </div>
     </nav>
     
@@ -87,7 +87,11 @@
   <div class=" card text-white bg-secondary mb-3"  style="max-width: 1500px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ url('public/Image/'.$book->image) }}" class="img-fluid rounded-start" alt="...">
+      @if($book->image)
+            <img src="public/Image/{{ $book->image }}" class="img-fluid rounded-start"/>
+        @else
+            <img src="public/Image/important-notice.png"class="img-fluid rounded-start" />
+        @endif
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -96,7 +100,11 @@
         <p class="card-text">Description:{{$book->description}}</p>
         <p class="card-text"><small class="text-muted"></small></p>
         <br>
-        <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary">See Image</a>
+        @if($book->image)
+            <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary mb-4">See Image</a>
+        @else
+            <a href="{{ url('public/Image/important-notice.png') }}" class="btn btn-primary mb-4">See Image</a>
+        @endif
         <div>
                 <small >Created at:{{$book->created_at->diffForHumans()}}</small>
                 <br>

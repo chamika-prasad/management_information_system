@@ -95,7 +95,11 @@
   <div class=" card text-white bg-secondary mb-3"  style="max-width: 1500px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ url('public/Image/'.$book->image) }}" class="img-fluid rounded-start" alt="...">
+      @if($book->image)
+            <img src="public/Image/{{ $book->image }}" class="img-fluid rounded-start"/>
+        @else
+            <img src="public/Image/important-notice.png"class="img-fluid rounded-start" />
+        @endif
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -104,18 +108,22 @@
         <p class="card-text">Description:{{$book->description}}</p>
         <p class="card-text"><small class="text-muted"></small></p>
         <br>
-        <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary mb-4">See Image</a>
-<br>
+        <div class="btn-group" role="group" aria-label="Basic example">
+        @if($book->image)
+            <a href="{{ url('public/Image/'.$book->image) }}" class="btn btn-primary mb-4">See Image</a>
+        @else
+            <a href="{{ url('public/Image/important-notice.png') }}" class="btn btn-primary mb-4">See Image</a>
+        @endif
+        
         <a class="btn btn-success mr-1 mb-4 " href="{{url('/editNotices/'.$book->id)}}">Edit</a>
-<br>
-                <form action="{{url('/DeleteNotice/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
-                {{method_field('DELETE')}}  
-                {{csrf_field()}}
-                <button type="submit" class="btn btn-danger mb-4 ">Delete
-                  
-                </button>
-                   
-              </form> 
+      
+        <form action="{{url('/DeleteNotice/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+          {{method_field('DELETE')}}  
+          {{csrf_field()}}
+          <button type="submit" class="btn btn-danger mb-4 ">Delete</button> 
+        </form> 
+        </div>
+
               <div>
                 <small >Created at:{{$book->created_at->diffForHumans()}}</small>
                 <br>

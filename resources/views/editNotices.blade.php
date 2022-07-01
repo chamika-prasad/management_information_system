@@ -108,12 +108,12 @@
          
           <div class="mb-3 form-group">
             <input type="file" name="image"  value="{{$book->image}}" src="{{('public/Image/'.$book->image)}}">
+            <br>
+            <p>(If you have a image.Please choose the image or otherwise automaticaaliy put default image)</p>
           </div>
 
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
+          <br>
+          <br>
         <div class="row justify-content-center">
         <button type="submit" class="btn btn-primary custom" href="{{url('/addNotices')}} " >Update</button>  
     </div>
