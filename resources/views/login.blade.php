@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -11,44 +11,41 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>Free_Learning_Application</title>
 </head>
-<body>
-    <style>
-  * {
-  box-sizing: border-box;
-}  
-#header{
-    background-color: #FDEFEF;
-    color:black;
-    font-size:120%;
-    padding:20px;
-    text-align:left;
-    font-family:verdana;
-    font-weight: bold;
-}
-body
-{
-    background-color:#ffff99;
-}
-.card-header{
-    background-color:#ff9966;
-    color:white;
-    padding:20px;
-    text-align:center;
-    font-weight:bold;
-    font-size:20px;
-}
-.card-body{
-    background-color:#7C5D5D;
-    color:black;
-    font-weight:bold;
-    border:2px solid Tomato;
-}
-input[type=submit]:hover{
-    background-color: #66ffff;
-}
+<style>
 
+input[type=email], input[type=password]{
+   width: 100%;
+   font-size: 15px;
+   padding: 15px;
+   margin: 5px 0 22px 0;
+   display: inline-block;
+   border:2px solid black;
+   background: #f1f1f1;
+}
+label{
+   font-size: 15px;
+   font-weight:bold;
+}
+input[type=email]:focus, input[type=password]:focus {
+   background-color: #ddd;
+   outline: none;
+}
+.container {
+   padding: 16px;
+}
+.card{
+    border-style: ridge;
+  border-width: 7px;
+  border-color: black;  
+}
     </style>
-    <h1 id="header">Welcome To The E-Learning of Dhamma school</h1>
+</body>
+<nav class="navbar navbar-light " style="background-color: #FDEFEF;">
+            <div class="left-corner">
+                <img src="./images/menu.png" width="35" height="35">
+                <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The E-Learning of Dhamma school</span>
+            </div>
+</nav>
 <main class="login-form">
     <div class="container">
         <div class="row justify-content-center">
@@ -56,7 +53,7 @@ input[type=submit]:hover{
                 <div class="card">
                     <div class="card-header">Login</div>
                     <div class="card-body">
-                        <form action="{{route('def')}}" method="post">
+                        <form action="/def" method="post">
                         {{ csrf_field() }}
                             {{ method_field('POST')}}
                             <div class="form-group row">
@@ -96,7 +93,7 @@ input[type=submit]:hover{
                                     Login
                                 </button>
                             </div>
-                            @if (\Session::has('success'))
+                            @if (Session::has('success'))
                         <div class="alert alert-success">
                           <ul>
                            <li>{!! \Session::get('success') !!}</li>

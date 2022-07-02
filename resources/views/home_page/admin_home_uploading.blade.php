@@ -1,3 +1,15 @@
+<?php
+
+session_start(); 
+$_SESSION['firstName'] = $user->firstName;
+$_SESSION['lastName'] = $user->lastName;
+$_SESSION['mobileNumber'] = $user->mobileNumber;
+$_SESSION['address'] = $user->address;
+$_SESSION['email'] = $user->email;
+$_SESSION['usertype'] = $user->usertype;
+$_SESSION['id'] = $user->id;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +47,10 @@
                                     color:white;
                                     "
                     >
-                        &ensp;Dashboard
+                        &ensp;Dashboard 
+                    
+
+
                     </span>
                 </a>
               
