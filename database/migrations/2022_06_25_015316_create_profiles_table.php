@@ -16,12 +16,11 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id');
-            $table->string('image')->nullable;
-            $table->string('mobile')->nullable;  
-            $table->string('line1')->nullable;
-            $table->string('city')->nullable;
-            $table->string('province')->nullable;
-            $table->string('country')->nullable;
+            $table->string('avatar')->nullable;
+            $table->string('firstName')->nullable;
+            $table->string('lastName')->nullable;  
+            $table->string('mobileNumber')->nullable;
+            $table->string('address')->nullable;
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
