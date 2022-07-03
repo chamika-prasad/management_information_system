@@ -183,7 +183,19 @@ class AuthController extends Controller
 
                
                 // return redirect('dashboard')->with('success', 'your have successfully logged in');  
-                return view('home_page/home_uploading',compact('user'));
+                if($user->usertype=='Admin'){
+                return view('home_page/admin_home_uploading',compact('user'));
+                }else if($user->usertype=='Student')
+                {
+                return view('home_page/student_home_uploading',compact('user'));
+                }else if($user->usertype=='Parent')
+                {
+                return view('home_page/student_home_uploading',compact('user'));
+                }
+                else if($user->usertype=='Teacher')
+                {
+                return view('home_page/teacher_home_uploading',compact('user'));
+                }
  
             }
             else{

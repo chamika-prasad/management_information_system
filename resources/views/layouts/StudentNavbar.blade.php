@@ -1,3 +1,14 @@
+<?php
+
+session_start(); 
+$_SESSION['firstName'] = $user->firstName;
+$_SESSION['lastName'] = $user->lastName;
+$_SESSION['mobileNumber'] = $user->mobileNumber;
+$_SESSION['address'] = $user->address;
+$_SESSION['email'] = $user->email;
+$_SESSION['usertype'] = $user->usertype;
+$_SESSION['id'] = $user->id;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +33,7 @@
                           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                         </svg>
                 <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-                  <button class="dropdown-item" type="button">My profile</button>
+                <button class="dropdown-item" type="button"><a href="{{route('my_profile')}}">My Profile</a></button>
                   <button class="dropdown-item" type="button">Settings</button>
                   <button class="dropdown-item" type="button">Logout</button>
                 </div>

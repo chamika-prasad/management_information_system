@@ -11,7 +11,7 @@ class UserController extends Controller
     
     public function myprofile()
     {
-        $user = User::where('id',1)->get();
+        $user = User::where('id',2)->get();
         
         return view('profile',compact('user')); 
         return back()->with('message','profile closed');
@@ -27,7 +27,7 @@ class UserController extends Controller
         ]);
 
 
-        $user_id = Auth::user()->id;
+        $user_id = $request->user()->id;
         $user = User::findOrFail($user_id);
         $user->firstName = $request->input('firstName');
         $user->lastName = $request->input('lastName');
@@ -36,7 +36,7 @@ class UserController extends Controller
 
 
 
-        $user->update();
+    //     $user->update();
         return redirect()->back()->with('status','Your Profile is Updated');
     }
 

@@ -19,8 +19,7 @@ session_start();
 </head>
 
 <body>
-    @include('layouts.Navbar')
-
+@include('layouts.Navbar')
 <div class="container" style="height:auto;min-height: 100vh">
             @if (session('status'))
             <div class="alert alert-success" role="alert">
@@ -46,7 +45,7 @@ session_start();
                 <div class="col-md-12">
                     <div class="card bg-light mb-3">
                         <div class="card-body">
-                            <!-- <form action="{{ url('my_profile_update') }}" method="POST" enctype="multipart/form-data"> -->
+                        <!-- <form action="{{ url('my_profile_update') }}" method="POST" enctype="multipart/form-data"> -->
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-md-4">
@@ -122,12 +121,12 @@ session_start();
                                     </div>
 
  <!-- @endforeach                                   -->
-  <!-- <div class="col-md-12">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="">Profile </label>
                                             <button type="submit" class="btn btn-primary">Close</button>
                                         </div>
-                                    </div> -->
+                                    </div>
 
                                 </div>
                             </form>
