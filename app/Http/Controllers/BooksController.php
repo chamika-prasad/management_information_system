@@ -19,7 +19,7 @@ class BooksController extends Controller
         // $books=Books::all();//get all element in Books model
         //$books=Books::with('category')->get();//that's one with category
         $category=Category::all();
-        $books=Books::paginate(2);
+        $books=Books::orderByDesc('created_at')->paginate(2);
         return view('viewBooks',compact('books','category'));//target destination is viewBooks view
     }
 
@@ -46,7 +46,8 @@ class BooksController extends Controller
             'author'=>'required',
             'publisher'=>'required',
             'file'=>'required|mimes:pdf,doc',
-            'category'=>'required'
+            //'category'=>'required'
+            'category_id'=>'required|not_in:Select category',
         ]);
 
 
@@ -65,6 +66,11 @@ class BooksController extends Controller
         $data->category_id=$request->category_id;
         $data->author=$request->author;
         $data->publisher=$request->publisher;
+
+        if ($request->has('category_id')==null)
+        {
+            return redirect()->back()->with('message', 'Please select category');
+        }
         $data->save();
         //return  redirect('/');
         return redirect()->back()->with('message', 'Thank you!   Your submission has been received');
