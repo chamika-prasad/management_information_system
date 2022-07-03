@@ -97,10 +97,10 @@ Route::get('final_amount/', function () {
     return view ('payment/final_amount_online_payment');
 });
 
-Route::get('dashboard/',function()
-{
-    return view('home_page/home_uploading');
-});
+// Route::get('dashboard/',function()
+// {
+//     return view('home_page/home_uploading');
+// });
 
 Route::get('/', function () {
     return view ('welcomehome');
