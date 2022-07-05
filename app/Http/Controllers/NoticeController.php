@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use \Laravel\Sanctum\PersonalAccessToken;
+use Laravel\Sanctum\Contracts\HasAbilities;
+
 use App\Models\Notice;
 use Illuminate\Http\Request;
 
@@ -32,7 +38,8 @@ class NoticeController extends Controller
         return view('addNotices');
 
     }
-    public function store(Request $request)
+    //public $Id=1;
+    public function store(Request $request,$Id)
     {
         /*$input=$request-> all();
         Books::create($input);
@@ -62,7 +69,7 @@ class NoticeController extends Controller
         $data->save();
         //return  redirect('/');
         return redirect()->back()->with('message', 'Thank you!   Your submission has been received');*/
-
+    
         $request->validate([
             'title'=>'required',
             'description'=>'required',
@@ -77,7 +84,16 @@ class NoticeController extends Controller
             $file-> move(public_path('public/Image'), $filename);
             $data['image']= $filename;
         }
+        $data->user_id=$Id;
+        //$data->user_id=Auth::user();
+        //$data->user_id=$_SESSION['id'];
+       
+       /*$personalAccessToken = PersonalAccessToken::findToken($plainTextToken);
+        $data->user_id= $personalAccessToken->tokenable;*/
+
         
+
+
         $data->title=$request->title;
         $data->description=$request->description;
         $data->save();
@@ -132,7 +148,39 @@ class NoticeController extends Controller
         $book->update();
 
 
-        return  redirect()->back()->with('message', 'Thank you!   Your submission has been received'); 
+        return  redirect('/viewNotices')->with('message', 'Thank you!   Your submission has been received'); 
+    }
+
+    public function connectDashboard()
+    {
+        $user= new User();
+
+        $user->firstName=Session::get('firstName');
+        $user->lastName=Session::get('lastName');
+        $user->mobileNumber=Session::get('mobileNumber');
+        $user->address=Session::get('address') ;
+        $user->email=Session::get('email');
+        $user->usertype=Session::get('usertype');
+        $user->id=Session::get('id');
+
+        return view('home_page/admin_home_uploading',compact('user'));
+
+    }
+
+    public function connectStudentDashboard()
+    {
+        $user= new User();
+        
+        $user->firstName=Session::get('firstName');
+        $user->lastName=Session::get('lastName');
+        $user->mobileNumber=Session::get('mobileNumber');
+        $user->address=Session::get('address') ;
+        $user->email=Session::get('email');
+        $user->usertype=Session::get('usertype');
+        $user->id=Session::get('id');
+
+        return view('home_page/student_home_uploading',compact('user'));
+
     }
 
 }

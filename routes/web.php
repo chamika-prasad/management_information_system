@@ -263,7 +263,7 @@ Route::put('/updateBooks/{id}',[BooksController::class,'update']);
     return view('addBooks');
 });*/
 Route::get('/addBooks',[BooksController::class,'add']);//add book function 
-Route::post('/addBooks',[BooksController::class,'store']);//store book in database
+Route::post('/addBooks/{id}',[BooksController::class,'store']);//store book in database
 
 //Route::get('/chooseBooks',[BooksController::class,'choose']);
 //Route::post('/chooseBooks',[BooksController::class,'storechooseBook']);
@@ -309,7 +309,7 @@ Route::get('studentSearch',[BooksController::class,'studentSearch'])->name('stud
 
 Route::get('/viewNotices',[NoticeController::class,'index']);
 Route::get('/addNotices',[NoticeController::class,'add']);
-Route::post('/addNotices',[NoticeController::class,'store']);
+Route::post('/addNotices/{id}',[NoticeController::class,'store']);
 Route::delete('/DeleteNotice/{notice}',[NoticeController::class,'delete']);
 
 
@@ -318,3 +318,5 @@ Route::put('/updateNotices/{id}',[NoticeController::class,'update']);
 
 Route::get('/studentNotices',[NoticeController::class,'studentNotice']);
 
+Route::get('/adminDashboard',[NoticeController::class,'connectDashboard']);
+Route::get('/studentDashboard',[NoticeController::class,'connectStudentDashboard']);

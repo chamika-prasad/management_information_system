@@ -52,7 +52,7 @@ session_start();
               </div>
           </div>
           <div>&emsp;</div>
-            <span class="navbar-brand mb-0 h1" style="font-weight: bold;"><?php echo $_SESSION['firstName']; ?></span>
+            <span class="navbar-brand mb-0 h1" style="font-weight: bold;"><?php echo $_SESSION['firstName']; ?>&ensp;&ensp;&ensp;&ensp;</span>
         </div>
       </nav>
       
@@ -77,7 +77,7 @@ session_start();
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" href="{{url('/admin_home_uploading')}}">
+  <a class="nav-link" href="{{url('/adminDashboard')}}">
     <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Dashboard</span> 
   </a>
 </li>
@@ -125,7 +125,7 @@ session_start();
     <div>
     <br>
 
-      <form method="post"  enctype="multipart/form-data" action="{{url('/addBooks')}}" id="form1">
+      <form method="post"  enctype="multipart/form-data" action="{{url('/addBooks/1')}}" id="form1">
         @csrf
         <div class=" mb-3 form-group">
           <label for="input1">Book name</label>
@@ -159,7 +159,7 @@ session_start();
       
       <br>
       <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks')}} " >Add</button>  
+        <button type="submit" class="btn btn-primary custom" href="{{url('/addBooks/1')}} " >Add</button>  
     </div>
       </form>
     <div class="container mt-2">
