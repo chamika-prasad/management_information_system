@@ -88,4 +88,14 @@ class User extends Authenticatable
 //     {
 //     return $this->hasOne(Profile::class,'user_id');
 // }
+
+    public function notice()//create relationship with book and category
+    {
+        return $this ->hasMany(Notice::class);
+    }
+    public function books()//create relationship with book and category
+    {
+        return $this ->hasMany(Books::class);
+    }
+
 }

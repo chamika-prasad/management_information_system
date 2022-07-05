@@ -40,7 +40,7 @@ session_start();
             </div>
           </div>
           <div>&emsp;</div>
-          <span class="navbar-brand mb-0 h1" style="font-weight: bold;"><?php echo $_SESSION['firstName']; ?></span>
+          <span class="navbar-brand mb-0 h1" style="font-weight: bold;"><?php echo $_SESSION['firstName']; ?>&ensp;&ensp;&ensp;&ensp;</span>
         </div>
     </nav>
     
@@ -62,7 +62,7 @@ session_start();
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" href="{{url('/')}}">
+  <a class="nav-link" href="{{url('/adminDashboard')}}">
     <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Dashboard</span> 
   </a>
 </li>

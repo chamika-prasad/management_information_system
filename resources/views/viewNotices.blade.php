@@ -22,25 +22,24 @@ session_start();
       <nav class="navbar navbar-light " style="background-color: #FDEFEF;">
         <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The Library Management System</span>
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center me-5 ">
           <div class="dropdown">
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="rounded-circle dropdown-toggle"
-                    id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false"
                     height="40"
                     alt="Black and White Portrait of a Man"
-                    loading="lazy" viewBox="0 0 16 16" style="vertical-align: middle;">
+                    loading="lazy" viewBox="0 0 16 16" style="vertical-align: left;">
                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                       <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                     </svg>
-            <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
+            <div class="dropdown-menu r-0" aria-labelledby="dropdownMenu2">
               <button class="dropdown-item" type="button"><a href="{{route('my_profile')}}">My profile</a></button>
-
                 <button class="dropdown-item" type="button"><a href="{{route('registered-user')}}">User Settings</a></button>
                 <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
             </div>
           </div>
           <div>&emsp;</div>
-          <span class="navbar-brand mb-0 h1" style="font-weight: bold;"><?php echo $_SESSION['firstName']; ?></span>
+          <span class="navbar-brand mb-0 h1 col-11" style="font-weight: bold;"><?php echo $_SESSION['firstName']; ?>&ensp;&ensp;&ensp;&ensp;</span>
         </div>
     </nav>
     
@@ -63,7 +62,7 @@ session_start();
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/')}}">
+          <a class="nav-link" href="{{url('/adminDashboard')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Dashboard</span> 
           </a>
         </li>
@@ -119,12 +118,15 @@ session_start();
             <a href="{{ url('public/Image/important-notice.png') }}" class="btn btn-primary mb-4">See Image</a>
         @endif
         
+
+        @if($book->user_id==$_SESSION['id'] ||$_SESSION['usertype']=='Admin')
         <a class="btn btn-success mr-1 mb-4 " href="{{url('/editNotices/'.$book->id)}}">Edit</a>
       
         <form action="{{url('/DeleteNotice/'.$book->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
           {{method_field('DELETE')}}  
           {{csrf_field()}}
           <button type="submit" class="btn btn-danger mb-4 ">Delete</button> 
+          @endif
         </form> 
         </div>
 

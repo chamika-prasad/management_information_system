@@ -35,7 +35,7 @@ class BooksController extends Controller
         return view('addBooks',compact('categories'));
 
     }
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         /*$input=$request-> all();
         Books::create($input);
@@ -66,6 +66,7 @@ class BooksController extends Controller
         $data->category_id=$request->category_id;
         $data->author=$request->author;
         $data->publisher=$request->publisher;
+        $data->user_id=$id;
 
         if ($request->has('category_id')==null)
         {
@@ -73,7 +74,7 @@ class BooksController extends Controller
         }
         $data->save();
         //return  redirect('/');
-        return redirect()->back()->with('message', 'Thank you!   Your submission has been received');
+        return redirect('/editDelete')->with('message', 'Thank you!   Your submission has been received');
         
     }
     /*public function choose()
@@ -242,7 +243,7 @@ class BooksController extends Controller
         ]);
         $input=$request-> all();
         Category::create($input);
-        return redirect('/addBooksCategory')->with('message', 'New category  has been added');
+        return redirect('/editDeleteBookCategory')->with('message', 'New category  has been added');
         
     }
 
