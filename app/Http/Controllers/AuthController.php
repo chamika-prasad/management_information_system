@@ -28,30 +28,30 @@ class AuthController extends Controller
     public function register(Request $request,$id)
     {
        
-        // $request->validate([
-        //     "firstName"=>"required|string:50",
-        //     "usertype"=>"required|string",
-        //     "lastName"=>"required|string:50",
-        //     "index"=>"required|string:50",
-        //     "email"=>"required|email|unique:users",
-        //     "password"=>"required|confirmed",
-        //     "birthdate"=>"required|date_format:Y-m-d|before_or_equal:'today'",
-        //     "birthplace"=>"required:string",
+        $request->validate([
+        //     'firstName'=>'required|string|max:50',
+        //     'usertype'=>'required|string',
+        //     'lastName'=>'required|string|max:50',
+        //     'index'=>'required|string|max:50',
+            'email'=>'required|email|unique:users',
+          'password'=>'required|confirmed',
+        //     "birthdate"=>"required|date_format:Y-m-d",
+        //     'birthplace'=>'required|string',
         //     "requestgrade"=>"required|numeric|max:12",
-        //     "gender"=>"required|string|max:10",
-        //     "school"=>"required|string|max:255",
+        //     'gender'=>'required|string|max:10',
+        //     'school'=>'required|string|max:255',
         //     "schoolgrade"=>"required|numeric|max:12",
-        //     "fathername"=>"required|string|max:255",
-        //     "f_occupation"=>"required|string|max:50",
-        //     "f_place"=>"required|string|max:255",
-        //     "mothername"=>"required|string|max:255",
-        //     "m_occupation"=>"required|string|max:50",
-        //     "m_place"=>"required|string|max:255",
-        //     "address"=>"required|string|max:255",
-        //     "date_created"=>"required|date_format:Y-m-d",
-        //     "mobileNumber"=>"required|digits:10",
-        //     "admissioncategory"=>"required|string|max:12"
-        //  ]);
+        //     'fathername'=>'required|string|max:255',
+        //     'f_occupation'=>'required|string|max:50',
+        //     'f_place'=>'required|string|max:255',
+        //     'mothername'=>'required|string|max:255',
+        //     'm_occupation'=>'required|string|max:50',
+        //     'm_place'=>'required|string|max:255',
+        //     'address'=>'required|string|max:255',
+        //     'date_created'=>'required|date_format:Y-m-d',
+       'mobileNumber'=>'required|digits:10',
+        //     'admissioncategory'=>'required|string|max:12'
+         ]);
          //admin
          if($id==1)
          {
