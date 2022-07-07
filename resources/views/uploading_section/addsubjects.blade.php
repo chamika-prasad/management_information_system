@@ -13,7 +13,7 @@
 </head>
 <body>
     @include('layouts.AdminNavbar')
-    @include('uploading_section.Navbar_admin')
+    @include('layouts.Navbar_admin')
 
     <div class="container-fluid mt-5" style="width: 60%">
         <h4>Add a new subject to the selected grade</h4>

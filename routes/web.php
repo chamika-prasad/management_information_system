@@ -184,14 +184,15 @@ Route::get('/admin_home_uploading',function(){
 
 
 //uploading materials view
-Route::get('/uploading_materials/{addGrade}',[UploadingContentController::class, 'displaymaterials']);
-Route::post('uploadmaterials',[UploadingContentController::class, 'storematerials']);
+Route::get('/uploading_materials/{addGrade}/{addSubject}',[UploadingContentController::class, 'displaymaterials']);
+Route::post('uploadmaterials/{addGrade}/{addSubject}',[UploadingContentController::class, 'storematerials']);
 
 
 
 //select module view
 Route::get('/select_module',[UploadingContentController::class, 'displayModuleSelection']);
 Route::get('/findGrade',[UploadingContentController::class, 'findGrade']);
+
 //pdf download
 Route::get('/downloadpdf/{pdf}',[UploadingContentController::class,'downloadpdf']);
 
@@ -200,14 +201,18 @@ Route::post('/submitgradesub',[UploadingContentController::class, 'selectSubject
 Route::get('/teacher_module_view',[UploadingContentController::class, 'displaymoduleview']);
 
 //student module view
-Route::get('/student_module_view',[UploadingContentController::class, 'displayStudentModuleView']);
+// Route::get('/student_module_view',[UploadingContentController::class, 'displayStudentModuleView']);
+Route::post('/submitgradesubstudent',[UploadingContentController::class, 'displayStudentModuleView']);
+
+//student select subject
+Route::get('/selectsubject',[UploadingContentController::class, 'displayStudentselectsubject']);
 
 
 //Grading view
 Route::get('/grading',[UploadingContentController::class, 'gradingview']);
-Route::post('/1stSemUpload',[UploadingContentController::class, 'uploading1stSem']);
-Route::post('/2ndSemUpload',[UploadingContentController::class, 'uploading2ndSem']);
-Route::post('/3rdSemUpload',[UploadingContentController::class, 'uploading3rdSem']);
+// Route::post('/1stSemUpload',[UploadingContentController::class, 'uploading1stSem']);
+// Route::post('/2ndSemUpload',[UploadingContentController::class, 'uploading2ndSem']);
+// Route::post('/3rdSemUpload',[UploadingContentController::class, 'uploading3rdSem']);
 Route::post('/selectstu',[UploadingContentController::class, 'uploadingStuName']);
 
 
@@ -218,6 +223,10 @@ Route::get('/showResault',[UploadingContentController::class, 'showReasaultDispl
 //admin add subjects
 Route::get('/addsubjects',[UploadingContentController::class, 'addsubjectDisplay']);
 Route::post('/addingnewsubject',[UploadingContentController::class, 'addingSubject']);
+Route::get('/deleteSubject',[UploadingContentController::class, 'deletesubjectDisplay']);
+Route::delete('/DeleteSub/{subjectCode}',[UploadingContentController::class, 'deleteSubject']);
+
+// Route::get('/search/', [UploadingContentController::class,'search'])->name('search');
 
 //-------------------------------------------- end of uploading section
 

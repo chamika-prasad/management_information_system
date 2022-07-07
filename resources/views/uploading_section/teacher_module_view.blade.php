@@ -13,7 +13,7 @@
 </head>
 <body>
     @include('layouts.TeacherNavbar')
-    @include('uploading_section.Navbar_module')
+    @include('layouts.Navbar_module')
     <!----------------------one week all materials to the class------------------------------>
 
 
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{url('/uploading_materials/{'$addGrade'}')}}">
+            <a href="{{url('/uploading_materials',[$addGrade,$addSubject])}}">
 
                 <div class="btn btn-secondary container-fluid">Add</div>
             

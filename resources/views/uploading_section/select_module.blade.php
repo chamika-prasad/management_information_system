@@ -15,7 +15,7 @@
 
 <body>
     @include('layouts.TeacherNavbar')
-    @include('uploading_section.Navbar_module')
+    @include('layouts.Navbar_module')
 
     <div>
         
@@ -114,14 +114,14 @@
 
                          console.log(data);
                         // console.log(data.length);
-                        var select =document.getElementById('form-control-1')
+                        var select = document.getElementById('form-control-1')
                         select.innerHTML=' '
                         for(var i=0;i<data.length;i++)
                         {
                             op= '<option value="'+data[i].subjectName+'">'+data[i].subjectName+'</option>';
                             select.innerHTML += op;
                         //console.log(data[i].subjectName);
-                          console.log(op);
+                            console.log(op);
                         }
                     },
                     error:function(){
