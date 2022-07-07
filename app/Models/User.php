@@ -40,8 +40,6 @@ class User extends Authenticatable
         'm_place',
         'admissioncategory',
 
-
-
     ];
 
     /**
@@ -64,7 +62,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+  
     /* public function free_application(){ //table name in singular
         return $this->hasOne(FreeApplication::class);//model name
     }
