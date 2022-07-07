@@ -71,7 +71,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //profile
 Route::get('/my_profile',[UserController::class,'myprofile'])->name('my_profile');
-Route::post('/my_profile_update',[UserController::class,'profileupdate']);
+Route::post('/my_profile_update',[UserController::class,'profileupdate'])->name('my_profile_update');
 
 Route::get('/aboutus',function(){
     return view('AboutUs');
