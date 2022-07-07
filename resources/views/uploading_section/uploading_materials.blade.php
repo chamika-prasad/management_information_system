@@ -13,7 +13,7 @@
 </head>
 <body>
     @include('layouts.TeacherNavbar')
-    @include('uploading_section.Navbar_module')
+    @include('layouts.Navbar_module')
 
     <!----------------------upload materials to relevent subject------------------------------>
 
@@ -39,7 +39,7 @@
                     {{ session()->get('errormessage') }}
                 </div>
         @endif
-        <form method="post" action="{{url('uploadmaterials')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('uploadmaterials',[$addGrade,$addSubject])}}" enctype="multipart/form-data">
             @csrf
             <div class="col-sm-12" style="padding-bottom:5px" id="upload_bar">
                 <div class="card" style="background-color:#5C5F3A;  ">

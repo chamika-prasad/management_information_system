@@ -13,7 +13,7 @@
 </head>
 <body>
     @include('layouts.TeacherNavbar')
-    @include('uploading_section.Navbar_module')
+    @include('layouts.Navbar_module')
     <!----------------------one week all materials to the class------------------------------>
 
 

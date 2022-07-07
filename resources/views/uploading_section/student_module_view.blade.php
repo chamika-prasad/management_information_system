@@ -13,7 +13,7 @@
 </head>
 <body>
     @include('layouts.StudentNavbar')
-    @include('uploading_section.Navbar_module')
+    @include('layouts.Navbar_student')
 
     
     <!----------------------one week all materials to the class------------------------------>
@@ -23,7 +23,7 @@
 
     @foreach ($lasts as $last)
 
-    <p class="font-weight-light" style="font-size:20px; padding-left: 120px; padding-top: 20px">grade {{$gradename->gradeName}} / {{$subjectname->subjectName}} </p>
+    <p class="font-weight-light" style="font-size:20px; padding-left: 120px; padding-top: 20px">grade {{$gradename}} / {{$subjectname}} </p>
     <div class="container-fluid" style="width: 85%; padding-bottom: 20px">
         
         <div class="card" style="border-color:black; background-color:#98998f">

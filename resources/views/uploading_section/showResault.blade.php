@@ -13,7 +13,7 @@
 </head>
 <body>
     @include('layouts.TeacherNavbar')
-    @include('uploading_section.Navbar_module')
+    @include('layouts.Navbar_module')
 
     <div class="container-fluid" style="width:65%">  
         <div class="card border-info mb-3 mt-5" >
