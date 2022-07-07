@@ -1,6 +1,5 @@
 <?php
-
-session_start(); 
+session_start();
 $_SESSION['firstName'] = $user->firstName;
 $_SESSION['lastName'] = $user->lastName;
 $_SESSION['mobileNumber'] = $user->mobileNumber;
@@ -34,12 +33,12 @@ $_SESSION['id'] = $user->id;
                         </svg>
                 <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" type="button"><a href="{{route('my_profile')}}">My Profile</a></button>
-                  <button class="dropdown-item" type="button">Settings</button>
-                  <button class="dropdown-item" type="button">Logout</button>
+                  <!-- <button class="dropdown-item" type="button">Settings</button> -->
+                  <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
                 </div>
               </div>
               <div>&emsp;</div>
-              <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
+              <span class="navbar-brand mb-0 h1" style="font-weight: bold;"><?php echo $_SESSION['usertype'];?></span>
             </div>
           </nav>
     </body>

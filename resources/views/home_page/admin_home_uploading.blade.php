@@ -133,3 +133,4 @@
     @include('home_page.footer')
 
 </body>
+</html>

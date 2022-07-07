@@ -1,8 +1,7 @@
 <?php
 
 session_start(); 
-// $_SESSION['firstName'] = $user->firstName;
-// // $currentusername = $_SESSION['username'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,16 +44,17 @@ session_start();
                 <div class="col-md-12">
                     <div class="card bg-light mb-3">
                         <div class="card-body">
-                        <!-- <form action="{{ url('my_profile_update') }}" method="POST" enctype="multipart/form-data"> -->
+                        <form action="{{url('/my_profile_update')}}" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                               
                                 <div class="row">
                                     <div class="col-md-4">
                                     </div>
    <!-- @foreach($user as $user) -->
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="">First Name :  <?php echo $_SESSION['firstName']; ?></label>
-                                            <!-- <input type="text" name="firstName" class="form-control @error('firstName') is-invalid @enderror" value="{{ Auth::user()->firstName??'None' }}" required> -->
+                                            <label for="">First Name : </label>
+                                            <input type="text" name="firstName" class="form-control @error('firstName') is-invalid @enderror" value="<?php echo $_SESSION['firstName']; ?>" required>
                                             @error('firstName')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -65,8 +65,8 @@ session_start();
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="">Last Name : <?php echo $_SESSION['lastName'];?></label>
-                                            <!-- <input type="text" name="lastName" class="form-control @error('lastName') is-invalid @enderror" value="{{ Auth::user()->lastName??'None' }}" required> -->
+                                            <label for="">Last Name : </label>
+                                            <input type="text" name="lastName" class="form-control @error('lastName') is-invalid @enderror" value="<?php echo $_SESSION['lastName'];?>" required>
                                             @error('lastName')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -77,8 +77,8 @@ session_start();
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="">Contact Number <?php echo $_SESSION['mobileNumber'];?></label>
-                                            <!-- <input type="text" name="mobileNumber" class="form-control @error('mobileNumber') is-invalid @enderror" value="{{ Auth::user()->mobileNumber??'None' }}" required> -->
+                                            <label for="">Contact Number :</label>
+                                           <input type="text" name="mobileNumber" class="form-control @error('mobileNumber') is-invalid @enderror" value="<?php echo $_SESSION['mobileNumber'];?>" required>
                                             @error('mobileNumber')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -89,8 +89,8 @@ session_start();
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="">Address : <?php echo $_SESSION['address'];?></label>
-                                            <!-- <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ Auth::user()->address??'None' }}" required> -->
+                                            <label for="">Address : </label>
+                                            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="<?php echo $_SESSION['address'];?>" required>
                                             @error('address')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -101,22 +101,22 @@ session_start();
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="">E-mail Address :<?php echo $_SESSION['email'];?></label>
-                                            <!-- <input type="text" class="form-control" readonly value="{{ Auth::user()->email??'None' }}"> -->
+                                            <label for="">E-mail Address :</label>
+                                            <input type="text" class="form-control" readonly value="<?php echo $_SESSION['email'];?>">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="">Current Role : <?php echo $_SESSION['usertype'];?></label>
-                                            <!-- <input type="text" class="form-control" readonly value="{{ Auth::user()->usertype??'None' }}"> -->
+                                            <label for="">Current Role : </label>
+                                            <input type="text" class="form-control" readonly value="<?php echo $_SESSION['usertype'];?>">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="">User ID :  <?php echo $_SESSION['id'];?></label>
-                                            <!-- <input type="text" class="form-control" readonly value="{{ Auth::user()->id??'None' }}"> -->
+                                            <label for="">User ID : </label>
+                                            <input type="text" class="form-control" readonly value=" <?php echo $_SESSION['id'];?>">
                                         </div>
                                     </div>
 
@@ -124,7 +124,7 @@ session_start();
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="">Profile </label>
-                                            <button type="submit" class="btn btn-primary">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </div>
 
