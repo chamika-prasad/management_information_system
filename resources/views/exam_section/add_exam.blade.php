@@ -102,49 +102,50 @@
 
   <!-- section 1-->
   <nav>
-    <h1 style="padding-left:2cm;"> Budhdha Charithaya / Exam </h1> 
+    <h1 style="padding-left:2cm;">Grade {{$request->selectGrade}} / {{$request->selectSubject}} / Exam </h1> 
   </nav>
   <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-   {{-- @isset($message)
-      <div class="alert alert-success">
-        <strong>{{@message}}</strong>
-      </div>
-   @endisset --}}
 
-
-   @if (Session::has('success'))
-    <div class="alert alert-success" style="height: 1.3cm; text-align:center;">
-      <p>{{ Session::get('success') }}</p>
+<div class="container-fluid" style="width: 75%">
+  @if(session()->has('message'))
+  <div class="alert alert-success">
+      {{ session()->get('message') }}
+  </div>
+  @endif
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      @if($errors->any())
+        {{ implode('', $errors->all(':message')) }}
+      @endif
     </div>
-    @endif
+@endif
+
 
   <!-- box -->
-  <form method="post" action="add_exam_details/1" enctype="multipart/form-data">
+  <form method="post" action="{{url('add_exam_details',[$request->selectGrade,$request->selectSubject])}}" enctype="multipart/form-data">
    @csrf 
 
-  <div class="row d-flex justify-content-center" style="width: 100%">
-    <div class="card col-md-10" style="background-color: #6b7e51">
-      <div class="card-body">
-        <input type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #a5be83; height:1.5cm;" required><br>
-        <input name="uploadpdf" type="file" class="form-control"  style="background: #a5be83; height:1.5cm;" required><br>
-        <input type="datetime-local" class="form-control" placeholder="Date and Time " style="background: #a5be83; height:1.5cm;" required><br>
-        <input type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #a5be83; height:1.5cm;" required><br>
-  <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        <div class="row d-flex justify-content-center" style="width: 100%">
+          <div class="card col-md-10" style="background-color: #6b7e51">
+            <div class="card-body">
+              <textarea type="text" class="form-control" placeholder="Description About Exam " name="description" style="background: #a5be83; height:3cm;" required></textarea><br>
+              <input name="uploadpdf" type="file" class="form-control"  style="background: #a5be83; height:1.5cm;" required><br>
+              <input name="reqdate" type="datetime-local" class="form-control" placeholder="Date and Time " style="background: #a5be83; height:1.5cm;" required><br>
+              <textarea type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #a5be83; height:3cm;" required></textarea><br>
+
+
+        <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
 
 
 
-    <div class="col">
-      <button type="submit" class="btn btn-success" style="float:right">Submit</button>
-    </div>
- 
-    </div>
-  </div>
- </div>
-
-
-
-    
-
-
+          <div class="col">
+            <button type="submit" name="add_exam_details" class="btn btn-success" style="float:right">Submit</button>
+          </div>
+      
+          </div>
+        </div>
+      </div>
+  </form>
+</div>
 </body>
 </html>

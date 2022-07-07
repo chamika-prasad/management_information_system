@@ -33,7 +33,7 @@
         </div>
       </div>
       <div>&emsp;</div>
-      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Admin</span>
+      <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
     </div>
   </nav>
   
@@ -58,7 +58,7 @@
           
       </li>
 
-    <br/><br/>
+      <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
       </li>
 
       <li class="nav-item">
@@ -69,97 +69,94 @@
             <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
           </svg>
 
-          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Select module</span> </a>
+          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Exam</span> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+  
+  
+          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:980px; ">&ensp;Student Mode</span> </a>
       </li>
 
       <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
       </li>
 
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">
 
-          
 
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-nut-fill" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
-  <path d="M4.58 1a1 1 0 0 0-.868.504l-3.428 6a1 1 0 0 0 0 .992l3.428 6A1 1 0 0 0 4.58 15h6.84a1 1 0 0 0 .868-.504l3.429-6a1 1 0 0 0 0-.992l-3.429-6A1 1 0 0 0 11.42 1H4.58zm5.018 9.696a3 3 0 1 1-3-5.196 3 3 0 0 1 3 5.196z"/>
-</svg>
-
-          <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Grade Module</span> </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-   
-  
-          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:670px;">&ensp;Teachers Mode</span> </a>
-      </li>
      
     </ul>
+    
+  
   
   </nav>
 
   <!-- navbar 2-->
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
-  <!-- section 1-->
-  <nav>
-    <h1 style="padding-left:2cm;"> Budhdha Charithaya / Quiz </h1> 
-  </nav>
-  <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  </li>
-  @if (Session::has('success'))
-    <div class="alert alert-success" style="height: 1.3cm; text-align:center;">
-      <p>{{ Session::get('success') }}</p>
-    </div>
-    @endif
-   
-  <!-- box -->
-  <div class="container-fluid" style="width: 75%">
-    @if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
-    @endif
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        @if($errors->any())
-          {{ implode('', $errors->all(':message')) }}
-        @endif
-      </div>
-  @endif
-  
-  
-    <!-- box -->
-    <form method="post" action="add_quiz_details" enctype="multipart/form-data">
-     @csrf 
-  
-          <div class="row d-flex justify-content-center" style="width: 100%">
-            <div class="card col-md-10" style="background-color: #6b7e51">
-              <div class="card-body">
-                <textarea type="text" class="form-control" placeholder="Description About Quiz " name="description" style="background: #a5be83; height:3cm;" required></textarea><br>
-                <input name="uploadpdf" type="file" class="form-control"  style="background: #a5be83; height:1.5cm;" required><br>
-                <input name="reqdate" type="datetime-local" class="form-control" placeholder="Date and Time " style="background: #a5be83; height:1.5cm;" required><br>
-                <textarea type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #a5be83; height:3cm;" required></textarea><br>
-  
-  
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  
-  
-  
-            <div class="col">
-              <button type="submit" name="add_exam_details" class="btn btn-success" style="float:right">Submit</button>
-            </div>
-        
-            </div>
-          </div>
-        </div>
-    </form>
-  </div>
-
  
+  <!-- section 1-->
+  <div class="container-fluid" style="width: 80%">
 
+    <h4 class="mt-5" > Budhdha Charithaya/Exam </h4> 
+  <!-- information-->
+  <div class="row d-flex justify-content-center" style="width: 100%; margin-top:1cm">
+    <div class="card col-md-10" style="background-color: #6b7e51">
+      <div class="card-body">
+        
+        <h4> Exam/{{$exam->subject_id}} </h4>
     
+    
+    
+    <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+        <div class="list-group w-100">  
+          <div  data-mdb-toggle="collapse" aria-expanded="false" aria-controls="shortExampleAnswer1collapse" class="form-control">
+       
+          <h5 class="mb-1">description</h5>
+              <p>{{$exam->description_about_exam}}</p>
+          </div>
+          </div>
+          <br>
+          <div class="list-group w-100">  
+          <div  data-mdb-toggle="collapse" aria-expanded="false" aria-controls="shortExampleAnswer1collapse" class="form-control">
+       
+          <h5 class="mb-1">guideline</h5>
+              <p>{{$exam->guidline}}</p>
+          </div>
+          </div><br>
+          <div class="list-group w-100">  
+          <div  data-mdb-toggle="collapse" aria-expanded="false" aria-controls="shortExampleAnswer1collapse" class="form-control">
+       
+          <h5 class="mb-1">date time</h5>
+              <p>{{$exam->date_and_time}}</p>
+          </div>
+          </div><br>
+          <div class="list-group w-100">  
+          <div  data-mdb-toggle="collapse" aria-expanded="false" aria-controls="shortExampleAnswer1collapse" class="form-control">
+       
+          <h5 class="mb-1">paper</h5>
 
+              <p>{{$exam->add_exam_paper}}</p>
+              <p>view or download</p>
+
+          </div>
+          </div><br>
+
+          <div class="list-group w-100">  
+          <div  data-mdb-toggle="collapse" aria-expanded="false" aria-controls="shortExampleAnswer1collapse" class="form-control">
+       
+          <h5 class="mb-1">Upload Answer</h5>
+          <form method="post" action="{{url('submit_exam_answer',[$exam->id,$studentid])}}" enctype="multipart/form-data">
+         @csrf 
+              <input name="answer" type="file" class="form-control" required><br>
+         
+      </div><br>
+      <button type="submit" class="btn btn-success" style="float:right">Submit</button>
+    </form>
+      </div>
+    </div>
+  </div>
+  </div><br><br>
 
 </body>
+
+</div>
 </html>

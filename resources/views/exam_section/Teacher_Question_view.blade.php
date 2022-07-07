@@ -94,131 +94,100 @@
 <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
 </li>
   <!-- quection 1-->
+  <div class="row d-flex justify-content-start body col-sm-12" style="margin-left: 2.9cm">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+  </div> 
+      
+ 
 
   <div class="row d-flex justify-content-center" style="width: 100%">
     <div class="card col-md-10" style="background-color: #6b7e51">
       <div class="card-body">
         
-        <h4> Quection bank </h4>
+        <h4>POST BY : {{$user_questions->student_id}}</h4>
     
   <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  <div class="list-group w-100">
-    <a href="#shortExampleAnswer1collapse" data-mdb-toggle="collapse" aria-expanded="false"
-      aria-controls="shortExampleAnswer1collapse" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Question 1</h5>
-      </div>
-      <p class="mb-1">
-        Short & concise version of the answer.
-      </p>
-      <small><u>Learn more</u></small>
-      <!-- Collapsed content -->
-      <div class="collapse mt-3" id="shortExampleAnswer1collapse">
-        Detailed and comprehensive answer goes here. pariatur cliche reprehenderit, enim eiusmod
-        high
-        life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident.
-      </div>
-    </a>
-    <a href="#shortExampleAnswer2collapse" data-mdb-toggle="collapse" aria-expanded="false"
-      aria-controls="shortExampleAnswer1collapse" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Question 2</h5>
-      </div>
-      <p class="mb-1">
-        Short & concise version of the answer.
-      </p>
-      <small class="text-muted"><u>Learn more</u></small>
-      <!-- Collapsed content -->
-      <div class="collapse mt-3" id="shortExampleAnswer2collapse">
-        Detailed and comprehensive answer goes here. pariatur cliche reprehenderit, enim eiusmod
-        high
-        life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident.
-      </div>
-    </a>
-    <a href="#shortExampleAnswer3collapse" data-mdb-toggle="collapse" aria-expanded="false"
-      aria-controls="shortExampleAnswer1collapse" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Question 3</h5>
-      </div>
-      <p class="mb-1">
-        Short & concise version of the answer.
-      </p>
-      <small class="text-muted"><u>Learn more</u></small>
-      <!-- Collapsed content -->
-      <div class="collapse mt-3" id="shortExampleAnswer3collapse">
-        Detailed and comprehensive answer goes here. pariatur cliche reprehenderit, enim eiusmod
-        high
-        life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident.
-      </div>
-    </a>
-  </div>
 
- <!-- Quection bank 2-->
+
+      
+
 
   <div class="list-group w-100">
-    <a href="#shortExampleAnswer1collapse" data-mdb-toggle="collapse" aria-expanded="false"
-      aria-controls="shortExampleAnswer1collapse" class="list-group-item list-group-item-action">
+    <div class="form-control">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Question 4</h5>
-      </div>
-      <p class="mb-1">
-        Short & concise version of the answer.
-      </p>
-      <small><u>Learn more</u></small>
-      <!-- Collapsed content -->
-      <div class="collapse mt-3" id="shortExampleAnswer1collapse">
-        Detailed and comprehensive answer goes here. pariatur cliche reprehenderit, enim eiusmod
-        high
-        life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident.
-      </div>
-    </a>
-    <a href="#shortExampleAnswer2collapse" data-mdb-toggle="collapse" aria-expanded="false"
-      aria-controls="shortExampleAnswer1collapse" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Question 5</h5>
-      </div>
-      <p class="mb-1">
-        Short & concise version of the answer.
-      </p>
-      <small class="text-muted"><u>Learn more</u></small>
-      <!-- Collapsed content -->
-      <div class="collapse mt-3" id="shortExampleAnswer2collapse">
-        Detailed and comprehensive answer goes here. pariatur cliche reprehenderit, enim eiusmod
-        high
-        life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident.
-      </div>
-    </a>
-    <a href="#shortExampleAnswer3collapse" data-mdb-toggle="collapse" aria-expanded="false"
-      aria-controls="shortExampleAnswer1collapse" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Question 6</h5>
-      </div>
-      <p class="mb-1">
-        Short & concise version of the answer.
-      </p>
-      <small class="text-muted"><u>Learn more</u></small>
-      <!-- Collapsed content -->
-      <div class="collapse mt-3" id="shortExampleAnswer3collapse">
-        Detailed and comprehensive answer goes here. pariatur cliche reprehenderit, enim eiusmod
-        high
-        life accusamus terry richardson ad
-        squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-        sapiente ea proident.
-      </div>
-    </a>
+        <h5 class="mb-1">Title : {{$user_questions->question_title}}</h5>
+      </div><br>
+      
+      <p class="mb-1" style="font-weight: bold">
+
+        {{$user_questions->question}}
+
+      </div><br>
+      <form action="{{url('/selectCommentQuestion',[$user_questions->id,13])}}">
+        @csrf
+        <input class="btn btn-secondary" type="submit" value="Add answer" style="float: right; border: solid;">
+     </form>
   </div>
+      </div>
+    </div>
+    
+</div>
+
+<br>
+
+
+@if (count($user_comments) != 0)   
+
+<div class="row d-flex justify-content-center" style="width: 100%">
+    <div class="card col-md-10" style="background-color: #006b41;">
+      <div class="card-body">
+        
+        <h4>Answers</h4>
+    
+  <br>
+
+  @foreach ($user_comments as $user_comment)
+
+  <div class="list-group w-100">
+    <div class="form-control">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><small>POST BY : {{$user_comment->user_id}}</small></h5>
+      </div>
+      
+      <p class="mb-1" style="font-weight: bold;">
+
+        {{$user_comment->comment}}
+
+      </div><br>
+   
+  </div>
+
+@endforeach
   
+      </div>
+    </div>
+</div>
 
+@else 
+
+<div class="row d-flex justify-content-center" style="width: 100%">
+  <div class="card col-md-10" style="background-color: #006b41;">
+    <div class="card-body">
+      
+      <h4>No Answers Avalable Yet..</h4>
+
+    </div>
+  </div>
+</div>
+
+@endif
+
+  
+ <br>
 
 </body>
 </html>

@@ -20,6 +20,7 @@ use App\Models\User;
 use App\Models\Payment;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\QuestionController;
 use App\Models\UploadingContent;
 use Illuminate\Support\Facades\App;
 
@@ -87,31 +88,26 @@ Route::get('/selectuser', function () {
 
 Route::get('/usertype',[AuthController::class, 'usertype']);
 
-
 Route::get('online_payment_success/', function () {
     return view ('payment/online_payment_success');
 });
 
 Route::get('/admin_free_learning/{user_id}',[FreeLearningController::class, 'adminFreelearning']);
 
-
 Route::get('/admin_free_learning_list', [FreeLearningController::class, 'displayFreelearningList']);
 
 Route::get('/admin_bank_deposit_list', [BankDepositController::class, 'displayBankDepositList']);
 
-
 Route::get('/admin_bank_deposite/{user_id}', [BankDepositController::class, 'adminBankdeposit']);
 
 Route::post('submit_free_learning_application/{user_id}', [FreeLearningController::class, 'addFreeLearning']);
-
-// Auth::routes();
-
 
 Route::get('admin_free_learning_application_action/{action}/{user_id}', [FreeLearningController::class, 'adminFreeLearningAction']);
 
 Route::post('upload_bank_slip/{user_id}', [BankDepositController::class, 'upload']);
 
 Route::get('stripe', [StripeController::class, 'stripe']);
+
 Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
 
 Route::get('/export_pdf', [StripeController::class, 'exportPdf']);
@@ -135,13 +131,87 @@ Route::get('/home',function()
 // Route::get('/add_exam', function () {
 //     return view ('exam_section/add_exam');
 // });
-Route::get('/add_exam', [ExamController::class, 'displayExam']);
-Route::get('/add_quiz', [QuizController::class, 'displayquiz']);
+// Route::get('/add_quiz', [QuizController::class, 'displayquiz']);
 
 
 // Route::get('/add_quiz', function () {
 //     return view ('exam_section/add_quiz');
 // });
+
+//--------------------------add_exam------------------------------
+
+Route::get('/help', function () {
+    return view ('exam_section/route');
+});
+
+
+Route::get('/select_exam_module', function () {
+    return view ('exam_section/select_exam_module');
+});
+Route::post('/select_exam_grade', [ExamController::class, 'sendsubgrade']);
+
+Route::post('/add_exam_details/{grade}/{subject}', [ExamController::class, 'addexamdetails']);
+
+Route::get('/show_today_exam_detail/{id}', [ExamController::class, 'showtodayexamdetails']);//teacher can show today each exam details
+Route::get('/show_upcoming_exam_detail/{id}', [ExamController::class, 'showupcomingexamdetails']);//teacher can show upcoming each exam details
+Route::get('/show_finished_exam_detail/{id}', [ExamController::class, 'showfinishexamdetails']);//teacher can show upcoming each exam details
+
+Route::get('/show_student_today_exam_detail/{examid}/{studentid}', [ExamController::class, 'studentshowtodayexamdetails']);//student can show today each exam details
+
+Route::post('/submit_exam_answer/{examid}/{studentid}', [ExamController::class, 'addexamsubmission']);//student exam submit
+
+
+Route::get('/endexam/{id}', [ExamController::class, 'endexam']);//teacher exam end
+
+
+Route::get('/select_exam_list_grade', function () {
+    return view ('exam_section/Teacher_Exam_Llist_Select__Grade_Subject');
+});
+
+Route::get('/select_exam_list_subject', function () {
+    return view ('exam_section/Student_Exam_Llist_Select_Subject');//student select exam subject
+});
+
+Route::get('/hi', function () {
+    return view ('exam_section/exam_teacher_view');
+});
+
+// Route::get('/teacher_show_exam_list', function () {
+//     return view ('exam_section/Teacher_show_exam_list');
+// });
+
+Route::post('/teacher_show_exam_list', [ExamController::class, 'teacherShowExamlist']);//teacher exam list
+
+Route::post('/student_show_exam_list/{id}', [ExamController::class, 'studentShowExamlist']);//student exam list
+
+Route::get('/showanswers/{exam_id}', [ExamController::class, 'showanswers']);//teacher show answers
+
+Route::get('/hhow', function () {
+    return view ('exam_section/show_answer_sheet');
+});
+
+Route::get('/downloaded/{name}',[ExamController::class,'download']);
+
+Route::get('/views/{name}',[ExamController::class,'views']);
+
+Route::get('/addmark/{answerid}', function ($answerid) {
+    return view ('exam_section/add_exam_marks',['answerid' => $answerid]);
+});
+
+Route::post('/addmark/{answerid}',[ExamController::class,'addmark']);
+
+
+
+
+//--------------------------add_exam------------------------------
+
+// Route::get('/add_exam', [ExamController::class, 'diplayexam']);
+
+
+//add_quiz
+// Route::post('/select_exam_grade', [ExamController::class, 'sendsubgrade']);
+Route::get('/add_quiz', [QuizController::class, 'displayquiz']);
+Route::post('/add_quiz_details', [QuizController::class, 'addquizdetails']);
 
 
 Route::get('/Graded', function () {
@@ -158,21 +228,39 @@ Route::get('/Submission_quiz', function () {
     return view ('exam_section/Submission_quiz');
 });
 
-Route::get('/Quection_bank_view', function () {
-    return view ('exam_section/Quection_bank_view');
-});
+// Route::get('/Quection_bank_view', function () {
+//     return view ('exam_section/Quection_bank_view');
+// });
 
-Route::get('/Quection_bank_add', function () {
-    return view ('exam_section/Quection_bank_add');
-});
+
+
+//----------------------------------- Questions ----------------------------------------------
+
+Route::get('/Quection_bank_add/{id}', [QuestionController::class, 'displayQuectionAdd']);//for student
+
+Route::POST('/QuectionAdding/{id}', [QuestionController::class, 'QuectionAdding']);//for student
+
+Route::get('/Student_Quection_bank_list/{id}', [QuestionController::class, 'studentDisplayQuestionList']);//for student
+
+Route::get('/View_student_question/{question_id}/{id}', [QuestionController::class, 'studentDisplayQuestionview']);//for student
+
+Route::get('/View_teacher_question_list/{id}', [QuestionController::class, 'teacherDisplayQuestionList']);//for teacher
+
+Route::get('/View_teacher_question/{question_id}/{id}', [QuestionController::class, 'teacherDisplayQuestionview']);//for teacher
+
+Route::get('/selectCommentQuestion/{question_id}/{id}', [QuestionController::class, 'selectCommentQuestion']);//for teacher
+
+Route::get('/submitcomment/{question_id}/{id}', [QuestionController::class, 'submitcomment']);//for teacher
+
+//----------------------------------- Questions ----------------------------------------------
 
 Route::get('/homesection', function () {
     return view ('exam_section/homesection');
 });
 
-Route::get('/Quiz_online', function () {
-    return view ('exam_section/Quiz_online');
-});
+// Route::get('/Quiz_online', function () {
+//     return view ('exam_section/test');
+// });
 
 Route::get('/Main_view_of_subject', function () {
     return view ('exam_section/Main_view_of_subject');
@@ -188,7 +276,7 @@ Route::get('/answer_uploade_student', function () {
     return view ('exam_section/answer_uploade_student');
 });
 
-Route::post('/add_exam_details/{subject_id}',[ExamController::class,'addExam']);
+// Route::post('/add_exam_details/{subject_id}',[ExamController::class,'addExam']);
 
 Route::get('/view_pepar', [ExamController::class, 'view_pepar'])->name('view_pepar');
 
@@ -323,11 +411,8 @@ Route::post('/addBooks',[BooksController::class,'store']);//store book in databa
 Route::delete('/Delete/{book}',[BooksController::class,'delete']);
 
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

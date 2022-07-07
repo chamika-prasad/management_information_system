@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('question_banks', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('question_title');            
             $table->string('question');
-            $table->unsignedInteger('subject_id');
             $table->unsignedInteger('student_id');
+            $table->timestamps();
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
-
         });
     }
 
@@ -32,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-
-        Schema::dropIfExists('questions');
-
+        Schema::dropIfExists('question_banks');
     }
 };

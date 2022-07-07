@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  {{-- --------------student--------------- --}}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -58,7 +60,7 @@
           
       </li>
 
-    <br/><br/>
+      <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
       </li>
 
       <li class="nav-item">
@@ -87,14 +89,18 @@
 
           <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Grade Module</span> </a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="#">
-   
-  
-          <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:670px;">&ensp;Teachers Mode</span> </a>
-      </li>
+      <a class="nav-link" href="#">
+
+
+        <span  style="font-size:30px; vertical-align: middle;  color: white; margin-left:420px; ">&ensp;Student Mode</span> </a>
+    </li>
+
      
     </ul>
+    
+  
   
   </nav>
 
@@ -103,63 +109,34 @@
   </li>
   <!-- section 1-->
   <nav>
-    <h1 style="padding-left:2cm;"> Budhdha Charithaya / Quiz </h1> 
+    <h4 style="padding-left:2cm;"> Quection Bank </h4> 
   </nav>
   <li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
   </li>
-  @if (Session::has('success'))
-    <div class="alert alert-success" style="height: 1.3cm; text-align:center;">
-      <p>{{ Session::get('success') }}</p>
-    </div>
-    @endif
-   
-  <!-- box -->
-  <div class="container-fluid" style="width: 75%">
-    @if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
-    @endif
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        @if($errors->any())
-          {{ implode('', $errors->all(':message')) }}
-        @endif
-      </div>
-  @endif
-  
-  
-    <!-- box -->
-    <form method="post" action="add_quiz_details" enctype="multipart/form-data">
-     @csrf 
-  
-          <div class="row d-flex justify-content-center" style="width: 100%">
-            <div class="card col-md-10" style="background-color: #6b7e51">
-              <div class="card-body">
-                <textarea type="text" class="form-control" placeholder="Description About Quiz " name="description" style="background: #a5be83; height:3cm;" required></textarea><br>
-                <input name="uploadpdf" type="file" class="form-control"  style="background: #a5be83; height:1.5cm;" required><br>
-                <input name="reqdate" type="datetime-local" class="form-control" placeholder="Date and Time " style="background: #a5be83; height:1.5cm;" required><br>
-                <textarea type="text" class="form-control" placeholder="Guidlines " name="guidline" style="background: #a5be83; height:3cm;" required></textarea><br>
-  
-  
-          <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-  
-  
-  
+
+  <!-- card -->
+  <form action="{{url('/QuectionAdding',$studentID)}}" method="POST">
+    @csrf
+
+      <<div class="row d-flex justify-content-center" style="width: 100%">
+        <div class="card col-md-10" style="background-color: #6b7e51">
+          <div class="card-body">
+            <h1> Add a Question </h1>
+            <input type="text" class="form-control" placeholder="Enter question title.." name="title" style="background: #009dff; height:1.2cm;"><br>
+            <textarea type="text" class="form-control" placeholder="Enter your question here.." name="description" style="background: #009dff; height:2.5cm;"></textarea><br>
+            <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+
+
             <div class="col">
-              <button type="submit" name="add_exam_details" class="btn btn-success" style="float:right">Submit</button>
+              <button type="submit" class="btn btn-success" style="float:right">Submit</button>
             </div>
-        
-            </div>
-          </div>
-        </div>
-    </form>
-  </div>
-
- 
-
     
+        </div>
+      </div>
+    </div>
+  </form>
 
+  <!-- Card -->
 
 </body>
 </html>

@@ -77,12 +77,13 @@
                         </button>
                     </a>
                 </div>
+
                 <div class="card border-secondary mb-3 bg-secondary text-white" style="text-align: center">
-                    <a href="/select_module">
+                    <a href="{{url('/View_teacher_question_list',13)}}">
                         <button class="btn btn-secondary" >
                             <div class="card-body">
-                                <h5 class="card-title">Subjects</h5>
-                                <p class="card-text">Choose grade and subject via this button</p>
+                                <h5 class="card-title">Question Bank</h5>
+                                <p class="card-text">View and Answers For Questions</p>
                             </div>
                         </button>
                     </a>

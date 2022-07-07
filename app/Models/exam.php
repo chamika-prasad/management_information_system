@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Exam extends Model
+class exam extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'subject_id',
-        'description_about_exam',
-        'guidline'
-    ];
+    protected $fillable = ['description_about_exam','add_exam_paper','date_and_time','guidline','isfinished','subject_id'];
 }

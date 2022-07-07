@@ -11,7 +11,6 @@ class FreeLearningController extends Controller
     public function addFreeLearning(Request $request,$Id){
 
         $freeapplication = new FreeApplication();
-
         $freeapplication->user_id = $Id;
         $freeapplication->description = $request->description;
         $freeapplication->save();

@@ -8,36 +8,38 @@ use Session;
 
 class QuizController extends Controller
 {
-   public function addQuiz(Request $request,$subject_id){
+    // public function sendsubgradequiz(Request $request){
 
-   //    $request-> validate([
-   //       'zoomLink'=> 'required'
+    //     return view('exam_section/add_exam',['request' => $request]);
 
-   //   ]);
-
+    // }
+    public function addquizdetails(Request $request)
+    {
+        $request->validate([
+            'description' => 'required',
+            'uploadpdf' => 'required|mimes:pdf',
+            'reqdate' => 'required',
+            'guidline' => 'required',
+            
+        ]);
+        $addingNewQuiz = new Quiz();
         $pdfname = $request->file('uploadpdf')->getClientOriginalName();
         $request->file('uploadpdf')->store('public/pdf-folder/');
 
-       $quiz=new Quiz();
-       $quiz->description_about_quiz=$request->description;
-       $quiz->add_quiz_paper=$pdfname;
-       $quiz->guidline=$request->guidline;
-       $quiz->grade=9;
-       $quiz->teacher_id=12;
-       $quiz->date_and_time='838:59:59';
-       $quiz->subject_id=$subject_id;
-       $quiz->save();
+        $addingNewQuiz -> description_about_quiz = $request->description;
+        $addingNewQuiz -> add_quiz_paper = $pdfname;
+        $addingNewQuiz -> date_and_time = $request->reqdate;
+        $addingNewQuiz -> guidline = $request->guidline;
+        $addingNewQuiz -> teacher_id = '12';
+        $addingNewQuiz -> subject_id = '1';
+        $addingNewQuiz -> grade = '5';
+        $addingNewQuiz -> save();
 
-       Session::flash('success', 'Submission successful!');
-        // $message = "uploaded Successfully";
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Exam materials successfully uploaded');
+    }
+    public function displayquiz(){
 
-       
+        return view('exam_section/Add_quiz');
 
-   }
-   public function displayquiz()
-    {
-        // $message = "uploaded Successfully";
-        return view('exam_section/add_quiz');
     }
 }
