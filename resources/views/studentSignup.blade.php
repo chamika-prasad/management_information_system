@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,44 +10,47 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>Free_Learning_Application</title>
-</head> 
-<body>
+</head>
 <style>
-  * {
-  box-sizing: border-box;
-}  
-#header{
-    background-color: #FDEFEF;
-    color:black;
-    font-size:120%;
-    padding:20px;
-    text-align:left;
-    font-family:verdana;
-    font-weight: bold;
+
+    input[type=email], input[type=password],input[type=text],input[type=string],input[type=number] {
+   width: 100%;
+   font-size: 15px;
+   padding: 15px;
+   margin: 5px 0 22px 0;
+   display: inline-block;
+   border: 2px solid black;
+   background: #f1f1f1;
 }
-body
-{
-    background-color:#ffff99;
+label{
+   font-size: 15px;
+   font-weight:bold;
+}
+input[type=email]:focus, input[type=password]:focus {
+   background-color: #ddd;
+   outline: none;
+}
+.container {
+   padding: 16px;
+}
+.card{
+    border-style: ridge;
+  border-width: 7px;
+  border-color: black;  
 }
 .card-header{
-    background-color:#ff9966;
-    color:white;
-    padding:20px;
     text-align:center;
     font-weight:bold;
     font-size:20px;
 }
-.card-body{
-    background-color:#7C5D5D;
-    color:black;
-    font-weight:bold;
-    border:2px solid Tomato;
-}
-input[type=submit]:hover{
-    background-color: #66ffff;
-}
-</style>
-<h1 id="header">Welcome To The E-Learning of Dhamma school</h1>
+    </style>
+<body>
+<nav class="navbar navbar-light " style="background-color: #FDEFEF;">
+            <div class="left-corner">
+                <img src="./images/menu.png" width="35" height="35">
+                <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Welcome To The E-Learning of Dhamma school</span>
+            </div>
+</nav>
  <main class="login-form">
      <div class="container" >
          <div class="row justify-content-center">
@@ -55,13 +58,14 @@ input[type=submit]:hover{
                <div class="card">
                    <div class="card-header">{{ __('Register') }}</div> 
                    <div class="card-body">
-                        <form action="{{ route('abc') }}" method="POST">
+                        <form action="/abc/3" method="POST">
+                       
                             {{ csrf_field() }}
                             {{ method_field('POST')}}
 
                            <div class="form-group row">
 
-                             <label for="index" class="col-md-4 col-form-lable text-md-right">{{ __('index') }}</label>
+                             <label for="index" class="col-md-4 col-form-lable text-md-right">{{ __('Index') }}</label>
                                   <div class="col-md-6">
                                       <input type="text" name="index" id="index" class="form-control" placeholder="DS_Surname with Initials" required autofocus>
                                    
@@ -164,10 +168,11 @@ input[type=submit]:hover{
                             <div class="form-group row">
                             <label for="gender" class="col-md-4 col-form-lable text-md-right">Gender</label>
                                  <div class="col-md-6">
+                                 <label for="male">Male</label>
                                      <input type="radio" name="gender" id="male" value="male" class="form-control" required>
-                                     <label for="male">Male</label>
-                                     <input type="radio" name="gender" id="female" value="female" class="form-control" required>
                                      <label for="male">Female</label>
+                                     <input type="radio" name="gender" id="female" value="female" class="form-control" required>
+                                    
                                       @if($errors->has('gender'))
                                        <span class="text-danger">{{$errors->first('gender')}}</span>
                                        @endif
@@ -273,8 +278,6 @@ input[type=submit]:hover{
                                        @endif
                                  </div>
                             </div>
-
-                          
                             <div class="form-group row">
                                 <label for="address" class="col-md-4 col-form-lable text-md-right">Address</label>
                                  <div class="col-md-6">

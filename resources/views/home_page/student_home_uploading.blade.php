@@ -68,11 +68,11 @@
                 
                 
                 <div class="card border-secondary mb-3 bg-secondary text-white" style="text-align: center">
-                    <a href="/select_module">
+                    <a href="/studentNotices">
                         <button class="btn btn-secondary" >
                             <div class="card-body">
-                                <h5 class="card-title">Subjects</h5>
-                                <p class="card-text">Choose grade and subject via this button</p>
+                                <h5 class="card-title">Notices</h5>
+                                <p class="card-text">See new updates</p>
                             </div>
                         </button>
                     </a>

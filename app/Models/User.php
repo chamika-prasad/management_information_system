@@ -25,6 +25,23 @@ class User extends Authenticatable
         'usertype',
         'mobileNumber',
         'id',
+        'index',
+        'birthdate',
+        'address',
+        'birthplace',
+        'requestedgrade',
+        'gender',
+        'school',
+        'fathername',
+        'f_occupation',
+        'f_place',
+        'mothername',
+        'm_occupation',
+        'm_place',
+        'admissioncategory',
+
+
+
     ];
 
     /**
@@ -33,8 +50,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        // 'password',
-        // 'remember_token',
+        'password',
+        'remember_token',
 
     ];
 
@@ -67,8 +84,18 @@ class User extends Authenticatable
     // protected $appends = [
     //     '_profile_photo_url',
     // ];
-    public function profile()
+//     public function profile()
+//     {
+//     return $this->hasOne(Profile::class,'user_id');
+// }
+
+    public function notice()//create relationship with book and category
     {
-    return $this->hasOne(Profile::class,'user_id');
-}
+        return $this ->hasMany(Notice::class);
+    }
+    public function books()//create relationship with book and category
+    {
+        return $this ->hasMany(Books::class);
+    }
+
 }

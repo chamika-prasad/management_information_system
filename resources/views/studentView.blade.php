@@ -1,3 +1,8 @@
+<?php
+
+session_start(); 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,13 +33,14 @@
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                   </svg>
           <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button">My profile</button>
-            <button class="dropdown-item" type="button">Settings</button>
-            <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
+            <button class="dropdown-item" type="button"><a href="{{route('my_profile')}}">My profile</a></button>
+
+                
+                <button class="dropdown-item" type="button"><a href="{{route('logout')}}">Logout</a></button>
           </div>
         </div>
         <div>&emsp;</div>
-        <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Student</span>
+        <span class="navbar-brand mb-0 h1" style="font-weight: bold;"><?php echo $_SESSION['firstName']; ?>&ensp;&ensp;&ensp;&ensp;</span>
       </div>
     </nav>
     
@@ -46,11 +52,9 @@
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="{{url('/')}}">
             
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16" style=" vertical-align: middle; color: black;">
-            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
-            </svg>
+        
 
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Home</span> </a>
             
@@ -61,7 +65,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/')}}">
+          <a class="nav-link" href="{{url('/studentDashboard')}}">
             <span  style="font-size:30px; vertical-align: middle;  color: white;">&ensp;Dashboard</span> 
           </a>
         </li>
@@ -101,10 +105,18 @@
                                 <label></label>
                                 <input type="text" name="name" class="form-control" value="{{ $name ?? '' }}" placeholder="Enter Book Name">
                             </div>
-                            <div class="col-xl-3">
-                                <label></label>
-                                <input type="text" name="category" class="form-control" value="{{ $category?? '' }}"placeholder="Enter Category">
-                            </div>
+                            
+                            <div class="form-group">
+                            <label></label>       
+                            <select id="disabledSelect" class="custom-select mr-sm-2" name="category_id">
+                            <option selected hidden value=0>Select Category</option>
+                            
+                              @foreach($category as $category)
+                              <option value="{{$category->id}}">{{$category->name}}</option>
+                              @endforeach
+                            </select>
+                          </div>
+
                             <div class="col-xl-3 ">
                                 <label></label>
                                 <input type="text" name="author" class="form-control" value="{{ $author?? '' }}" placeholder="Enter Author Name">
@@ -159,5 +171,14 @@
           </div>
       @endif
     </div>   
+
+    <style>
+      .w-5{
+        display:none
+      }
+    </style>
+  <div class="d-flex justify-content-center">
+    {!! $books->links() !!}
+</div>
   </body>
 </html>

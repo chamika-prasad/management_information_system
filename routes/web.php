@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\Admin\RegisteredController;
 
 use App\Http\Controllers\uploading_pdfController;
 use App\Http\Controllers\FreeLearningController;
@@ -17,10 +18,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\FreeApplication;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\UploadingContent;
+use App\Models\Notice;
+use App\Http\Controllers\NoticeController;
 use Illuminate\Support\Facades\App;
 
 
@@ -35,15 +39,21 @@ use Illuminate\Support\Facades\App;
 |
 */
 
+//Admin routes
+Route::get('registered-user',[RegisteredController::class,'index'])->name('registered-user');
+Route::get('role-edit/{id}',[RegisteredController::class,'edit']);
+Route::get('role-update/{id}',[RegisteredController::class,'updaterole']);
+Route::delete('role-delete/{id}',[RegisteredController::class,'registerdelete'])->name('role-delete');
+
 
 // Registration  routes
 Route::get('registration',[AuthController::class,'registration']);
-Route::post('/abc', 'App\Http\Controllers\AuthController@register')->name('abc');
+Route::post('/abc/{user}', 'App\Http\Controllers\AuthController@register');
 
 
 //login routes
-Route::get('index',[AuthController::class,'index']);
-Route::post('/def','App\Http\Controllers\AuthController@login')->name('def');
+Route::get('index',[AuthController::class,'index'])->name('index');
+Route::post('/def','App\Http\Controllers\AuthController@login');
 
 
 //show forget password form
@@ -57,6 +67,15 @@ Route::post('reset.password.post',[ForgotPasswordController::class,'submitResetP
 
 //logout
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+//profile
+Route::get('/my_profile',[UserController::class,'myprofile'])->name('my_profile');
+Route::post('/my_profile_update',[UserController::class,'profileupdate']);
+
+Route::get('/aboutus',function(){
+    return view('AboutUs');
+});
 
 Route::get('free_learning_application/', function () {
     return view ('payment/free_learning_application');
@@ -78,6 +97,11 @@ Route::get('final_amount/', function () {
     return view ('payment/final_amount_online_payment');
 });
 
+// Route::get('dashboard/',function()
+// {
+//     return view('home_page/home_uploading');
+// });
+
 Route::get('/', function () {
     return view ('welcomehome');
 });
@@ -85,9 +109,12 @@ Route::get('/', function () {
 Route::get('/selectuser', function () {
     return view ('selectusertype');
 });
+// Route::get('/loginusertype', function () {
+//     return view ('selectusertype1');
+// });
 
 Route::get('/usertype',[AuthController::class, 'usertype']);
-
+// Route::get('/usertype1',[AuthController::class, 'usertype1']);
 
 Route::get('online_payment_success/', function () {
     return view ('payment/online_payment_success');
@@ -245,7 +272,7 @@ Route::put('/updateBooks/{id}',[BooksController::class,'update']);
     return view('addBooks');
 });*/
 Route::get('/addBooks',[BooksController::class,'add']);//add book function 
-Route::post('/addBooks',[BooksController::class,'store']);//store book in database
+Route::post('/addBooks/{id}',[BooksController::class,'store']);//store book in database
 
 //Route::get('/chooseBooks',[BooksController::class,'choose']);
 //Route::post('/chooseBooks',[BooksController::class,'storechooseBook']);
@@ -288,3 +315,17 @@ Route::get('editBookSerach',[BooksController::class,'editBookSerach'])->name('bo
 Route::get('editSearchCategory',[BooksController::class,'editSearchCategory'])->name('booksCategory.filer.edit');
 Route::get('studentSearch',[BooksController::class,'studentSearch'])->name('studentSearch.filer');
 //--------------------------------------------Ending library mangement system
+
+Route::get('/viewNotices',[NoticeController::class,'index']);
+Route::get('/addNotices',[NoticeController::class,'add']);
+Route::post('/addNotices/{id}',[NoticeController::class,'store']);
+Route::delete('/DeleteNotice/{notice}',[NoticeController::class,'delete']);
+
+
+Route::get('/editNotices/{id}',[NoticeController::class,'edit']);
+Route::put('/updateNotices/{id}',[NoticeController::class,'update']);
+
+Route::get('/studentNotices',[NoticeController::class,'studentNotice']);
+
+Route::get('/adminDashboard',[NoticeController::class,'connectDashboard']);
+Route::get('/studentDashboard',[NoticeController::class,'connectStudentDashboard']);
