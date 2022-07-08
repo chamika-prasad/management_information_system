@@ -114,8 +114,8 @@
                     <a href="/grading">
                         <button class="btn btn-secondary" >
                             <div class="card-body">
-                                <h5 class="card-title">Grade Student</h5>
-                                <p class="card-text">Add Exam and assignmant marks to the student</p>
+                                <h5 class="card-title">Subject</h5>
+                                <p class="card-text">show attendance</p>
                             </div>
                         </button>
                     </a>

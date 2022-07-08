@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Providers\RouteServiceProviders;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -184,16 +185,25 @@ class AuthController extends Controller
                
                 // return redirect('dashboard')->with('success', 'your have successfully logged in');  
                 if($user->usertype=='Admin'){
+
+                View::share ('user' , $user );
                 return view('home_page/admin_home_uploading',compact('user'));
+
                 }else if($user->usertype=='Student')
                 {
+                View::share ('user' , $user );
                 return view('home_page/student_home_uploading',compact('user'));
+
                 }else if($user->usertype=='Parent')
                 {
+                
+                View::share ('user' , $user );
                 return view('home_page/student_home_uploading',compact('user'));
                 }
                 else if($user->usertype=='Teacher')
+
                 {
+                View::share ('user' , $user );
                 return view('home_page/teacher_home_uploading',compact('user'));
                 }
  

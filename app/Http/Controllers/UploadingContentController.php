@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\View\View as ViewView;
 
+
 class UploadingContentController extends Controller
 {
     public function displaymaterials($addGrade,$addSubject)

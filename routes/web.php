@@ -26,6 +26,7 @@ use App\Models\UploadingContent;
 use App\Models\Notice;
 use App\Http\Controllers\NoticeController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 
 /*

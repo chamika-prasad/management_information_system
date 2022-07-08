@@ -56,7 +56,7 @@
                             &ensp;Select Module
                         </span> 
                     </a>
-                </li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+                {{-- </li><div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/grading')}}">
             
@@ -75,7 +75,7 @@
                             &ensp;Grade Student
                         </span> 
                     </a>
-                </li>
+                </li> --}}
              
             </ul>
           
