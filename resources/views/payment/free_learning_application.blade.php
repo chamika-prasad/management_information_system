@@ -87,9 +87,10 @@
    <div class="form-outline mb-4" style="margin-top:1.5cm;">
     <div class="container h-100">
       <div class="row h-100 justify-content-center align-items-center">
-          <div class="col-10 col-md-8 col-lg-6"> -->
+          <div class="col-10 col-md-8 col-lg-6"> 
+            
               <!-- Form -->
-              <form class = 'card p-5' style="background-color: #b6acab" action="submit_free_learning_application/1" method="post">
+              <form class = 'card p-5' style="background-color: #b6acab" action="submit_free_learning_application/11" method="post">
                 
                 @csrf
                 <!-- Input fields -->
@@ -104,6 +105,7 @@
                 </div>
                 <!-- End input fields -->  
             </form>
+           
               <!-- Form end -->
            </div>
         </div>

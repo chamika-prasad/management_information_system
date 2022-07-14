@@ -12,7 +12,7 @@
     <title>Home</title>
 </head>
 <body>
-    @include('layouts.Navbar')
+    @include('layouts.sNavbar')
      <!-- navbar 2-->
           
      <nav class="navbar navbar-expand-sm " style="background-color: #7C5D5D;">
@@ -112,6 +112,8 @@
                         </button>
                     </a>
                 </div>
+
+                
                 <div class="card border-secondary mb-3 bg-secondary text-white" style="text-align: center">
                     <a href="/free_learning_application">
                         <button class="btn btn-secondary" >
@@ -122,6 +124,7 @@
                         </button>
                     </a>
                 </div>
+                
             </div>
         </div>
       </div>

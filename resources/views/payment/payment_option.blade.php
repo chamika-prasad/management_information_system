@@ -84,8 +84,8 @@
 
         <div class="container bg-light" style="padding: 1cm; margin-top:1.5cm;">
           <div class="col-md-12 text-center">
-            <a href="#"><button type="button" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Online Payment </span></button><a><br>
-            <a href="bank_deposit"><button type="button" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Bank Deposite </span></button><a>
+            <a href="{{url('/stripe')}}"><button type="submit" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Online Payment </span></button><a><br>
+            <a href="{{url('/bank_deposit')}}"><button type="button" class="btn btn-success btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" style="height : 2cm;"><span style="color : black; font-weight: bold;"> Bank Deposite </span></button><a>
               
           </div>
         </div>

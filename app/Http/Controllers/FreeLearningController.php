@@ -7,6 +7,19 @@ use App\Models\FreeApplication;
 
 class FreeLearningController extends Controller
 {
+
+    public function userView($id){
+
+        return view ('home_page/student_home_uploading',['id' => $id]);
+
+    }
+
+    public function userfreelearningView($id){
+        
+        $users = User::where('id',$id)->first();
+        return view ('payment/free_learning_application',['users' => $users]);
+
+    }
     
     public function addFreeLearning(Request $request,$Id){
 
@@ -15,7 +28,7 @@ class FreeLearningController extends Controller
         $freeapplication->user_id = $Id;
         $freeapplication->description = $request->description;
         $freeapplication->save();
-        return redirect('/');
+        return view('home_page/student_home_uploading');
     }
 
 

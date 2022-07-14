@@ -53,26 +53,11 @@ class AuthController extends Controller
          ]);
         $user = new User();
         $user->firstName = $request->firstName;
-        $user->usertype=$request->usertype;
         $user->lastName = $request->lastName;
+        $user->usertype=$request->usertype;
         $user->email = $request->email;
-        $user->index = $request->index;
         $user->password = Hash::make($request->password);
-        $user->birthdate = $request->birthdate;
-        $user->birthplace = $request->birthplace;
-        $user->requestgrade = $request->requestgrade;
-        $user->gender = $request->gender;
-        $user->school = $request->school;
-        $user->schoolgrade = $request->schoolgrade;
-        $user->fathername = $request->fathername;
-        $user->f_occupation = $request->f_occupation;
-        $user->f_place = $request->f_place;
-        $user->mothername = $request->mothername;
-        $user->m_occupation = $request->m_occupation;
-        $user->m_place = $request->m_place;
         $user->mobileNumber = $request->mobileNumber;
-        $user->address = $request->address;
-        $user->admissioncategory = $request->admissioncategory;
         $user->save();
 
        /* return response()->json([
@@ -93,6 +78,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::where("email","=",$request->email)->first();
+        //$user = User::where('email','$request->email')->get();
 
         if(isset($user->id))
         {
@@ -105,7 +91,22 @@ class AuthController extends Controller
                     "message"=>"user loggen in successfully",
                     "access_token"=>$token
                 ]); */
-                return redirect('/')->with('success', 'your have successfully logged in');   
+
+                if($user->usertype=='Admin'){
+
+                    return redirect('/admin')->with('success', 'your have successfully logged in'); 
+
+                }elseif($user->usertype=='Student'){
+
+                    //return view('/student',['userId' => $user->id])->with('success', 'your have successfully logged in');
+                    return view ('home_page/student_home_uploading',['user' => $user]);
+
+                }elseif($user->usertype=='Teacher'){
+
+                    return redirect('/teacher')->with('success', 'your have successfully logged in');
+
+                }
+                  
             }
             else{
                 /* return response()->json([

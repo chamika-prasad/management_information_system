@@ -32,31 +32,35 @@ use Illuminate\Support\Facades\App;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('registration',[AuthController::class,'registration']);
+Route::get('/',[AuthController::class,'registration']);
 //Route::post('abc',[AuthController::class,'register'])->name('abc');
 Route::post('/abc', 'App\Http\Controllers\AuthController@register')->name('abc');
 
 Route::get('index',[AuthController::class,'index']);
 // Route::post('/login','App\Http\Controllers\AuthController@login')->name('login');
-Route::post('/def','App\Http\Controllers\AuthController@login')->name('def');
+Route::post('/def','App\Http\Controllers\AuthController@login')->name('def');;
 
 
 Route::get('forgot_password',[ForgotPasswordController::class,'showForgetPasswordForm']);
 Route::post('forgot_password',[ForgotPasswordController::class,'submitForgetPasswordForm']);
 Route::get('reset.password.get/{token}',[ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset.password.post',[ForgotPasswordController::class,'submitResetPasswordForm'])->name('reset.password.post');
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('dashboard', [AuthController::class, 'dashboard']);
 
-Route::get('free_learning_application/', function () {
-    return view ('payment/free_learning_application');
-});
+// Route::get('/free_learning_application/{$id}', [FreeLearningController::class, 'userfreelearningView']);
 
 Route::get('payment_option/', function () {
     return view ('payment/payment_option');
 });
 
-Route::get('bank_deposit', function () {
+Route::get('/free_learning_application', function () {
+    return view ('payment/free_learning_application');
+});
+
+
+
+Route::get('/bank_deposit', function () {
     return view ('payment/bank_deposit');
 });
 
@@ -96,7 +100,6 @@ Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.pos
 
 Route::get('/export_pdf', [StripeController::class, 'exportPdf']);
 
-Route::get('/hello',[StripeController::class, 'sendInvoice']);
 
 
 
@@ -108,8 +111,16 @@ Route::get('/footer',function(){
     return view ('home_page/footer');
 });
 
-Route::get('/',function(){
-    return view ('home_page/home_uploading');
+Route::get('/student/{id}', [FreeLearningController::class, 'userView']);
+
+//return view ('home_page/student_home_uploading');
+
+Route::get('/teacher',function(){
+    return view ('home_page/teacher_home_uploading');
+});
+
+Route::get('/admin',function(){
+    return view ('home_page/admin_home_uploading');
 });
 
 //-------------------------------- End of home page routes

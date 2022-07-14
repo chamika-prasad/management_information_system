@@ -29,7 +29,7 @@ class BankDepositController extends Controller
             $payment->approved = 0;
             $payment->slipName = $name;
             $payment->save();
-            return redirect('/');
+            return view('home_page/student_home_uploading');
             }else{
                 return redirect()->back()->with('message', 'enter valide value');
             }
