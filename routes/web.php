@@ -220,6 +220,17 @@ Route::post('/selectstu',[UploadingContentController::class, 'uploadingStuName']
 //show resault
 Route::get('/showResault',[UploadingContentController::class, 'showReasaultDisplay']);
 
+//mark Attendance
+// Route::get('/markAttendance',[UploadingContentController::class, 'markAttendanceDisplay']);
+Route::post('/attendance',[UploadingContentController::class, 'attendance']);
+Route::post('/markAtt/{addSubject}',[UploadingContentController::class, 'markingAttendance']);
+
+//select module Attendance view
+Route::get('/select_module_attendance',[UploadingContentController::class, 'displayModuleSelectionAttendance']);
+
+//show attendance
+Route::get('/showAtt/{addGrade}/{addSubject}',[UploadingContentController::class, 'showAttendance']);
+
 
 //admin add subjects
 Route::get('/addsubjects',[UploadingContentController::class, 'addsubjectDisplay']);

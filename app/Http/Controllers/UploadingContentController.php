@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Attendance;
 use App\Models\UploadingContent;
 use App\Models\Subject;
 use App\Models\Classroom;
@@ -12,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\View\View as ViewView;
+use Illuminate\Support\Facades\Session;
 
 
 class UploadingContentController extends Controller
@@ -143,6 +146,26 @@ class UploadingContentController extends Controller
         return response()->download(storage_path('app/public/pdfs/'.$pdf));
     }
 
+    //select module attendance view
+
+    public function displayModuleSelectionAttendance(Request $request)
+    {
+        $addNewSubject = new Subject();
+        $addNewSubject -> subjectName = $request->addSubName;
+        $addNewSubject -> subjectCode = $request->addSubCode;
+        $addNewSubject -> subGrade = $request->addGrade;
+        $addNewSubject -> teacher_id = '1' ;
+
+        $grades = DB::table("subjects")
+            ->select("subGrade")
+            ->orderBy('subGrade','ASC')
+            ->distinct()
+            ->get();   
+
+        return view('uploading_section/select_module_attendance',compact('grades'),[
+        ]);
+    }
+
     //select module view
 
     public function displayModuleSelection(Request $request)
@@ -239,126 +262,6 @@ class UploadingContentController extends Controller
             ]);
     }
 
-    // private $semOne ,$semTwo,$semThree,$tot;
-
-    // public function uploading1stSem(Request $request)
-    // {
-    //     $students = DB::table("users")
-    //         ->select("firstname","lastname", "id")
-    //         ->where("usertype", "=", 3)
-    //         ->get();
-
-    //     $stu_grades = DB::table("subjects")
-    //         ->select("subGrade")
-    //         ->orderBy('subGrade','ASC')
-    //         ->distinct()
-    //         ->get();
-            
-    //     $request-> validate([
-    //         'sem1'=> 'required',
-    //         'sem2'=> 'required',
-    //         'sem3'=> 'required',
-    //         // 'markAssignment'=> 'required'
-
-    //     ]);
-    //     // $sem1 = new Grade();
-    //     // $sem1 -> semOneBudhdha = $request->markBudhdhaCharithaya;
-    //     // $sem1 -> semOnePali = $request->markPali;
-    //     // $sem1 -> semOneAbhi = $request->markAbhi;
-    //     // $sem1 -> semOneAssignment = $request->markAssignment;
-    //     // $sem1 -> student_id = '1' ;
-    //     // $this-> semOne = $sem1 -> semOneBudhdha + $sem1 -> semOnePali +  $sem1 -> semOneAbhi + $sem1 -> semOneAssignment;
-    //     // $sem1 -> save();
-    //     return view('uploading_section/grading',[
-    //         'semOne' => $this-> semOne,
-    //         'semTwo' =>  $this->semTwo,
-    //         'semThree' =>  $this-> semThree , 
-    //         'tot'=> $this-> tot,
-    //         'students' => $students,
-    //         'stu_grades'=> $stu_grades,
-    //     ]);
-    // }
-
-    // public function uploading2ndSem(Request $request)
-    // {
-    //     $students = DB::table("users")
-    //         ->select("firstname","lastname", "id")
-    //         ->where("usertype", "=", 3)
-    //         ->get();
-        
-    //     $stu_grades = DB::table("subjects")
-    //         ->select("subGrade")
-    //         ->orderBy('subGrade','ASC')
-    //         ->distinct()
-    //         ->get();
-
-    //     $request-> validate([
-    //         'markBudhdhaCharithaya'=> 'required',
-    //         'markPali'=> 'required',
-    //         'markAbhi'=> 'required',
-    //         'markAssignment'=> 'required'
-    
-    //     ]);
-
-    //     $sem1 = new GradeSemtwo();
-    //     $sem1 -> semTwoBudhdha = $request->markBudhdhaCharithaya;
-    //     $sem1 -> semTwoPali = $request->markPali;
-    //     $sem1 -> semTwoAbhi = $request->markAbhi;
-    //     $sem1 -> semTwoAssignment = $request->markAssignment;
-    //     $sem1 -> student_id = '1' ;
-    //     $this-> semTwo = $sem1 -> semTwoBudhdha + $sem1 -> semTwoPali +  $sem1 -> semTwoAbhi + $sem1 -> semTwoAssignment;
-    //     $sem1 -> save();
-    //     return view('uploading_section/grading',[
-    //         'semOne' => $this-> semOne,
-    //         'semTwo' =>  $this->semTwo,
-    //         'semThree' =>  $this-> semThree , 
-    //         'tot'=> $this-> tot,
-    //         'students' => $students,
-    //         'stu_grades' => $stu_grades,
-            
-    //     ]);
-        
-    // }
-
-    // public function uploading3rdSem(Request $request)
-    // {
-    //     $students = DB::table("users")
-    //         ->select("firstname", "id")
-    //         ->where("usertype", "=", 3)
-    //         ->get();
-        
-    //     $request-> validate([
-    //         'markBudhdhaCharithaya'=> 'required',
-    //         'markPali'=> 'required',
-    //         'markAbhi'=> 'required',
-    //         'markAssignment'=> 'required'
-
-    //     ]);
-
-    //     $stu_grades = DB::table("subjects")
-    //         ->select("subGrade")
-    //         ->orderBy('subGrade','ASC')
-    //         ->distinct()
-    //         ->get();
-
-    //     $sem1 = new GradeSemThree();
-    //     $sem1 -> semThreeBudhdha = $request->markBudhdhaCharithaya;
-    //     $sem1 -> semThreePali = $request->markPali;
-    //     $sem1 -> semThreeAbhi = $request->markAbhi;
-    //     $sem1 -> semThreeAssignment = $request->markAssignment;
-    //     $sem1 -> student_id = '1' ;
-    //     $this-> semThree = $sem1 -> semThreeBudhdha + $sem1 -> semThreePali +  $sem1 -> semThreeAbhi + $sem1 -> semThreeAssignment;
-    //     $sem1 -> save();
-    //     return view('uploading_section/grading',[
-    //         'semOne' => $this-> semOne,
-    //         'semTwo' =>  $this->semTwo,
-    //         'semThree' =>  $this-> semThree , 
-    //         'tot'=> $this-> tot,
-    //         'students' => $students,
-    //         'stu_grades' => $stu_grades,
-    //     ]);
-        
-    // }
 
     public function showReasaultDisplay(Request $request)
     {
@@ -451,6 +354,107 @@ class UploadingContentController extends Controller
             ->where("subjectCode", "=", $subjectCode)
             ->delete();
         return redirect()->back()->with('message', 'Subject has been deleted');
+    }
+
+    public function markAttendanceDisplay()
+    {
+        $users = DB::table("users")
+            ->select("firstname", "lastname", "requestgrade")
+            ->where("usertype", "=", "Student")
+            ->get();
+        return View('uploading_section/markAttendance',[
+            'users' => $users]);
+    }
+
+    // mark attendance module view
+
+
+    public function attendance(Request $request)
+    {
+        $addGrade = $request->stu_name1;
+        $addSubject = $request->stu_name2;
+
+        Session::put('grade', $addGrade);
+        Session::put('subject', $addSubject);
+ 
+
+
+        $users = DB::table("users")
+            ->select("firstName", "lastName", "requestgrade")
+            ->where("usertype", "=", "Student")
+            ->where("requestgrade", "=", $addGrade)
+            ->get();
+
+            // dd($users);
+
+        // $attend = new Attendance();
+        // $attend -> student_Name = $request->studName;
+        // $attend -> attend = $request->addSubCode;
+        // $attend -> subj = $request->addGrade;
+        
+        return view('uploading_section/markAttendance',[
+            'addGrade' => $addGrade , 
+            'addSubject' => $addSubject ,
+            'users' => $users
+        ]);
+    }
+
+    public function markingAttendance(Request $request,$addSubject)
+    {
+
+        $users = DB::table("users")
+            ->select("firstName", "lastName", "requestgrade")
+            ->where("usertype", "=", "Student")
+            ->where("requestgrade", "=", Session('grade') )
+            ->get();
+
+        
+        $profil = $request->customRadioInline1;
+        
+        $attend = new Attendance();
+        $attend -> student_Name = $request->studName;
+        $attend -> attend = $profil;
+        $attend -> subj = $addSubject;
+        $attend -> save();
+
+        return view('uploading_section/markAttendance',[
+            'addGrade' => Session('grade') , 
+            'addSubject' => Session('subject') ,
+            'users' => $users
+        ]);
+    }
+
+    public function showAttendance($addGrade,$addSubject)
+    {
+        // $atts = DB::table("attendances")
+        //     ->where("subj", "=", $addSubject )
+        //     ->limit(1)
+        //     ->orderBy("created_at",'DESC')
+        //     ->get();
+        // $atts = DB::table("attendances")
+        //             ->select("distinct(student_name)", "attend")
+        //             ->where("subj", "=", $addSubject )
+        //             // ->groupBy("student_name")
+        //             ->get();
+        // $atts = DB::table("attendances")
+        //     ->selectRAW("student_name", "attend", "id", "max(created_at)")
+        //     ->groupBy("student_name")
+        //     ->get();
+
+        // $atts = Attendance::selectRAW('max(created_at)','attendances');
+        $atts = DB::table('attendances')
+            ->select(DB::raw('student_Name, max(created_at),attend'))
+            ->where("subj", "=", $addSubject )
+            ->groupByRaw('student_Name,attend')
+            ->get();
+
+
+        // $atts = Attendance::select(DB::raw('max(created_at),attendances.*'))->get();
+        return view('uploading_section/show_attendance',[
+            'addGrade' => $addGrade , 
+            'addSubject' => $addSubject ,
+            'atts' => $atts
+        ]);
     }
 }
 
