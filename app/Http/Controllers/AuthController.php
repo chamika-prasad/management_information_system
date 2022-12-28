@@ -203,7 +203,7 @@ class AuthController extends Controller
                 else if($user->usertype=='Teacher')
 
                 {
-                View::share ('user' , $user );
+                    View::share ('user' , $user );
                 return view('home_page/teacher_home_uploading',compact('user'));
                 }
  

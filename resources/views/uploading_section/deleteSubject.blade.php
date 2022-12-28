@@ -55,7 +55,7 @@
                                 <td>{{ $user->subjectName }}</td>
                                 <td>{{ $user->subGrade }}</td>
                                 <form action="{{ url('/DeleteSub/' . $user->subjectCode) }}" method="post"
-                                    onsubmit="return confirm('Are you sure?')">
+                                    onsubmit="return confirm('Do you want to delete subject?')">
                                     {{ method_field('DELETE') }}
                                     {{ csrf_field() }}
                                     <td>
@@ -70,7 +70,7 @@
                             <td>{{ $user->subjectName }}</td>
                             <td>{{ $user->subGrade }}</td>
                             <form action="{{ url('/DeleteSub/' . $user->subjectCode) }}" method="post"
-                                onsubmit="return confirm('Are you sure?')">
+                                onsubmit="return confirm('Do you want to delete subject?')">
                                 {{ method_field('DELETE') }}
                                 {{ csrf_field() }}
                                 <td>
